@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded',()=>{
  const app=document.getElementById('kob-app');
  const welcome=document.getElementById('brewWelcome');
  if(!app||!welcome)return;
+ const setup=document.getElementById('methodAbout');
+ if(setup){const anchor=document.createComment('Desktop setup button position');setup.before(anchor);const phone=matchMedia('(max-width:600px)');const sync=()=>{if(phone.matches)app.querySelector('header').append(setup);else anchor.after(setup);};sync();phone.addEventListener('change',sync);}
  const addPhoneCopy=(selector,copy)=>{const full=welcome.querySelector(selector);if(!full)return;full.classList.add('desktop-route-copy');const short=document.createElement('p');short.className='phone-route-copy';short.textContent=copy;full.after(short);};
  addPhoneCopy('#foundationMethod>p','Choose your size and strength. Brew and enjoy.');
  addPhoneCopy('#dilutionMethod>p','Brew strong, then add water to reach your strength.');
