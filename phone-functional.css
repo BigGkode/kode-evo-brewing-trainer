@@ -120,3 +120,10 @@
  #kob-app.phone-brew-active .focus-phase-labels{font-size:9px!important;margin:0!important;line-height:1.2!important}
  #kob-app.phone-brew-active #pourAwareness{width:145px!important;right:8px!important;top:8px!important;padding:8px!important}
 }
+
+@media(max-width:600px){
+ #kob-app.phone-brew-active .simstage.brew-workspace:has(>#foundationPrompt),#kob-app.phone-brew-active .simstage.brew-workspace:has(>#foundationPrompt[hidden]){grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr) 48px 27px!important}
+ #kob-app.phone-brew-active .simstage.brew-workspace:has(>#foundationPrompt)>#brewerCanvas{grid-row:1!important;grid-column:1!important;align-self:stretch!important;max-height:none!important}
+ #kob-app.phone-brew-active .simstage.brew-workspace:has(>#foundationPrompt)>.brew-scale{grid-row:2!important}
+ #kob-app.phone-brew-active .simstage.brew-workspace:has(>#foundationPrompt)>.simstatus{grid-row:3!important}
+}
