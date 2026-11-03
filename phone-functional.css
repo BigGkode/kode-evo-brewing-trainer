@@ -1,0 +1,49 @@
+/* Phone functional pass: retain one primary action at each point. */
+#kob-app .phone-route-copy{display:none}
+#kob-app .phone-purpose{border:0;margin:0;padding:0}
+#kob-app .phone-purpose>summary{display:none}
+@media(max-width:600px){
+ #kob-app.welcome-screen #methodNav{display:flex!important;justify-content:flex-end!important}
+ #kob-app.welcome-screen #methodNav>#methodHome,#kob-app.welcome-screen #methodNav>#methodFoundation,#kob-app.welcome-screen #methodNav>#methodDilution{display:none!important}
+ #kob-app.welcome-screen #methodNav>#methodAbout{width:auto!important;min-height:34px!important;height:34px!important}
+ #kob-app #brewWelcome{padding:18px 14px!important}
+ #kob-app #brewWelcome>.foundation-kicker{display:none}
+ #kob-app #brewWelcome>h2{font-size:27px!important;margin:0 0 10px!important}
+ #kob-app #brewWelcome>.method-hero-lead{font-size:15px!important;margin:0 0 12px!important}
+ #kob-app #brewWelcome>p:not(.method-hero-lead){display:none!important}
+ #kob-app .method-cards{gap:12px!important;margin:12px 0!important}
+ #kob-app .method-cards article{padding:14px!important}
+ #kob-app .method-cards h3{font-size:22px!important;margin:5px 0 8px!important}
+ #kob-app .method-cards .desktop-route-copy{display:none!important}
+ #kob-app .method-cards .phone-route-copy{display:block!important;font-size:14px!important;line-height:1.45!important;margin:0 0 12px!important}
+ #kob-app .method-card-footer .method-benefit,#kob-app .method-card-footer .method-footer-spacer{display:none!important}
+ #kob-app .method-card-footer{gap:8px!important}
+ #kob-app .method-actions{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:6px!important}
+ #kob-app .method-actions button{padding:7px!important;font-size:12px!important;min-height:42px!important;line-height:1.25!important}
+ #kob-app .method-card-footer .dilution-why-entry{font-size:12px!important;padding:0!important;min-height:28px!important}
+ #kob-app .shared-method-links{gap:8px!important;margin:12px 0!important}
+ #kob-app .shared-method-links button{font-size:12px!important;min-height:36px!important;padding:6px 0!important}
+ #kob-app .phone-purpose{border-top:1px solid #d5e0d8;margin-top:12px!important;padding-top:12px!important;font-size:13px}
+ #kob-app .phone-purpose>summary{display:list-item!important;cursor:pointer;font-weight:600;padding:5px 0}
+ #kob-app .phone-purpose .kode-purpose{margin:14px 0 0!important;padding:0!important;border:0!important}
+ #kob-app #foundationChoice{padding:14px!important}
+ #kob-app #foundationChoice .choice-heading h2{font-size:24px!important;margin:0 0 8px!important}
+ #kob-app #foundationChoice .choice-heading p{font-size:13px!important;line-height:1.45!important;margin:0 0 10px!important}
+ #kob-app #foundationUtilities{padding:9px 10px!important;margin:4px 0 12px!important}
+ #kob-app #foundationUtilities strong{font-size:12px!important}
+ #kob-app #foundationUtilities button{font-size:12px!important;padding:6px 8px!important;min-height:34px!important}
+ #kob-app .brew-size-options{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:4px!important}
+ #kob-app .brew-size-options button{min-width:0!important;min-height:42px!important;padding:6px 2px!important;font-size:14px!important}
+ #kob-app .foundation-cups.station-choices{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
+ #kob-app .foundation-cups.station-choices button{min-width:0!important;min-height:80px!important;padding:8px 3px!important;font-size:13px!important}
+ #kob-app .foundation-cups.station-choices button strong{font-size:13px!important}
+ #kob-app .foundation-cups.station-choices .route-station{width:30px!important;height:30px!important;margin:0 auto 4px!important}
+ #kob-app .foundation-cups.station-choices .route-station svg{width:30px!important;height:30px!important}
+ #kob-app #foundationSummary .playback-controls{grid-template-columns:repeat(8,minmax(0,1fr))!important}
+ #kob-app #foundationSummary #simRewind{grid-column:1!important}
+ #kob-app #foundationSummary .playback-controls #simPlay{grid-column:2/7!important}
+ #kob-app #foundationSummary #simForward{grid-column:7!important}
+ #kob-app #foundationSummary #simRestart{grid-column:8!important}
+ #kob-app #foundationSummary .playback-controls #guidanceToggle{grid-column:1/5!important}
+ #kob-app #foundationSummary #simSpeed{grid-column:5/9!important}
+}
