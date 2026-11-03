@@ -189,3 +189,14 @@
 @media(max-width:600px){#kob-app .method-cards .method-number{width:150px!important;min-width:150px!important;height:28px!important}}
 
 @media(max-width:600px){#kob-app .foundation-cups.station-choices .route-station,#kob-app .foundation-cups.station-choices .route-station svg{width:38px!important;height:38px!important}#kob-app .foundation-cups.station-choices button{min-height:82px!important}#kob-app #dilutionStationTrack .route-station{width:34px!important;height:34px!important;box-shadow:0 0 0 3px #fffdf7!important}#kob-app #dilutionStationTrack.destination-rail>button:before{top:15px!important;height:6px!important;background:#c8d2cb!important}#kob-app #dilutionStationTrack.destination-rail>button.on-route:before{background:var(--recipe-track,#173f46)!important}#kob-app #dilutionStationTrack.destination-rail>button{min-height:68px!important;gap:8px!important}#kob-app #dilutionStationTrack.destination-rail>button[aria-pressed=true] .route-station{outline:3px solid #b9362c!important;outline-offset:3px!important}#kob-app #dilutionStationTrack.destination-rail>button.starting-station .route-station{outline:3px solid #173f46!important;outline-offset:3px!important}#kob-app #dilutionStationTrack.destination-rail strong{font-size:10px!important}}
+
+/* Starting brew follows the restrained destination-station treatment. */
+@media(max-width:600px){
+ #kob-app.dilution-route-selected .foundation-cups.station-choices{gap:3px!important;padding:3px 0 4px!important}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button{position:relative!important;background:transparent!important;border:1px solid transparent!important;border-radius:7px!important;box-shadow:none!important;outline:none!important;padding:8px 1px 5px!important;min-height:82px!important;gap:6px!important}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button .route-station{width:40px!important;height:40px!important;margin:0 auto 8px!important;box-shadow:0 0 0 3px #fffdf7!important;outline:none!important}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button .route-station svg{width:40px!important;height:40px!important}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button[aria-pressed=true]{background:#edf1eb!important;border-color:#c3d0c7!important;outline:none!important}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button[aria-pressed=true] .route-station{outline:2px solid #173f46!important;outline-offset:3px!important}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button strong{font-size:11px!important;font-weight:700!important;line-height:1.2!important}
+}
