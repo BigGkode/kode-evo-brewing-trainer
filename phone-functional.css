@@ -317,3 +317,14 @@
  #kob-app.inplace-dilution #inlineDilutionPlay,#kob-app.inplace-dilution #inlineDilutionDone,#kob-app.inplace-dilution #dilutionDirectNext{min-height:32px!important;height:32px!important;margin-top:3px!important;padding:5px 7px!important}
  #kob-app.inplace-dilution #inlineDilutionLive{margin-top:2px!important;font-size:11px!important}
 }
+
+#kob-app #brewWelcome>.evo-home-promise{color:#536d70;font-size:16px;line-height:1.45;margin:0 0 14px}
+@media(max-width:600px){
+ #kob-app:not(.adv)>header .brand.brandLogos{gap:8px!important;align-items:center!important}
+ #kob-app:not(.adv)>header .brandLogos img.kodeLogo{width:82px!important;max-width:82px!important}
+ #kob-app:not(.adv)>header .brandLogos img.bhLogo{width:25px!important;max-width:25px!important;height:30px!important}
+ #kob-app:not(.adv)>header #myRecipesButton,#kob-app:not(.adv)>header #userSettingsButton{background:transparent!important;border-color:#ffffff35!important}
+ #kob-app #brewWelcome>h2{font-size:26px!important;margin-bottom:5px!important}
+ #kob-app #brewWelcome>.method-hero-lead{font-size:14px!important;font-weight:600!important;line-height:1.35!important;margin-bottom:5px!important}
+ #kob-app #brewWelcome>.evo-home-promise{display:block!important;font-size:13px!important;line-height:1.35!important;margin:0 0 10px!important}
+}
