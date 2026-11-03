@@ -87,3 +87,36 @@
  #kob-app.phone-lesson-active #foundationPrep.kode-lesson #waterPractice{padding:8px 10px!important;margin-top:8px!important}
  #kob-app.phone-lesson-active #foundationPrep.kode-lesson #practiceStatus{margin:5px 0!important;font-size:12px!important}
 }
+
+@media(max-width:600px){
+ #kob-app #brewRouteBar{display:none!important}
+ body:has(#kob-app.phone-brew-active){overflow:hidden!important}
+ #kob-app.phone-brew-active{height:100dvh!important;min-height:0!important;display:grid!important;grid-template-rows:auto minmax(0,1fr)!important;overflow:hidden!important}
+ #kob-app.phone-brew-active>main{display:flex!important;flex-direction:column!important;height:100%!important;min-height:0!important;overflow:hidden!important;padding:6px 10px!important;gap:6px!important}
+ #kob-app.phone-brew-active #methodNav,#kob-app.phone-brew-active #foundationSummary{flex:none!important;margin:0!important}
+ #kob-app.phone-brew-active #foundationSummary{padding:5px!important;gap:4px!important}
+ #kob-app.phone-brew-active #foundationSummaryText{font-size:11px!important;line-height:1.3!important}
+ #kob-app.phone-brew-active #foundationEdit{min-height:30px!important;padding:4px 8px!important;font-size:11px!important}
+ #kob-app.phone-brew-active .playback-controls{gap:4px!important}
+ #kob-app.phone-brew-active .playback-controls>*{height:32px!important;min-height:32px!important;font-size:12px!important;padding:4px!important}
+ #kob-app.phone-brew-active #brewerSim{flex:1 1 0!important;min-height:0!important;overflow:hidden!important;margin:0!important}
+ #kob-app.phone-brew-active #brewerSim>.simlayout,#kob-app.phone-brew-active .focus-playback{height:100%!important;min-height:0!important;display:flex!important;flex-direction:column!important;gap:4px!important}
+ #kob-app.phone-brew-active .simstage.brew-workspace{position:relative!important;flex:1 1 0!important;min-height:0!important;height:auto!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr) 48px 27px!important;overflow:hidden!important}
+ #kob-app.phone-brew-active #brewerCanvas{grid-column:1!important;grid-row:1!important;width:100%!important;height:100%!important;min-height:0!important;object-fit:contain!important}
+ #kob-app.phone-brew-active #foundationPrompt:not([hidden]){position:absolute!important;z-index:2!important;left:8px!important;top:8px!important;width:42%!important;max-width:160px!important;margin:0!important;padding:7px 8px!important;max-height:42%!important;overflow:auto!important;background:#fffdf7ee!important;box-sizing:border-box!important}
+ #kob-app.phone-brew-active #guidePhase{font-size:8px!important;line-height:1.25!important;letter-spacing:.5px!important}
+ #kob-app.phone-brew-active #guideTarget{font-size:15px!important;line-height:1.2!important;margin:5px 0!important}
+ #kob-app.phone-brew-active #guideNext{font-size:12px!important;line-height:1.3!important;margin:4px 0!important}
+ #kob-app.phone-brew-active #guideText,#kob-app.phone-brew-active #guideZoneLesson,#kob-app.phone-brew-active #guideHide,#kob-app.phone-brew-active #dockedRecipeCard{display:none!important}
+ #kob-app.phone-brew-active .brew-scale{grid-column:1!important;grid-row:2!important;display:flex!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:center!important;gap:10px!important;padding:4px 8px!important;min-height:0!important}
+ #kob-app.phone-brew-active .brew-scale>div{min-width:90px!important;padding:4px 8px!important}
+ #kob-app.phone-brew-active .brew-scale>div>span{font-size:8px!important}
+ #kob-app.phone-brew-active #brewScaleWeight{font-size:23px!important;line-height:1!important}
+ #kob-app.phone-brew-active #brewScaleTarget{flex:1!important;width:auto!important;font-size:12px!important;line-height:1.25!important;margin:0!important}
+ #kob-app.phone-brew-active .simstatus{grid-column:1!important;grid-row:3!important;padding:4px 6px!important;font-size:9px!important;min-height:0!important;gap:4px!important}
+ #kob-app.phone-brew-active .focus-scrub-label,#kob-app.phone-brew-active #timelineTransport,#kob-app.phone-brew-active .simstage>.progress{display:none!important}
+ #kob-app.phone-brew-active #simScrub{flex:none!important;height:16px!important;margin:0!important}
+ #kob-app.phone-brew-active #simTimeline{flex:none!important;height:4px!important;margin:0!important}
+ #kob-app.phone-brew-active .focus-phase-labels{font-size:9px!important;margin:0!important;line-height:1.2!important}
+ #kob-app.phone-brew-active #pourAwareness{width:145px!important;right:8px!important;top:8px!important;padding:8px!important}
+}
