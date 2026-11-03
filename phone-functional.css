@@ -304,3 +304,16 @@
  #kob-app.inplace-dilution #dilutionResult .dilution-dose strong{font-size:21px!important}
  #kob-app.inplace-dilution #dilutionDirectNext{width:100%!important}
 }
+
+@media(max-width:600px){
+ #kob-app.inplace-dilution #brewerSim .simstage>#dilutionPlan{padding:7px 10px!important}
+ #kob-app.inplace-dilution #dilutionChoices>b,#kob-app.inplace-dilution #dilutionChoices>p,#kob-app.inplace-dilution #dilutionResult .dilution-result-heading,#kob-app.inplace-dilution #dilutionResult .dilution-estimate{display:none!important}
+ #kob-app.inplace-dilution #dilutionStrengths{display:flex!important;flex-wrap:nowrap!important;gap:4px!important;margin:0!important}
+ #kob-app.inplace-dilution #dilutionStrengths button{flex:1!important;min-width:0!important;min-height:29px!important;padding:4px 2px!important;font-size:11px!important;margin:0!important}
+ #kob-app.inplace-dilution #dilutionResult{margin:5px 0!important;padding:0!important}
+ #kob-app.inplace-dilution #dilutionResult .dilution-dose{margin:4px 0!important;font-size:22px!important}
+ #kob-app.inplace-dilution #dilutionResult .text-action{min-height:20px!important;padding:0!important;font-size:10px!important}
+ #kob-app.inplace-dilution .inline-dilution-actions{gap:5px!important;margin:0!important}
+ #kob-app.inplace-dilution #inlineDilutionPlay,#kob-app.inplace-dilution #inlineDilutionDone,#kob-app.inplace-dilution #dilutionDirectNext{min-height:32px!important;height:32px!important;margin-top:3px!important;padding:5px 7px!important}
+ #kob-app.inplace-dilution #inlineDilutionLive{margin-top:2px!important;font-size:11px!important}
+}
