@@ -1,0 +1,72 @@
+/* Cross-device review: compact choices, bounded workspaces, optional detail. */
+#kob-app .phone-purpose>summary{display:list-item;cursor:pointer;font-weight:600;padding:6px 0}
+#kob-app .route-explanation{font-size:12px;margin:5px 0;color:#536d70}
+#kob-app .route-explanation summary{cursor:pointer}
+#kob-app .route-explanation .route-taste-note{margin:7px 0!important;font-size:12px;line-height:1.4}
+@media(min-width:601px){
+ #kob-app #brewRouteBar{display:none!important}
+ #kob-app:not(.adv)>main{gap:8px!important;padding-top:10px!important;padding-bottom:10px!important}
+ #kob-app #brewWelcome{padding:22px 26px!important}
+ #kob-app #brewWelcome>h2{font-size:34px!important;margin:0 0 6px!important}
+ #kob-app #brewWelcome>.foundation-kicker{display:none!important}
+ #kob-app #brewWelcome>.method-hero-lead{font-size:18px!important;margin-bottom:6px!important}
+ #kob-app #brewWelcome .method-cards{margin:14px 0!important;gap:18px!important}
+ #kob-app #brewWelcome .method-cards article{padding:18px!important}
+ #kob-app #brewWelcome .method-cards h3{font-size:25px!important;margin:10px 0!important}
+ #kob-app #brewWelcome .method-cards article>p{font-size:14px!important;line-height:1.5!important}
+ #kob-app #brewWelcome .shared-method-links{margin:10px 0!important}
+ #kob-app #brewWelcome>.phone-purpose{border-top:1px solid #d5e0d8;padding-top:4px!important;margin-top:6px!important}
+ #kob-app #foundationChoice{padding:16px 20px!important}
+ #kob-app #foundationChoice .choice-heading{min-height:62px!important;margin-bottom:7px!important}
+ #kob-app #foundationChoice .choice-heading h2{font-size:27px!important;margin:0 0 7px!important}
+ #kob-app #foundationChoice .choice-heading p{font-size:13px!important;margin:0!important}
+ #kob-app #foundationUtilities{padding:7px 9px!important}
+ #kob-app #foundationUtilities strong{font-size:12px!important}
+ #kob-app #foundationUtilities button{font-size:11px!important;min-height:29px!important;padding:4px 7px!important}
+ #kob-app #brewSizePicker{padding:7px 0!important;margin:6px 0!important}
+ #kob-app #brewSizePicker p{margin:5px 0!important;font-size:11px!important}
+ #kob-app #brewSizePicker h3,#kob-app #brewStrengthHeading{font-size:16px!important;margin:0 0 8px!important;line-height:1.3!important}
+ #kob-app .brew-size-options button{min-height:36px!important;padding:5px 12px!important;font-size:16px!important}
+ #kob-app #foundationChoice .foundation-cups>button{min-height:100px!important;padding:10px 6px!important}
+ #kob-app #foundationChoice .foundation-cups .route-station{width:34px!important;height:34px!important;margin-bottom:6px!important}
+ #kob-app #foundationChoice .foundation-cups strong{font-size:15px!important}
+ #kob-app #foundationChoice .foundation-cups button>span{font-size:11px!important}
+ #kob-app #recipeDilutionPlan{padding:9px 12px!important;margin:9px 0!important}
+ #kob-app #recipeDilutionPlan>strong{font-size:15px!important}
+ #kob-app .track-journey{display:none!important}
+ #kob-app #dilutionStationTrack{margin:12px 0 6px!important}
+ #kob-app #dilutionStationTrack>button{min-height:70px!important;gap:7px!important}
+ #kob-app #dilutionStationTrack .route-station{width:32px!important;height:32px!important}
+ #kob-app #dilutionStationTrack strong{font-size:12px!important}
+ #kob-app #dilutionStationTrack small{font-size:10px!important}
+ #kob-app #planDilutionSummary{font-size:12px!important;line-height:1.4!important;margin:6px 0!important}
+ #kob-app #foundationChoice .choice-bottom{padding:8px 0 0!important;margin-top:8px!important;gap:6px!important}
+ #kob-app #foundationChoice .choice-bottom p{font-size:12px!important;margin:0!important}
+ #kob-app #foundationChoice .choice-bottom button{min-height:36px!important;padding:7px 14px!important;font-size:13px!important}
+ #kob-app .recipe-calculation-notes{padding:6px 0 0!important;margin-top:6px!important;font-size:12px!important}
+ #kob-app.audit-workspace #brewerSim .simstage{height:var(--audit-stage-room,420px)!important;min-height:0!important;max-height:none!important;grid-template-rows:minmax(0,1fr) 48px 26px!important;overflow:hidden!important}
+ #kob-app.audit-workspace:not(.inplace-dilution) #brewerSim .simstage:has(>#foundationPrompt){grid-template-columns:175px minmax(0,1fr) 210px!important}
+ #kob-app.audit-workspace:not(.inplace-dilution) #brewerSim .simstage:has(>#foundationPrompt[hidden]){grid-template-columns:minmax(0,1fr) 210px!important}
+ #kob-app.audit-workspace #brewerSim .simstage>#brewerCanvas{height:100%!important;min-height:0!important;max-height:none!important;grid-row:1!important}
+ #kob-app.audit-workspace .simstage>#foundationPrompt{margin:8px!important;padding:10px!important;max-height:calc(100% - 16px)!important;overflow:auto!important;align-self:center!important;grid-row:1!important;grid-column:1!important}
+ #kob-app.audit-workspace #guideTarget{font-size:19px!important;line-height:1.2!important}
+ #kob-app.audit-workspace #guideText,#kob-app.audit-workspace #guideNext{font-size:12px!important;line-height:1.4!important}
+ #kob-app.audit-workspace .simstage>#dockedRecipeCard{max-height:calc(100% - 16px)!important;overflow:auto!important;margin:8px!important;grid-row:1!important;grid-column:3!important}
+ #kob-app.audit-workspace .simstage:has(>#foundationPrompt[hidden])>#dockedRecipeCard{grid-column:2!important}
+ #kob-app.audit-workspace .dock-heading{font-size:22px!important;margin-bottom:8px!important}
+ #kob-app.audit-workspace .dock-stats{font-size:17px!important}
+ #kob-app.audit-workspace #dockedRecipeContent{padding:10px!important}
+ #kob-app.audit-workspace #dockedRecipeContent ol li{padding:7px 4px!important;font-size:11px!important}
+ #kob-app.audit-workspace .simstage>.brew-scale{grid-row:2!important;min-height:0!important;height:48px!important;padding:4px 10px!important}
+ #kob-app.audit-workspace .simstage>.simstatus{grid-row:3!important;min-height:0!important;height:26px!important;padding:4px 10px!important;box-sizing:border-box!important}
+ #kob-app.audit-workspace #simScrub{margin:4px 0!important;min-height:16px!important;height:16px!important}
+ #kob-app.audit-workspace.inplace-dilution #brewerSim .simstage{grid-template-columns:270px minmax(0,1fr)!important}
+ #kob-app.audit-workspace.inplace-dilution #dilutionPlan{height:auto!important;max-height:calc(100% - 16px)!important;overflow:auto!important;grid-column:1!important;grid-row:1!important;margin:8px!important;padding:10px!important}
+ #kob-app.audit-workspace.inplace-dilution #brewerCanvas{grid-column:2!important}
+}
+@media(max-width:600px){
+ #kob-app .route-explanation{display:none!important}
+ #kob-app dialog{padding-bottom:max(12px,env(safe-area-inset-bottom))!important}
+ #kob-app input,#kob-app select,#kob-app textarea{font-size:16px}
+}
+@supports not (height:100dvh){#kob-app.phone-lesson-active,#kob-app.phone-brew-active,#kob-app.inplace-dilution{height:100vh!important}}
