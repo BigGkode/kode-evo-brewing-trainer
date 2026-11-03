@@ -200,3 +200,16 @@
  #kob-app.dilution-route-selected .foundation-cups.station-choices>button[aria-pressed=true] .route-station{outline:2px solid #173f46!important;outline-offset:3px!important}
  #kob-app.dilution-route-selected .foundation-cups.station-choices>button strong{font-size:11px!important;font-weight:700!important;line-height:1.2!important}
 }
+
+/* Brown-frame treatment builds on the larger starting-brew stations. */
+@media(max-width:600px){
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button{--tile-brown:#896643;background:var(--tile-brown)!important;border:1px solid var(--tile-brown)!important;color:#fffdf7!important;border-radius:8px!important}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button:nth-child(2){--tile-brown:#805536}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button:nth-child(3){--tile-brown:#70452d}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button:nth-child(4){--tile-brown:#593623}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button:nth-child(5){--tile-brown:#40271c}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button strong{color:#fffdf7!important}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button .route-station{background:transparent!important;color:#fffdf7!important;box-shadow:none!important}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button[aria-pressed=true]{background:var(--tile-brown)!important;border-color:#fffdf7!important;outline:2px solid #173f46!important;outline-offset:1px!important}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button[aria-pressed=true] .route-station{outline:2px solid #fffdf7!important;outline-offset:2px!important}
+}
