@@ -70,3 +70,27 @@
  #kob-app input,#kob-app select,#kob-app textarea{font-size:16px}
 }
 @supports not (height:100dvh){#kob-app.phone-lesson-active,#kob-app.phone-brew-active,#kob-app.inplace-dilution{height:100vh!important}}
+
+@media(max-width:600px) and (max-height:720px){
+ #kob-app #brewSizePicker .brew-size-heading{margin-bottom:7px!important;gap:0!important}
+ #kob-app #brewSizePicker .brew-size-heading>span{display:none!important}
+ #kob-app #brewSizePicker .brew-size-heading>strong{font-size:15px!important}
+ #kob-app #foundationChoice .choice-bottom>p{display:none!important}
+ #kob-app #foundationChoice .choice-bottom{display:block!important;padding:5px 0!important}
+ #kob-app #foundationChoice .choice-bottom>button{width:100%!important}
+ #kob-app #planDilutionSummary{font-size:11px!important;margin:3px 0!important;line-height:1.35!important}
+ #kob-app #recipeDilutionPlan{padding:7px!important}
+ #kob-app #dilutionStationTrack.destination-rail{margin-top:10px!important;margin-bottom:5px!important}
+}
+
+#kob-app .route-explanation{padding:0!important;border:0!important}
+@media(min-width:601px){
+ #kob-app #brewWelcome{padding-top:18px!important;padding-bottom:18px!important}
+ #kob-app #brewSizePicker .brew-size-heading{margin:0 0 7px!important;gap:10px!important}
+ #kob-app #brewSizePicker .brew-size-heading strong{font-size:16px!important}
+ #kob-app #foundationChoice .foundation-cups>button{display:grid!important;grid-template-rows:34px 19px 16px!important;justify-items:center!important;align-content:center!important;gap:3px!important;height:100px!important;min-height:100px!important;padding:8px 4px!important}
+ #kob-app #foundationChoice .foundation-cups .route-station{margin:0!important}
+ #kob-app #recipeDilutionPlan #planDilutionFields{gap:0!important;margin:0!important}
+ #kob-app #dilutionStationTrack>button{height:70px!important;min-height:70px!important}
+ #kob-app.audit-workspace #brewerSim .simstage{flex:0 0 var(--audit-stage-room,420px)!important;max-height:var(--audit-stage-room,420px)!important;height:var(--audit-stage-room,420px)!important}
+}
