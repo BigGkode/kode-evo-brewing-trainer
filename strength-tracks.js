@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  plan.hidden=!dilution;
  setText(result,source>0?names[source]+' track · choose your finish':'Choose a starting brew to reveal its track');
  track.hidden=source<1;
- track.querySelectorAll('button').forEach(b=>{const i=+b.dataset.station;b.disabled=i>=source;b.setAttribute('aria-pressed',String(i===target&&i<source));b.classList.toggle('on-route',i>=target&&i<=source);b.classList.toggle('starting-station',i===source);setText(b.querySelector('small'),i===source?'Starting brew':i>source?'Unavailable':i===target?'Your finish':'');});
+ track.querySelectorAll('button').forEach(b=>{const i=+b.dataset.station;b.disabled=i===5;b.setAttribute('aria-pressed',String(i===target));b.classList.toggle('on-route',i>=target&&i<=source);b.classList.toggle('starting-station',i===source);setText(b.querySelector('small'),i===source?'Starting brew':i>source?'Unavailable':i===target?'Your finish':'');});
  }
  document.addEventListener('kode-path-change',update);choice.addEventListener('click',()=>queueMicrotask(update));select.addEventListener('change',update);
  new MutationObserver(update).observe(select,{childList:true});new MutationObserver(update).observe(choice.querySelector('.choice-heading'),{childList:true,subtree:true});update();
