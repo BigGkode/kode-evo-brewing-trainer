@@ -127,3 +127,14 @@
  #kob-app.phone-brew-active .simstage.brew-workspace:has(>#foundationPrompt)>.brew-scale{grid-row:2!important}
  #kob-app.phone-brew-active .simstage.brew-workspace:has(>#foundationPrompt)>.simstatus{grid-row:3!important}
 }
+
+@media(max-width:600px){
+ #kob-app #brewWelcome>h2{font-size:24px!important;line-height:1.2!important}
+ #kob-app #foundationChoice .choice-heading{display:none!important}
+ #kob-app #foundationChoice #foundationUtilities{margin:0 0 10px!important}
+ #kob-app .foundation-cups.station-choices{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:4px!important}
+ #kob-app .foundation-cups.station-choices button{min-height:88px!important;padding:9px 1px!important;gap:6px!important}
+ #kob-app .foundation-cups.station-choices button strong{font-size:11px!important;letter-spacing:-.2px!important;white-space:nowrap!important}
+ #kob-app .foundation-cups.station-choices button>span{display:none!important}
+ #kob-app #brewSizePicker{margin-top:0!important;padding-top:10px!important}
+}

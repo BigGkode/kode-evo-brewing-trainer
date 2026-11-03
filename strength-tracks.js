@@ -1,7 +1,7 @@
 'use strict';
 document.addEventListener('DOMContentLoaded',()=>{
  const $=id=>document.getElementById(id),app=$('kob-app'),choice=$('foundationChoice'),cups=choice.querySelector('.foundation-cups');
- const names=['Tea-like','Delicate','Bright','Classic','Rich','Intense'],colours=['#edf3ee','#dce9e5','#b4ceca','#80a8a7','#426f74','#173f46'];
+ const names=['Tea-like','Delicate','Bright','Classic','Rich','Intense'],colours=['#f0e5d3','#dfc7a5','#c29c72','#96643f','#70472f','#4e301f'];
  const plan=$('recipeDilutionPlan'),select=$('planDilutionStrength');
  const receptorMarkup='<svg xmlns="http://www.w3.org/2000/svg" viewBox="-84 -84 168 168" aria-hidden="true" focusable="false">'+Array.from({length:12},(_,j)=>'<path d="M-3 -22 L-4 -42 L-9 -51 L-8 -72 L-2 -68 L1 -48 L3 -24 Z" transform="rotate('+j*30+')" fill="currentColor"/>').join('')+'<circle r="12" fill="none" stroke="currentColor" stroke-width="3"/></svg>';
 

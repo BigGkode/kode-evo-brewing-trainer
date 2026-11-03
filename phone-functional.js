@@ -17,3 +17,5 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 document.addEventListener('DOMContentLoaded',()=>{const app=document.getElementById('kob-app');let queued=false;const sync=()=>{queued=false;const hidden=id=>document.getElementById(id)?.hidden!==false;const active=innerWidth<=600&&!app.classList.contains('welcome-screen')&&!app.classList.contains('inplace-dilution')&&!app.classList.contains('diluting')&&['foundationChoice','foundationPrep','fb45Introduction','dilutionEntry'].every(hidden)&&!hidden('brewerSim');app.classList.toggle('phone-brew-active',active);};const schedule=()=>{if(!queued){queued=true;requestAnimationFrame(sync)}};new MutationObserver(schedule).observe(app,{subtree:true,attributes:true,attributeFilter:['hidden','class']});addEventListener('resize',schedule);sync();});
+
+document.addEventListener('DOMContentLoaded',()=>{const title=document.querySelector('#brewWelcome>h2');if(title){const wide=title.textContent,phone=matchMedia('(max-width:600px)');const sync=()=>{title.textContent=phone.matches?'Unlock your coffee.':wide;};sync();phone.addEventListener('change',sync);}});
