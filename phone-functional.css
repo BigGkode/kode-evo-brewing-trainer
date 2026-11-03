@@ -219,3 +219,8 @@
  #kob-app.dilution-route-selected .foundation-cups.station-choices>button:nth-child(-n+3) strong,#kob-app.dilution-route-selected .foundation-cups.station-choices>button:nth-child(-n+3) .route-station{color:#173f46!important}
  #kob-app.dilution-route-selected .foundation-cups.station-choices>button:nth-child(-n+3)[aria-pressed=true] .route-station{outline-color:#173f46!important}
 }
+
+@media(max-width:600px){
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button[aria-pressed=true]{border:2px solid #173f46!important;outline:none!important;box-shadow:0 0 0 2px #fffdf7 inset!important}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button[aria-pressed=true] .route-station{outline:none!important;box-shadow:none!important}
+}
