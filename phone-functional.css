@@ -236,3 +236,23 @@
  #kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices>button[data-foundation-strength="5"],#kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices>button[data-foundation-strength="5"][aria-pressed="true"],#kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices>button[data-foundation-strength="5"][aria-pressed="false"]{background:#4e301f!important;color:#fffdf7!important}
  #kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices>button[data-foundation-strength="5"] .route-station,#kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices>button[data-foundation-strength="5"] strong{color:#fffdf7!important;background-color:transparent!important}
 }
+
+@media(max-width:600px){
+ #kob-app #brewWelcome .shared-method-links{display:grid!important;grid-template-columns:1fr 1fr!important;align-items:start!important;gap:8px!important;border-top:1px solid #d5e0d8!important;padding-top:7px!important;margin:8px 0 0!important}
+ #kob-app #brewWelcome .shared-method-links #welcomeDiscover{display:none!important}
+ #kob-app #brewWelcome .shared-method-links #equipmentSetup{min-height:30px!important;margin:0!important;padding:5px 0!important;text-align:left!important;font-size:12px!important}
+ #kob-app #brewWelcome .shared-method-links>.phone-purpose{border:0!important;margin:0!important;padding:0!important}
+ #kob-app #brewWelcome .shared-method-links>.phone-purpose>summary{min-height:30px!important;box-sizing:border-box;padding:6px 0!important;font-size:12px!important}
+ #kob-app #brewWelcome .shared-method-links>.phone-purpose[open]{grid-column:1/-1!important}
+}
+@media(max-width:600px) and (max-height:700px){
+ #kob-app #brewWelcome{padding:14px 12px!important}
+ #kob-app #brewWelcome>h2{margin-bottom:7px!important}
+ #kob-app #brewWelcome>.method-hero-lead{margin-bottom:8px!important;font-size:14px!important}
+ #kob-app #brewWelcome .method-cards{gap:10px!important;margin:9px 0!important}
+ #kob-app #brewWelcome .method-cards article{padding:11px!important}
+ #kob-app #brewWelcome .method-cards h3{font-size:21px!important;margin:4px 0 6px!important}
+ #kob-app #brewWelcome .method-cards .phone-route-copy{font-size:13px!important;line-height:1.35!important;margin-bottom:9px!important}
+ #kob-app #brewWelcome .method-actions button{min-height:38px!important}
+ #kob-app #brewWelcome .method-cards .method-number{height:26px!important;margin-bottom:3px!important}
+}
