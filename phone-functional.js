@@ -6,8 +6,9 @@ document.addEventListener('DOMContentLoaded',()=>{
  const foundationLabel=welcome.querySelector('#foundationMethod>.method-number'),dilutionLabel=welcome.querySelector('#dilutionMethod>.method-number');
  if(foundationLabel)foundationLabel.textContent='EVO 1 · Foundation';
  if(dilutionLabel)dilutionLabel.textContent='EVO 2 · Dilution';
- const setup=document.getElementById('methodAbout');
- if(setup){const anchor=document.createComment('Desktop setup button position');setup.before(anchor);const phone=matchMedia('(max-width:600px)');const sync=()=>{if(phone.matches)app.querySelector('header').append(setup);else anchor.after(setup);};sync();phone.addEventListener('change',sync);}
+ const setup=document.getElementById('methodAbout'),settings=document.getElementById('userSettings');
+ if(setup&&settings){settings.querySelector('label').before(setup);setup.classList.add('settings-setup-entry');setup.onclick=()=>{settings.close();document.getElementById('methodSetup').showModal();};}
+ document.getElementById('learnDilutionMethod')?.classList.add('primary');
  const addPhoneCopy=(selector,copy)=>{const full=welcome.querySelector(selector);if(!full)return;full.classList.add('desktop-route-copy');const short=document.createElement('p');short.className='phone-route-copy';short.textContent=copy;full.after(short);};
  addPhoneCopy('#foundationMethod>p','Choose your size and strength. Brew and enjoy.');
  addPhoneCopy('#dilutionMethod>p','Brew strong, then add water to reach your strength.');
