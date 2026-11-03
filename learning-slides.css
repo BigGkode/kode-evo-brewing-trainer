@@ -1,0 +1,45 @@
+/* One lesson system for every preparation slide. */
+#kob-app #methodNav #methodAbout{margin-left:auto!important;background:#e8efea!important}
+#kob-app #foundationPrep.kode-lesson{display:grid!important;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)!important;grid-template-rows:minmax(0,1fr) 88px!important;gap:0!important;padding:0!important;height:var(--lesson-height,480px)!important;min-height:450px!important;background:#fffdf7!important;border:1px solid #d5ddd4;border-radius:16px;overflow:hidden!important;isolation:isolate}
+#kob-app #foundationPrep.kode-lesson #prepArt{grid-column:1;grid-row:1/3;width:100%!important;max-width:none!important;height:100%!important;max-height:none!important;align-self:stretch!important;justify-self:stretch!important;display:flex;align-items:center;justify-content:center;padding:24px!important;margin:0!important;background:linear-gradient(145deg,#e6eeea,#f2f1e7);border-right:1px solid #d9e1d8;box-sizing:border-box;overflow:hidden}
+#kob-app #foundationPrep.kode-lesson .learning-diagram{height:100%;max-width:370px;display:grid;grid-template-rows:minmax(0,1fr) 34px;align-items:center;gap:10px}
+#kob-app #foundationPrep.kode-lesson .learning-diagram>svg{display:block;width:100%!important;height:100%!important;max-height:100%!important;overflow:hidden;align-self:center}
+#kob-app #foundationPrep.kode-lesson .learning-art-caption{display:block!important;box-sizing:border-box;min-height:30px;max-width:100%;margin:0!important;padding:8px 0 0!important;border-top:1px solid #a9bdb1;font-size:11px!important;line-height:1.35;text-align:center;color:#536f72}
+#kob-app #foundationPrep.kode-lesson .prep-copy{grid-column:2;grid-row:1;display:grid!important;grid-template-rows:auto minmax(0,1fr);gap:18px;height:auto!important;min-height:0!important;max-height:none!important;padding:26px 30px 0!important;position:static!important;overflow:hidden!important;box-sizing:border-box;align-self:stretch}
+#kob-app #foundationPrep.kode-lesson .lesson-heading{min-width:0}
+#kob-app #foundationPrep.kode-lesson #prepCount{display:block;font-size:10px;line-height:1.4;letter-spacing:2px;color:#607e80;margin:0 0 12px!important}
+#kob-app #foundationPrep.kode-lesson #prepTitle{font-family:Arial,sans-serif;font-size:clamp(24px,2.4vw,31px)!important;font-weight:700;letter-spacing:-.5px;line-height:1.14!important;margin:0!important;max-width:100%}
+#kob-app #foundationPrep.kode-lesson .lesson-body{min-height:0;overflow:auto;padding:0 4px 14px 0;scrollbar-width:thin;scrollbar-color:#c5d2ca transparent}
+#kob-app #foundationPrep.kode-lesson #prepText{font-size:15px!important;line-height:1.65!important;margin:0!important;color:#173f46;white-space:pre-line}
+#kob-app #foundationPrep.kode-lesson #prepZoneLesson{padding:12px 0 0!important;margin:16px 0 0!important;border-top:1px solid #dce3da}
+#kob-app #foundationPrep.kode-lesson #prepZoneTitle{font-size:10px;letter-spacing:1.3px}
+#kob-app #foundationPrep.kode-lesson #prepZoneText,#kob-app #foundationPrep.kode-lesson #prepZoneWhy{font-size:12px!important;line-height:1.55!important;margin:7px 0 0!important}
+#kob-app #foundationPrep.kode-lesson .zone-why{border:0;margin:0;padding:0}
+#kob-app #foundationPrep.kode-lesson .zone-why summary{display:none}
+#kob-app #foundationPrep.kode-lesson #waterPractice{background:#edf2ec!important;border:1px solid #d3dfd6!important;padding:12px 14px!important;border-radius:8px;margin:16px 0 0!important}
+#kob-app #foundationPrep.kode-lesson .practice-readout{display:flex;align-items:center;justify-content:space-between;gap:10px}
+#kob-app #foundationPrep.kode-lesson #practiceWeight{font-size:23px!important;line-height:1.2}
+#kob-app #foundationPrep.kode-lesson #practiceClock{font-size:11px}
+#kob-app #foundationPrep.kode-lesson #practiceStatus{font-size:12px!important;line-height:1.45!important;margin:8px 0!important}
+#kob-app #foundationPrep.kode-lesson #practicePlay{font-size:12px;min-height:36px;padding:8px 12px}
+#kob-app #foundationPrep.kode-lesson .lesson-footer{grid-column:2;grid-row:2;border:0;margin:0!important;padding:8px 30px 20px!important;display:grid;grid-template-rows:8px 44px;gap:10px;align-content:end;box-sizing:border-box;background:#fffdf7}
+#kob-app #foundationPrep.kode-lesson #prepDots{position:static!important;display:flex;gap:5px;margin:0!important;padding:0!important;align-items:center;max-width:100%}
+#kob-app #foundationPrep.kode-lesson #prepDots i{flex:1;width:auto!important;max-width:34px;height:3px;border-radius:1px;background:#d3ded6}
+#kob-app #foundationPrep.kode-lesson #prepDots i.current{background:#b9362c}
+#kob-app #foundationPrep.kode-lesson .prep-actions{position:static!important;inset:auto!important;transform:none!important;display:grid!important;grid-template-columns:76px minmax(0,240px)!important;gap:10px!important;min-height:44px!important;height:44px!important;margin:0!important;padding:0!important;background:transparent;justify-content:start!important}
+#kob-app #foundationPrep.kode-lesson .prep-actions button{width:100%!important;height:44px!important;min-height:44px!important;padding:8px 12px!important;margin:0!important;font-size:14px!important;line-height:1.2;white-space:normal!important}
+#kob-app #foundationPrep.kode-lesson #prepNext{background:#b9362c!important;color:#fffdf7;border-color:#b9362c;font-weight:700}
+#kob-app #foundationPrep.kode-lesson #prepBack{background:#fffdf7;border-color:#c8d5cb}
+@media(min-width:601px) and (max-width:850px){#kob-app #foundationPrep.kode-lesson .prep-copy{padding:22px 20px 0!important}#kob-app #foundationPrep.kode-lesson .lesson-footer{padding-left:20px!important;padding-right:20px!important}#kob-app #foundationPrep.kode-lesson #prepArt{padding:16px!important}#kob-app #foundationPrep.kode-lesson #prepText{font-size:14px!important}}
+@media(max-width:600px){#kob-app #methodNav #methodAbout{margin-left:0!important}#kob-app #foundationPrep.kode-lesson{height:auto!important;min-height:0!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:260px auto 90px!important}#kob-app #foundationPrep.kode-lesson #prepArt{grid-column:1;grid-row:1;padding:16px!important;border:0;border-bottom:1px solid #d9e1d8}#kob-app #foundationPrep.kode-lesson .learning-diagram{width:100%;max-width:280px;grid-template-rows:minmax(0,1fr) 26px;gap:4px}#kob-app #foundationPrep.kode-lesson .learning-art-caption{font-size:10px!important;padding-top:5px!important;min-height:24px}#kob-app #foundationPrep.kode-lesson .prep-copy{grid-column:1;grid-row:2;gap:16px;padding:22px 20px 0!important;min-height:240px!important}#kob-app #foundationPrep.kode-lesson .lesson-body{overflow:visible;padding-bottom:18px}#kob-app #foundationPrep.kode-lesson .lesson-footer{grid-column:1;grid-row:3;padding:8px 20px 20px!important}#kob-app #foundationPrep.kode-lesson #prepTitle{font-size:26px!important}#kob-app #foundationPrep.kode-lesson .prep-actions{grid-template-columns:76px minmax(0,1fr)!important}}
+#kob-app #foundationPrep.kode-lesson>.lesson-footer{display:grid!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:2}
+/* State visibility must win over the lesson grid. */
+#kob-app #foundationPrep.kode-lesson[hidden]{display:none!important}
+#kob-app #foundationPrep.kode-lesson #prepText[hidden]{display:none!important}
+#kob-app #foundationPrep.kode-lesson .lesson-copy-text{font:15px/1.6 Arial,sans-serif;color:#173f46;max-width:48ch}
+#kob-app #foundationPrep.kode-lesson .lesson-copy-text p{margin:0 0 14px!important;font:inherit!important}
+#kob-app #foundationPrep.kode-lesson .lesson-copy-text ul{margin:0;padding:0 0 0 19px;list-style:disc}
+#kob-app #foundationPrep.kode-lesson .lesson-copy-text li{margin:0 0 9px;padding-left:3px}
+#kob-app #foundationPrep.kode-lesson .lesson-copy-text li::marker{color:#617f7c;font-size:.75em}
+#kob-app #foundationPrep.kode-lesson #prepZoneLesson[hidden],#kob-app #foundationPrep.kode-lesson #waterPractice[hidden]{display:none!important}
+@media(max-width:600px){#kob-app #foundationPrep.kode-lesson .lesson-copy-text{font-size:15px;line-height:1.6}}

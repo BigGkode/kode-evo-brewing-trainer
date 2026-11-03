@@ -1,0 +1,288 @@
+#kob-app .evo-levels{display:flex;gap:6px;margin:0 0 12px;flex-shrink:0}
+#kob-app .evo-levels button{padding:8px 14px;border:1px solid #b8c9c1;border-radius:8px;background:#fffdf8;color:#173f46;font-weight:700}
+#kob-app .evo-levels button span{font-weight:400;margin-left:6px}
+#kob-app .evo-levels button[aria-pressed=true]{background:#173f46;color:#fffdf8}
+#kob-app #dilutionPlan{padding:20px 24px;border:1px solid #c7d8d0;border-radius:12px;background:#edf2ec;margin:12px 0;flex-shrink:0}
+#kob-app #dilutionPlan h2{font-size:25px;margin:5px 0}
+#kob-app #dilutionPlan p{margin:6px 0 12px}
+#kob-app #dilutionStrengths{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}
+#kob-app #dilutionStrengths button{padding:9px 16px;border:1px solid #b8c9c1;border-radius:8px;background:#fffdf8}
+#kob-app #dilutionStrengths button[aria-pressed=true]{background:#173f46;color:#fffdf8;border-color:#173f46}
+#kob-app #dilutionResult>strong{font-size:23px;color:#173f46}
+#kob-app .dilution-plan-facts{display:flex;gap:14px 28px;flex-wrap:wrap;margin:12px 0}
+#kob-app .dilution-plan-facts span{display:flex;flex-direction:column;font-size:12px;color:#526c70}
+#kob-app .dilution-plan-facts b{font-size:20px;color:#173f46}
+#kob-app .dilution-assumptions{margin-top:12px;font-size:12px}
+#kob-app .text-action{border:0;background:none;text-decoration:underline;color:#173f46;padding:8px 0;font-size:12px}
+#kob-app #dilutionPlan.plan-compact{padding:8px 12px;margin:0 0 8px}
+#kob-app #dilutionPlan.plan-compact .dilution-intro,#kob-app #dilutionPlan.plan-compact .dilution-assumptions,#kob-app #dilutionPlan.plan-compact .text-action{display:none}
+#kob-app #dilutionPlan.plan-compact #dilutionResult{display:flex;gap:15px;align-items:center;flex-wrap:wrap}
+#kob-app #dilutionPlan.plan-compact #dilutionResult>strong{font-size:15px}
+#kob-app #dilutionPlan.plan-compact .dilution-plan-facts{margin:0;gap:15px}
+#kob-app #dilutionPlan.plan-compact .dilution-plan-facts span{display:block}
+#kob-app #dilutionPlan.plan-compact .dilution-plan-facts b{font-size:14px}
+#kob-app #dilutionPlan.plan-compact small{display:none}
+#kob-app.brew-screen .evo-levels{margin:0 0 6px}
+#kob-app.brew-screen .evo-levels button{padding:4px 12px;font-size:12px}
+#kob-app #dilutionFinish{display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:25px;flex:1;min-height:0;background:#f0f0e6;border:1px solid #d4ded5;border-radius:12px;padding:20px 5%;overflow:auto}
+#kob-app #dilutionFinish svg{width:100%;max-height:340px;display:block}
+#kob-app #dilutionFinish h2{font-size:30px;line-height:1.15;margin:12px 0}
+#kob-app #dilutionFinish button{padding:10px 16px;border-radius:7px;margin:5px 8px 5px 0}
+#kob-app #dilutionPlay{background:#ba382f;color:#fffdf8;border:0}
+#kob-app .dilution-large{font-size:25px;font-weight:700;font-variant-numeric:tabular-nums}
+#kob-app #dilutionFinishNote{font-size:12px;color:#526c70}
+#kob-app.diluting .simulator .simlayout,#kob-app.diluting #foundationPrompt{display:none!important}
+#kob-app #dilutionCalculator{width:min(480px,92vw);max-height:85vh;overflow:auto;border:1px solid #b8c9c1;border-radius:14px;background:#fffdf8;color:#173f46;padding:24px}
+#kob-app #dilutionCalculator::backdrop{background:#173f4680}
+#kob-app #dilutionCalculator label{display:block;margin:14px 0}
+#kob-app #dilutionCalculator input,#kob-app #dilutionCalculator select{display:block;width:100%;margin-top:5px;padding:10px;border:1px solid #b8c9c1;border-radius:6px;background:white}
+#kob-app .calculator-close{float:right;font-size:23px;border:0;background:none}
+#kob-app #calcOutput{font-size:19px;font-weight:700}
+@container kob (max-width:650px){#kob-app #dilutionFinish{grid-template-columns:1fr;gap:8px;padding:14px}#kob-app #dilutionFinish svg{max-height:180px}#kob-app #dilutionPlan{padding:14px}#kob-app #dilutionPlan.plan-compact .dilution-plan-facts{gap:5px 12px}#kob-app #dilutionFinish h2{font-size:24px}}
+
+#kob-app #dilutionChoiceNext{display:block;margin:18px 0 0 auto;padding:12px 20px;border:0;border-radius:8px;background:#ba382f;color:#fffdf8;font-weight:700}#kob-app #dilutionChoiceNext:disabled{opacity:.45}#kob-app #dilutionChoices>p{font-size:22px;font-weight:700;margin:16px 0}
+
+/* Keep the calculated addition at the centre of the dilution journey. */
+#kob-app #dilutionResult{margin:16px 0;padding:20px 24px;background:#fffdf8;border-left:4px solid #ba382f;border-radius:8px;color:#173f46}
+#kob-app .dilution-result-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}
+#kob-app .dilution-result-heading strong{font-size:22px}
+#kob-app .dilution-result-heading span{font-size:11px;letter-spacing:.12em;color:#607c80}
+#kob-app #dilutionResult .dilution-dose{font-size:clamp(24px,3vw,38px);line-height:1.2;margin:12px 0}
+#kob-app .dilution-dose b{color:#ba382f;font-variant-numeric:tabular-nums}
+#kob-app #dilutionResult .dilution-estimate{font-size:14px;color:#526c70;margin:0}
+#kob-app #dilutionPlan.plan-compact #dilutionResult{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:3px 24px;margin:0;padding:8px 14px}
+#kob-app #dilutionPlan.plan-compact .dilution-result-heading{grid-row:1 / 3;display:block}
+#kob-app #dilutionPlan.plan-compact .dilution-result-heading strong{font-size:16px}
+#kob-app #dilutionPlan.plan-compact .dilution-result-heading span{display:block;margin-top:3px;font-size:10px}
+#kob-app #dilutionPlan.plan-compact .dilution-dose{font-size:24px;margin:0}
+#kob-app #dilutionPlan.plan-compact .dilution-estimate{font-size:12px;margin:0}
+#kob-app #dilutionPlan.plan-compact:has(.dilution-pending){display:none}
+@container kob (max-width:650px){#kob-app #dilutionResult{padding:14px}#kob-app .dilution-result-heading strong{font-size:18px}#kob-app #dilutionPlan.plan-compact #dilutionResult{gap:3px 12px;padding:7px 10px}#kob-app #dilutionPlan.plan-compact .dilution-dose{font-size:20px}#kob-app #dilutionPlan.plan-compact .dilution-result-heading strong{font-size:13px}}
+
+#kob-app #dilutionDirectNext{margin:18px 10px 0 0;padding:12px 20px;border:0;border-radius:8px;background:#ba382f;color:#fffdf8;font-weight:700}
+#kob-app #dilutionChoiceNext.optional-brew{display:inline-block;margin:18px 0 0;background:transparent;color:#173f46;border:1px solid #b8c9c1;font-weight:400}
+#kob-app #dilutionPlan #dilutionFinish{margin-top:16px;min-height:300px}
+
+#kob-app #dilutionCalculatorOption{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;margin:10px 0 16px;border:1px solid #b8c9c1;border-radius:12px;background:#e7eeea;flex-shrink:0}
+#kob-app #dilutionCalculatorOption[hidden]{display:none}
+#kob-app #dilutionCalculatorOption strong{font-size:18px;color:#173f46}
+#kob-app #dilutionCalculatorOption p{margin:5px 0 0;font-size:14px;color:#526c70}
+#kob-app #dilutionCalculatorOption .text-action{background:#173f46;color:#fffdf8;padding:12px 18px;border-radius:8px;text-decoration:none;font-size:15px;font-weight:700;white-space:nowrap}
+#kob-app.brew-screen #dilutionCalculatorOption{padding:6px 12px;margin:0 0 6px}
+#kob-app.brew-screen #dilutionCalculatorOption p{display:none}
+#kob-app.brew-screen #dilutionCalculatorOption strong{font-size:14px}
+#kob-app.brew-screen #dilutionCalculatorOption .text-action{padding:7px 12px;font-size:13px}
+@container kob (max-width:650px){#kob-app #dilutionCalculatorOption{flex-wrap:wrap}#kob-app #dilutionCalculatorOption .text-action{white-space:normal}}
+
+#kob-app #fb45Introduction{display:grid;grid-template-columns:1.65fr 1fr;gap:24px;align-items:center;background:#173f46;color:#fffdf8;border-radius:16px;padding:clamp(22px,3vw,36px);margin:0 0 20px}
+#kob-app #fb45Introduction[hidden],#kob-app.brew-screen #fb45Introduction{display:none}
+#kob-app #fb45Introduction .foundation-kicker{color:#b9ccc5;font-size:12px}
+#kob-app #fb45Introduction h2{font-size:clamp(30px,4vw,46px);line-height:1.08;color:#fffdf8;margin:12px 0}
+#kob-app #fb45Introduction p{font-size:15px;line-height:1.6;color:#dce6df;margin:10px 0}
+#kob-app #fb45Introduction .fb45-intro-lead{font-size:19px;color:#fffdf8}
+#kob-app .fb45-intro-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0;font-size:12px;line-height:1.5;color:#dce6df}
+#kob-app .fb45-intro-benefits b{display:block;color:#fffdf8;font-size:14px;margin-bottom:5px}
+#kob-app #fb45IntroContinue{background:#ba382f;color:#fffdf8;border:0;border-radius:8px;padding:12px 20px;font-size:15px;font-weight:700}
+#kob-app .fb45-intro-art{background:#efefe5;border-radius:12px;padding:16px}#kob-app .fb45-intro-art svg{display:block;width:100%;max-height:310px}
+@container kob (max-width:700px){#kob-app #fb45Introduction{grid-template-columns:1fr}#kob-app .fb45-intro-art{display:none}#kob-app .fb45-intro-benefits{grid-template-columns:1fr;gap:12px;margin:16px 0}}
+
+/* Discovery follows the same visual rhythm as preparation. */
+#kob-app #fb45Introduction{grid-template-columns:.9fr 1.1fr;gap:0;padding:0;overflow:hidden;min-height:440px;background:#fffdf8;color:#173f46;border:1px solid #d4ded8}
+#kob-app #fb45Introduction .fb45-intro-art{align-self:stretch;display:flex;align-items:center;justify-content:center;border-radius:0;padding:30px;background:linear-gradient(110deg,#e7eeea,#f3f1e7)}
+#kob-app #fb45Introduction .fb45-intro-art svg{width:100%;max-width:350px;max-height:350px}
+#kob-app #fb45Introduction .fb45-intro-copy{padding:30px;display:flex;flex-direction:column;align-self:stretch;min-height:440px;box-sizing:border-box}
+#kob-app #fb45Introduction .foundation-kicker{color:#607f85;letter-spacing:.14em}
+#kob-app #fb45Introduction h2{color:#173f46;font-size:clamp(28px,3vw,38px);margin:18px 0 12px}
+#kob-app #fb45Introduction p{color:#365d63;font-size:15px;line-height:1.65}
+#kob-app #fb45Introduction .fb45-intro-lead{color:#173f46;font-size:18px;line-height:1.4}
+#kob-app #introSlideWords{flex:1}
+#kob-app #introSlideNote{display:block;font-size:11px;letter-spacing:.12em;color:#7b633e;margin:18px 0}
+#kob-app #introSlideDots{display:flex;gap:7px;margin:16px 0}
+#kob-app #introSlideDots span{height:4px;flex:1;background:#d4ded8;border-radius:2px}
+#kob-app #introSlideDots .active{background:#ba382f}
+#kob-app .intro-slide-actions{display:flex;align-items:center;gap:10px;min-height:46px}
+#kob-app #introSlideBack{padding:12px 16px;border:1px solid #c5d3ca;border-radius:8px;background:#fffdf8;color:#173f46}
+#kob-app #introSlideBack:disabled{opacity:.35}
+#kob-app #fb45IntroContinue{min-width:140px}
+#kob-app #introSlideSkip{margin-left:auto;border:0;background:transparent;color:#526c70;text-decoration:underline;font-size:12px}
+#kob-app.intro-active #foundationChoice{display:none}
+@container kob (max-width:700px){#kob-app #fb45Introduction{grid-template-columns:1fr;min-height:0}#kob-app #fb45Introduction .fb45-intro-art{display:flex;padding:10px}#kob-app #fb45Introduction .fb45-intro-art svg{height:180px}#kob-app #fb45Introduction .fb45-intro-copy{padding:22px;min-height:420px}#kob-app .intro-slide-actions{flex-wrap:wrap}#kob-app #introSlideSkip{margin-left:0}}
+
+#kob-app #evo-levels #fb45IntroTab[aria-pressed=true]{background:#173f46;color:#fffdf8}
+#kob-app .evo-levels{flex-wrap:wrap}
+#kob-app.intro-active #foundationPrep,#kob-app.intro-active #foundationSummary,#kob-app.intro-active #brewerSim,#kob-app.intro-active .foundation-mode{display:none!important}
+#kob-app #fb45Introduction .fb45-intro-art svg{max-width:360px;max-height:none;aspect-ratio:430/425;height:auto}
+#kob-app #fb45Introduction .fb45-intro-art .prep-orbit{animation:none}
+#kob-app #fb45Introduction .fb45-intro-art .prep-paper-seat{animation:none}
+@container kob (max-width:700px){#kob-app #fb45Introduction .fb45-intro-art svg{height:200px;max-width:240px}}
+
+#kob-app #fb45Introduction .fb45-intro-art svg{max-width:440px;aspect-ratio:440/425}
+#kob-app #fb45Introduction .fb45-intro-art{padding:14px}
+#kob-app #fb45Introduction .fb45-intro-art .prep-contact-confirm,#kob-app #fb45Introduction .fb45-intro-art .zone-glow{animation:none}
+#kob-app #fb45Introduction .fb45-intro-art>svg svg{width:revert;height:revert;max-width:none;max-height:none;aspect-ratio:auto}
+
+/* Bound discovery artwork to its panel; nested SVGs keep explicit dimensions. */
+#kob-app #fb45Introduction .fb45-intro-art{min-width:0;overflow:hidden}
+#kob-app #fb45Introduction .fb45-intro-art>svg{display:block;width:100%;height:auto;max-width:440px;overflow:hidden}
+#kob-app #fb45Introduction .fb45-intro-art>svg svg{overflow:hidden}
+
+#kob-app main>.intro{display:flex;align-items:center;justify-content:space-between;gap:20px}
+#kob-app #fb45IntroTab{flex-shrink:0;padding:10px 16px;border:1px solid #b8c9c1;border-radius:8px;background:#fffdf8;color:#173f46;font-weight:700;font-size:14px}
+#kob-app #fb45IntroTab span{font-weight:400;margin-left:6px}
+#kob-app #fb45IntroTab[aria-pressed=true]{background:#173f46;color:#fffdf8;border-color:#173f46}
+@container kob (max-width:650px){#kob-app main>.intro{flex-wrap:wrap;gap:10px}#kob-app #fb45IntroTab{margin-left:auto;font-size:12px;padding:8px 12px}}
+
+/* One larger, stable illustration frame across all eight preparation steps. */
+#kob-app #foundationPrep #prepArt{width:100%;max-width:430px;aspect-ratio:430/425;align-self:center;justify-self:center;margin:0;min-width:0}
+#kob-app #foundationPrep #prepArt>svg{width:100%;height:100%;max-height:none;display:block;object-fit:contain}
+@container kob (max-width:650px){#kob-app #foundationPrep #prepArt{max-width:280px;margin-inline:auto}}
+
+/* Foundation opens first; Discover is an optional action inside its heading. */
+#kob-app #foundationChoice .choice-heading{position:relative;padding-right:245px}
+#kob-app #foundationChoice .choice-heading>p{margin-right:-245px}
+#kob-app #foundationChoice #fb45IntroTab{position:absolute;top:0;right:0;margin:0;padding:12px 16px;background:#edf2ec;border:1px solid #b8c9c1;color:#173f46}
+@container kob (max-width:700px){#kob-app #foundationChoice .choice-heading{padding-right:0}#kob-app #foundationChoice .choice-heading>p{margin-right:0}#kob-app #foundationChoice #fb45IntroTab{position:static;margin:12px 0 0 auto;display:block}}
+
+/* Brew size first; strength cards show doses at that size. */
+#kob-app #brewSizePicker{padding:16px 0 20px;margin-top:14px;border-top:1px solid #e0e5dc}
+#kob-app .brew-size-heading{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:12px}
+#kob-app .brew-size-heading strong{font-size:17px;color:#173f46}
+#kob-app .brew-size-heading>span{font-size:12px;color:#607f85}
+#kob-app .brew-size-options{display:flex;gap:8px;flex-wrap:wrap}
+#kob-app .brew-size-options button{min-width:76px;padding:10px 17px;border:1px solid #b8c9c1;border-radius:8px;background:#fffdf8;color:#173f46;font-size:17px;font-weight:700}
+#kob-app .brew-size-options button span{font-weight:400;font-size:13px}
+#kob-app .brew-size-options button[aria-pressed=true]{background:#173f46;color:#fffdf8;border-color:#173f46}
+#kob-app #brewSizeNote{font-size:12px;line-height:1.5;color:#607f85;margin:10px 0 0}
+#kob-app .foundation-cups .cup-dose{display:block;font-size:14px;font-weight:700;color:#173f46;margin-top:9px}
+#kob-app #foundationChoice .foundation-cups{margin-top:0}
+@container kob (max-width:650px){#kob-app .brew-size-options{gap:5px}#kob-app .brew-size-options button{flex:1;min-width:48px;padding:9px 7px;font-size:15px}}
+
+#kob-app #brewStrengthHeading{font-size:17px;color:#173f46;margin:0 0 12px}
+
+#kob-app #dilutionAfterBrew{margin-left:18px;flex-shrink:0;border:0;border-radius:8px;background:#ba382f;color:#fffdf8;padding:12px 18px;font-size:14px;font-weight:700}
+#kob-app #dilutionAfterBrew[hidden]{display:none}
+@container kob (max-width:650px){#kob-app .brew-scale:has(#dilutionAfterBrew:not([hidden])){flex-wrap:wrap}#kob-app #dilutionAfterBrew{margin-left:0;padding:10px 14px}}
+
+#kob-app .recipe-calculation-notes{margin-top:14px;font-size:12px;color:#607f85;line-height:1.6}
+#kob-app .recipe-calculation-notes summary{cursor:pointer;text-decoration:underline;text-underline-offset:3px;width:fit-content}
+#kob-app .recipe-calculation-notes>div{margin-top:10px;padding:12px 16px;background:#edf2ec;border-radius:8px;color:#365d63;max-width:760px}
+#kob-app .recipe-calculation-notes p{margin:6px 0}
+
+#kob-app #foundationChoice .choice-bottom{flex-wrap:wrap}
+#kob-app #foundationChoice #learnMode{flex-basis:100%;text-align:right;padding:4px 0;border:0;background:transparent;color:#526c70;text-decoration:underline;font-size:13px}
+#kob-app #guidanceToggle{white-space:nowrap;min-width:115px;font-size:12px!important;line-height:1.2}
+#kob-app .foundation-switch #brewMode[aria-pressed=true]{display:none}
+
+#kob-app #foundationChoice>#learnMode{display:block;width:fit-content;max-width:100%;margin:16px 0 0;padding:9px 0;border:0;background:transparent;color:#173f46;text-decoration:underline;text-underline-offset:3px;font-size:14px;text-align:left}
+
+#kob-app #foundationChoice .choice-intro-actions{position:absolute;right:0;top:0;width:230px;display:flex;flex-direction:column;gap:9px}
+#kob-app #foundationChoice .choice-intro-actions #fb45IntroTab,#kob-app #foundationChoice .choice-intro-actions #learnMode{position:static;display:block;box-sizing:border-box;width:100%;margin:0;padding:12px 14px;border:1px solid #b8c9c1;border-radius:8px;background:#edf2ec;color:#173f46;font-size:14px;line-height:1.4;text-align:center;text-decoration:none;font-weight:600}
+#kob-app #foundationChoice .choice-intro-actions #learnMode{background:#fffdf8}
+#kob-app #foundationChoice .choice-intro-actions #learnMode:hover{background:#e7eeea}
+#kob-app #foundationChoice .choice-heading>p{margin-right:0}
+@container kob (max-width:700px){#kob-app #foundationChoice .choice-intro-actions{position:static;width:100%;flex-direction:row;flex-wrap:wrap;margin-top:16px}#kob-app #foundationChoice .choice-intro-actions #fb45IntroTab,#kob-app #foundationChoice .choice-intro-actions #learnMode{flex:1;min-width:180px}}
+
+#kob-app #foundationChoice .choice-heading>p{white-space:pre-line;line-height:1.8}
+
+/* Clearer entry page: choices and primary action stay close together. */
+#kob-app.choice-screen main{padding-top:12px;padding-bottom:12px}
+#kob-app.choice-screen main>.intro{margin-bottom:8px}
+#kob-app.choice-screen .intro h1{font-size:clamp(25px,3.1vw,36px);line-height:1.15;margin-block:8px}
+#kob-app.choice-screen .foundation-mode>div:first-child{display:none}
+#kob-app.choice-screen .foundation-mode:has(#brewMode[aria-pressed=true]){display:none}
+#kob-app.choice-screen .foundation-mode{justify-content:flex-end;margin-bottom:10px}
+#kob-app .evo-levels #foundationStartOver{margin-left:auto;padding:7px 12px;background:transparent;border-color:transparent;font-size:12px;font-weight:400}
+#kob-app .evo-levels #foundationStartOver[hidden]{display:none}
+#kob-app.choice-screen .evo-levels{margin-bottom:14px}
+#kob-app.choice-screen #foundationSummary{display:none!important}
+#kob-app.choice-screen #foundationChoice{padding:clamp(20px,2.3vw,30px);margin-bottom:0}
+#kob-app.choice-screen .choice-heading>.foundation-kicker{display:none}
+#kob-app.choice-screen .choice-heading h2{font-size:clamp(24px,2.7vw,32px);margin:0 0 8px}
+#kob-app.choice-screen #foundationChoice .choice-heading>p{line-height:1.55;margin-bottom:14px}
+#kob-app.choice-screen #foundationChoice .choice-heading{padding-right:220px;min-height:88px}
+#kob-app.choice-screen #foundationChoice .choice-intro-actions{width:204px;gap:7px}
+#kob-app.choice-screen #foundationChoice .choice-intro-actions #fb45IntroTab,#kob-app.choice-screen #foundationChoice .choice-intro-actions #learnMode{font-size:12px;padding:9px 10px;font-weight:500}
+#kob-app.choice-screen #brewSizePicker{padding:12px 0 16px;margin-top:10px}
+#kob-app.choice-screen .brew-size-heading{margin-bottom:9px}
+#kob-app.choice-screen .brew-size-options button{padding:8px 15px;min-height:40px}
+#kob-app.choice-screen #brewSizeNote{margin-top:7px}
+#kob-app.choice-screen #brewStrengthHeading{margin-bottom:10px}
+#kob-app.choice-screen .foundation-cups button{padding:14px 8px;min-height:0}
+#kob-app.choice-screen .foundation-cups svg{width:68px;height:58px;margin-bottom:8px}
+#kob-app.choice-screen .choice-bottom{margin-top:16px;padding-top:14px;min-height:44px}
+#kob-app.choice-screen #choiceNext{min-height:44px;min-width:190px}
+#kob-app.choice-screen .recipe-calculation-notes{margin-top:10px}
+@container kob (max-width:700px){#kob-app.choice-screen #foundationChoice .choice-heading{padding-right:0;min-height:0}#kob-app.choice-screen #foundationChoice .choice-intro-actions{position:static;width:100%;margin-top:10px;margin-bottom:14px}#kob-app.choice-screen .foundation-cups button{padding:12px 4px}#kob-app.choice-screen .foundation-cups svg{width:52px;height:46px}}
+
+/* Continue from the same completed brew into dilution. */
+#kob-app.inplace-dilution .simulator .simstage{grid-template-columns:minmax(230px,1fr) minmax(0,2.1fr)!important}
+#kob-app.inplace-dilution #dilutionPlan{grid-column:1;grid-row:1;align-self:stretch;min-height:0;overflow:auto;margin:16px;padding:18px;background:#fffdf7;border:0;border-left:3px solid #b9362c;border-radius:0;box-shadow:none}
+#kob-app.inplace-dilution .simstage #brewerCanvas{grid-column:2!important;grid-row:1!important}
+#kob-app.inplace-dilution #dilutionPlan .dilution-intro,#kob-app.inplace-dilution #dilutionPlan .dilution-assumptions,#kob-app.inplace-dilution #dilutionPlan>.text-action,#kob-app.inplace-dilution .playback-controls,#kob-app.inplace-dilution #simScrub,#kob-app.inplace-dilution .phase-timeline{display:none!important}
+#kob-app.inplace-dilution #dilutionChoices>p{font-size:24px;line-height:1.2;margin:10px 0 14px}
+#kob-app.inplace-dilution #dilutionStrengths{gap:6px}
+#kob-app.inplace-dilution #dilutionStrengths button{padding:7px 10px;font-size:14px}
+#kob-app.inplace-dilution #dilutionResult{margin-top:16px;padding:14px 0;border-radius:0;border-top:1px solid #d6dfd9;background:transparent}
+#kob-app.inplace-dilution .dilution-dose{font-size:20px!important;margin:8px 0}
+#kob-app.inplace-dilution .dilution-result-heading span{display:none}
+#kob-app.inplace-dilution .dilution-estimate{font-size:12px}
+#kob-app.inplace-dilution .inline-dilution-actions{display:flex;flex-direction:column;gap:8px}
+#kob-app:not(.inplace-dilution) .inline-dilution-actions{display:none}
+#kob-app.inplace-dilution .inline-dilution-actions p{font-size:12px;margin:4px 0}
+@container kob (max-width:650px){#kob-app.inplace-dilution .simulator .simstage{grid-template-columns:minmax(180px,1fr) minmax(0,1.2fr)!important}#kob-app.inplace-dilution #dilutionPlan{margin:6px;padding:10px}#kob-app.inplace-dilution #dilutionChoices>p{font-size:18px}}
+
+#kob-app.inplace-dilution .focus-phases,#kob-app.inplace-dilution .focus-phase-labels,#kob-app.inplace-dilution .simstage>.progress,#kob-app.inplace-dilution #pourAwareness{display:none!important}
+
+/* Dilution entry and a recipe overlay preserve the main brewing view. */
+#kob-app #dilutionEntry{padding:clamp(24px,4vw,46px);border:1px solid #d6dfd9;background:#fffdf7;border-radius:16px;margin:12px 0}
+#kob-app #dilutionEntry h2{font-size:32px;margin:12px 0}
+#kob-app .dilution-routes{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+#kob-app .dilution-routes article{padding:22px;border:1px solid #d6dfd9;border-radius:10px;background:#f4f3eb}
+#kob-app .dilution-routes h3{margin:0 0 10px;font-size:22px}
+#kob-app .dilution-routes button{margin:5px 5px 0 0}
+#kob-app.dilution-entry{height:auto;min-height:100dvh;overflow:visible}
+#kob-app.dilution-entry main{display:block!important}
+#kob-app.dilution-entry #foundationChoice,#kob-app.dilution-entry #foundationPrep,#kob-app.dilution-entry #foundationSummary,#kob-app.dilution-entry #brewerSim,#kob-app.dilution-entry #dilutionPlan,#kob-app.dilution-entry #dilutionCalculatorOption,#kob-app.dilution-entry .foundation-mode,#kob-app.dilution-entry .trainerRecipe,#kob-app.dilution-entry .pourFooter{display:none!important}
+#kob-app #brewRecipeOverlay{width:min(680px,calc(100vw - 32px));max-height:85dvh;overflow:auto;border:1px solid #c7d8d0;border-radius:14px;padding:24px;background:#fffdf7;color:#173f46}
+#kob-app #brewRecipeOverlay::backdrop{background:#173f4666}
+#kob-app #brewRecipeOverlay form{text-align:right;margin:0}
+#kob-app #brewRecipeOverlay h2{font-size:26px;margin:0 0 18px}
+#kob-app #brewRecipeOverlay .focus-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#kob-app.inplace-dilution .foundation-mode,#kob-app.inplace-dilution #simClock,#kob-app.inplace-dilution #simPoured,#kob-app.inplace-dilution #simTimeline,#kob-app.inplace-dilution .focus-scrub-label,#kob-app.inplace-dilution .focus-phase-labels{display:none!important}
+#kob-app.inplace-dilution #dilutionPlan{align-self:stretch;max-height:100%;margin:10px;padding:14px;overflow:visible;display:flex;flex-direction:column;justify-content:center;gap:8px}
+#kob-app.inplace-dilution #dilutionChoices>b{font-size:12px}
+#kob-app.inplace-dilution #dilutionChoices>p{font-size:21px;margin:5px 0 10px}
+#kob-app.inplace-dilution #dilutionStrengths{margin:0;gap:5px}
+#kob-app.inplace-dilution #dilutionStrengths button{font-size:13px;padding:6px 9px;min-height:32px}
+#kob-app.inplace-dilution #dilutionResult{margin:2px 0;padding:10px 0;border-left:0}
+#kob-app.inplace-dilution .dilution-result-heading strong{font-size:21px}
+#kob-app.inplace-dilution .dilution-dose{font-size:19px!important;margin:6px 0!important}
+#kob-app.inplace-dilution .dilution-estimate{font-size:12px;margin-bottom:5px!important}
+#kob-app.inplace-dilution .dilution-calculation{font-size:11px;position:relative}
+#kob-app.inplace-dilution .dilution-calculation[open]>p{position:absolute;top:18px;left:0;right:0;padding:12px;background:#fffdf7;border:1px solid #c7d8d0;box-shadow:0 5px 20px #173f4622;z-index:3}
+#kob-app.inplace-dilution .inline-dilution-actions button,#kob-app.inplace-dilution #dilutionDirectNext{font-size:13px;padding:8px 10px;min-height:35px;margin:0}
+#kob-app.inplace-dilution .inline-dilution-actions{gap:6px}
+@container kob (max-width:650px){#kob-app .dilution-routes{grid-template-columns:1fr}#kob-app.inplace-dilution #dilutionPlan{padding:9px;margin:5px}#kob-app.inplace-dilution #dilutionChoices>p{font-size:18px}}
+
+/* A compact stage selector keeps the brewer at the centre of the experience. */
+#kob-app .evo-app-subtitle{font-size:15px;letter-spacing:.02em;margin:5px 0 12px;color:#607e83}
+#kob-app .evo-stage-menu{position:relative;min-width:240px;z-index:12}
+#kob-app .evo-stage-menu>summary{display:flex;flex-direction:column;list-style:none;cursor:pointer;padding:8px 38px 8px 14px;border:1px solid #b8c9c1;border-radius:8px;background:#fffdf8;position:relative}
+#kob-app .evo-stage-menu>summary::-webkit-details-marker{display:none}
+#kob-app .evo-stage-menu>summary:after{content:'⌄';position:absolute;right:13px;top:12px}
+#kob-app .evo-stage-menu>summary span{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#607e83}
+#kob-app .evo-stage-menu>summary strong{font-size:15px}
+#kob-app .evo-stage-options{position:absolute;left:0;top:calc(100% + 6px);width:280px;background:#fffdf8;padding:8px;box-shadow:0 12px 32px #173f4626;border:1px solid #b8c9c1;border-radius:10px;display:grid;gap:5px}
+#kob-app .evo-stage-options button{text-align:left;width:100%;padding:11px 12px}
+#kob-app #advancedStageSettings{display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:24px;background:#e8efea;border:1px solid #d0ded5;border-radius:14px;margin:12px 0 18px}
+#kob-app #advancedStageSettings h2{font-size:28px;margin:10px 0}
+#kob-app #advancedStageSettings p{font-size:14px;line-height:1.55;margin:8px 0}
+#kob-app .stage-settings-controls fieldset{border:0;padding:0;margin:0 0 14px}
+#kob-app .stage-settings-controls legend{font-weight:bold;margin-bottom:12px}
+#kob-app .stage-settings-controls label{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0}
+#kob-app .stage-settings-controls input[type=number]{width:75px;padding:8px;border:1px solid #a9beb4;border-radius:5px;font:inherit;background:#fffdf8;color:#173f46}
+#kob-app .stage-settings-controls #stageVacuumFields label,#kob-app .stage-dilution-toggle{justify-content:flex-start}
+#kob-app #stageVacuumDiagram svg{width:240px;height:120px;display:block}
+#kob-app #stageReviewFoundation{font-size:12px;padding:6px 10px}
+#kob-app #advancedStageCue{position:absolute;top:12px;right:14px;max-width:55%;z-index:3;background:#fffdf4ee;color:#173f46;padding:10px 14px;border-radius:7px;border-left:3px solid #b9362c;font-size:14px;font-weight:bold;pointer-events:none}
+@container kob (max-width:650px){#kob-app #advancedStageSettings{grid-template-columns:1fr;gap:14px;padding:18px}#kob-app .evo-stage-menu{min-width:200px}#kob-app #advancedStageCue{font-size:12px;max-width:80%;padding:7px}}

@@ -1,0 +1,645 @@
+/* Shared rhythm for Foundation, Dilution, Temperature and Vacuum. */
+#kob-app{--layout-gap:16px;--layout-radius:12px}
+#kob-app main{max-width:1360px}
+#kob-app .intro{align-items:center;margin-bottom:12px}
+#kob-app .intro h1{font-size:clamp(26px,3.1vw,38px);line-height:1.12;margin:8px 0}
+#kob-app .evo-app-subtitle{margin:5px 0 8px;font-size:14px}
+#kob-app .evo-levels{align-items:center;gap:10px;margin-bottom:16px}
+#kob-app .evo-levels #foundationStartOver{margin-left:auto;white-space:nowrap}
+#kob-app .evo-levels #reviewFoundation{font-size:12px;padding:7px 10px;white-space:nowrap}
+#kob-app .foundation-mode{margin-bottom:12px;min-height:0}
+#kob-app .foundation-mode>div:first-child{display:none}
+#kob-app .foundation-mode:has(.foundation-switch:empty){display:none}
+#kob-app .foundation-switch{border:0;padding:0;margin-left:auto}
+#kob-app .foundation-switch:has(#brewMode[aria-pressed=true]){display:none}
+#kob-app .evo-stage-menu{min-width:250px}
+#kob-app .evo-stage-menu summary{min-height:50px;justify-content:center}
+#kob-app .evo-stage-options{width:min(310px,calc(100vw - 40px));padding:7px}
+#kob-app .evo-stage-options button{min-height:44px;font-size:14px!important;text-align:left}
+#kob-app .evo-stage-options button span{display:inline;font-size:14px}
+#kob-app #foundationChoice{padding:clamp(20px,2.4vw,30px);border-radius:var(--layout-radius)}
+#kob-app #foundationChoice .choice-heading{padding-right:218px;min-height:100px;margin-bottom:12px}
+#kob-app #foundationChoice .choice-heading h2{font-size:clamp(24px,2.7vw,32px);line-height:1.15;margin:0 0 10px}
+#kob-app #foundationChoice .choice-heading>p{font-size:14px;line-height:1.6;margin-bottom:8px}
+#kob-app .choice-heading>.foundation-kicker{display:none}
+#kob-app #foundationChoice .choice-intro-actions{top:0;width:200px;gap:7px}
+#kob-app #foundationChoice .choice-intro-actions button{font-size:12px!important;padding:9px 10px!important;min-height:38px}
+#kob-app #brewSizePicker{border-top:1px solid #dbe3dd;padding:14px 0;margin:0 0 8px}
+#kob-app #brewSizeNote{font-size:12px;margin:7px 0 0}
+#kob-app .brew-size-heading,#kob-app #brewStrengthHeading{font-size:17px;margin-bottom:10px}
+#kob-app .brew-size-options button{min-height:40px;padding:7px 16px}
+#kob-app .foundation-cups{gap:12px}
+#kob-app .foundation-cups button{padding:14px 8px;min-height:150px}
+#kob-app .foundation-cups svg{width:66px;height:56px;margin:0 auto 8px}
+#kob-app .foundation-cups strong{font-size:17px}
+#kob-app .foundation-cups button>span{font-size:12px}
+#kob-app #foundationChoice .choice-bottom{margin-top:18px;padding-top:16px;min-height:46px;align-items:center}
+#kob-app #choiceNext{min-width:180px;min-height:44px;font-size:14px}
+#kob-app #advancedStageSettings{grid-template-columns:minmax(180px,.7fr) minmax(0,1.3fr);gap:20px;background:#eef2ed;border-radius:8px;padding:18px;margin:18px 0 0}
+#kob-app #advancedStageSettings .stage-settings-copy h2{font-size:22px;margin:7px 0}
+#kob-app #advancedStageSettings .stage-settings-copy p{font-size:13px;margin:6px 0}
+#kob-app #stageReviewFoundation{display:none}
+#kob-app #stageTemperatureFields{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;margin-bottom:10px}
+#kob-app #stageTemperatureFields legend{font-size:13px;margin-bottom:6px}
+#kob-app #stageTemperatureFields label{flex-direction:column;align-items:flex-start;font-size:13px;margin:2px 0}
+#kob-app #stageTemperatureFields>p{grid-column:1/-1;font-size:12px;margin:4px 0 0}
+#kob-app #stageTemperatureFields input{width:72px;padding:6px 9px}
+#kob-app #stageVacuumFields{position:relative;border-top:1px solid #d2ded5;padding-top:12px;margin-top:12px;padding-right:145px;min-height:116px}
+#kob-app #stageVacuumFields legend{font-size:13px;margin-bottom:4px}
+#kob-app #stageVacuumFields label{font-size:13px;line-height:1.5;align-items:flex-start;gap:8px}
+#kob-app #stageVacuumFields input{margin-top:4px;accent-color:#173f46;flex-shrink:0}
+#kob-app #stageVacuumDiagram{position:absolute;right:0;top:15px;width:140px}
+#kob-app #stageVacuumDiagram svg{width:140px;height:90px}
+#kob-app #stageVacuumFields details{font-size:11px;margin-top:8px}
+#kob-app #stageVacuumFields details p{font-size:12px;margin:6px 0}
+#kob-app .stage-dilution-toggle{border-top:1px solid #d2ded5;padding-top:10px;font-size:13px;margin-bottom:0}
+#kob-app .stage-dilution-toggle input{accent-color:#173f46}
+#kob-app.brew-screen .evo-levels{margin-bottom:8px}
+#kob-app.brew-screen .evo-stage-menu summary{min-height:40px;padding:5px 35px 5px 11px}
+#kob-app.brew-screen .evo-stage-menu summary strong{font-size:14px}
+#kob-app.brew-screen .evo-stage-menu summary>span{font-size:9px}
+#kob-app.brew-screen .foundation-mode{display:none}
+#kob-app #foundationSummary{gap:10px;border-radius:9px}
+#kob-app #foundationSummaryText{min-width:0;font-size:13px;line-height:1.45}
+#kob-app #foundationEdit{white-space:nowrap;font-size:12px;padding:7px 10px;min-height:34px}
+#kob-app .playback-controls{align-items:center;gap:5px}
+#kob-app #advancedStageCue{top:10px;right:10px;max-width:55%;font-size:12px;line-height:1.45;white-space:normal;box-shadow:0 2px 8px #173f4610}
+#kob-app.inplace-dilution .simulator .simstage{grid-template-columns:minmax(245px,.85fr) minmax(0,1.65fr)!important}
+#kob-app.inplace-dilution #dilutionPlan{margin:12px;padding:14px;justify-content:center;gap:7px;min-height:0;overflow:auto;scrollbar-width:thin;align-self:stretch}
+#kob-app.inplace-dilution #dilutionChoices>p{font-size:20px;margin:5px 0 9px}
+#kob-app.inplace-dilution #dilutionResult{border-left:0;margin:0;padding:9px 0}
+#kob-app.inplace-dilution .dilution-result-heading strong{font-size:20px}
+#kob-app.inplace-dilution #dilutionPlan .dilution-dose{font-size:19px!important;margin:5px 0!important}
+#kob-app.inplace-dilution .inline-dilution-actions{gap:5px}
+#kob-app.inplace-dilution .inline-dilution-actions p{font-size:11px}
+#kob-app.inplace-dilution .simstage{grid-template-rows:minmax(0,1fr) auto auto}
+#kob-app.dilution-entry .intro{display:flex!important}
+#kob-app.dilution-entry #dilutionEntry{margin-top:0;padding:26px}
+#kob-app .dilution-routes{gap:16px}
+#kob-app .dilution-routes article{padding:20px;display:flex;flex-direction:column;align-items:flex-start}
+#kob-app .dilution-routes article p{font-size:14px;flex:1}
+#kob-app #brewRecipeOverlay .focus-facts dd{margin:4px 0 0;font-size:17px}
+#kob-app #brewRecipeOverlay .focus-facts dt{font-size:12px;color:#607e83}
+@container kob (max-width:750px){
+ #kob-app .evo-levels{flex-wrap:wrap}#kob-app .evo-levels #reviewFoundation{margin-left:auto}
+ #kob-app #foundationChoice .choice-heading{padding-right:0;min-height:0}
+ #kob-app #foundationChoice .choice-intro-actions{position:static;width:100%;display:flex;flex-direction:row;margin:12px 0}
+ #kob-app .choice-intro-actions button{flex:1}
+ #kob-app #advancedStageSettings{grid-template-columns:1fr;gap:12px}
+ #kob-app .foundation-cups{gap:7px}#kob-app .foundation-cups button{min-height:132px;padding:11px 4px}#kob-app .foundation-cups svg{width:53px;height:47px}
+ #kob-app .foundation-cups strong{font-size:14px}#kob-app .foundation-cups button>span{font-size:11px}
+ #kob-app #foundationSummary .foundation-toolbar{flex:1 0 100%;order:3}
+ #kob-app #foundationSummary .playback-controls{flex-wrap:wrap}#kob-app #foundationSummary #simPlay{min-width:120px;flex:1}
+ #kob-app.inplace-dilution .simulator .simstage{grid-template-columns:minmax(205px,1fr) minmax(0,1.15fr)!important}
+ #kob-app.inplace-dilution #dilutionPlan{padding:10px;margin:6px}
+}
+@container kob (max-width:440px){
+ #kob-app .foundation-cups{grid-template-columns:repeat(3,minmax(0,1fr))}
+ #kob-app .brew-size-options{flex-wrap:wrap}#kob-app .brew-size-options button{flex:1;padding:7px 10px}
+ #kob-app #stageVacuumFields{padding-right:0}#kob-app #stageVacuumDiagram{position:static;width:100%;display:flex;justify-content:center}
+ #kob-app .choice-bottom{flex-direction:column;align-items:stretch!important}#kob-app #choiceNext{width:100%}
+ #kob-app.inplace-dilution{height:auto!important;overflow:auto!important}#kob-app.inplace-dilution .simulator .simstage{grid-template-columns:1fr!important;grid-template-rows:auto 240px auto auto!important}
+ #kob-app.inplace-dilution #dilutionPlan{grid-column:1!important;grid-row:1!important;overflow:visible}
+ #kob-app.inplace-dilution .simstage #brewerCanvas{grid-column:1!important;grid-row:2!important}
+ #kob-app #brewRecipeOverlay .focus-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+#kob-app.adv .evo-levels,#kob-app.adv #advancedStageSettings,#kob-app.adv #advancedStageCue,#kob-app.adv #dilutionEntry{display:none!important}
+
+/* One-screen composition on laptop and desktop windows. */
+#kob-app.fit-screen{height:var(--view-height,100dvh)!important;min-height:0!important;display:flex;flex-direction:column;overflow:hidden!important}
+#kob-app.fit-screen>header{flex:0 0 auto;padding:8px 3%;min-height:54px}
+#kob-app.fit-screen>header .kodeLogo{width:110px}
+#kob-app.fit-screen>header .bhLogo{width:35px;height:35px}
+#kob-app.fit-screen>header .switch button{padding:7px 16px;font-size:14px}
+#kob-app.fit-screen>main{display:flex!important;flex-direction:column;width:100%;flex:1;min-height:0;padding:10px 3%;overflow:visible;gap:0}
+#kob-app.fit-screen main>.intro{flex:0 0 auto;margin:0 0 6px}
+#kob-app.fit-screen .intro h1{font-size:28px;margin:0;line-height:1.2}
+#kob-app.fit-screen .evo-app-subtitle{font-size:12px;margin:3px 0 0}
+#kob-app.fit-screen .evo-levels{flex:0 0 auto;margin:0 0 9px}
+#kob-app.fit-screen .evo-stage-menu summary{min-height:42px;padding:5px 34px 5px 11px}
+#kob-app.fit-screen .evo-stage-menu summary strong{font-size:14px}
+#kob-app.fit-screen .evo-stage-menu summary>span{font-size:9px}
+#kob-app.fit-screen .foundation-mode{flex:0 0 auto;margin-bottom:5px}
+#kob-app.fit-screen .foundation-mode:has(#brewMode[aria-pressed=true]){display:none}
+#kob-app.fit-screen #foundationSummary{flex:0 0 auto;margin:0 0 8px;padding:6px 12px}
+#kob-app.fit-screen.choice-screen #foundationChoice{flex:1;min-height:0;margin:0;padding:18px 22px;display:flex;flex-direction:column;position:relative}
+#kob-app.fit-screen #foundationChoice .choice-heading{min-height:76px;flex:0 0 auto;margin:0 0 8px;padding-right:218px}
+#kob-app.fit-screen #foundationChoice .choice-heading h2{font-size:26px;margin:0 0 6px}
+#kob-app.fit-screen #foundationChoice .choice-heading>p{font-size:13px;line-height:1.5;margin:0}
+#kob-app.fit-screen #foundationChoice .choice-intro-actions{position:absolute;top:0;right:0;width:200px;display:flex;flex-direction:column;margin:0;gap:5px}
+#kob-app.fit-screen #foundationChoice .choice-intro-actions button{min-height:32px;padding:6px 9px!important;font-size:12px!important}
+#kob-app.fit-screen #brewSizePicker{flex:0 0 auto;margin:0 0 8px;padding:10px 0}
+#kob-app.fit-screen .brew-size-heading{font-size:16px;margin:0 0 7px}
+#kob-app.fit-screen .brew-size-options button{min-height:35px;padding:5px 14px;font-size:16px}
+#kob-app.fit-screen #brewSizeNote{margin-top:5px;font-size:11px}
+#kob-app.fit-screen #brewStrengthHeading{flex:0 0 auto;margin:0 0 8px;font-size:16px}
+#kob-app.fit-screen .foundation-cups{flex:1;min-height:100px;max-height:170px;align-items:stretch;gap:10px;grid-template-columns:repeat(5,minmax(0,1fr))}
+#kob-app.fit-screen .foundation-cups button{min-height:0;padding:10px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#kob-app.fit-screen .foundation-cups svg{width:58px;height:49px;margin:0 0 6px;flex-shrink:0}
+#kob-app.fit-screen .foundation-cups strong{font-size:16px}
+#kob-app.fit-screen .foundation-cups button>span{font-size:11px;line-height:1.4;margin-top:3px}
+#kob-app.fit-screen #foundationChoice .choice-bottom{flex:0 0 auto;margin-top:auto;padding-top:12px;min-height:48px}
+#kob-app.fit-screen #foundationChoice .choice-bottom p{margin:0;font-size:13px}
+#kob-app.fit-screen #choiceNext{min-height:38px;padding:7px 14px;font-size:13px}
+#kob-app.fit-screen .recipe-calculation-notes{flex:0 0 auto;margin:5px 0 0;font-size:11px}
+#kob-app.fit-screen .recipe-calculation-notes[open]>div{position:absolute;bottom:32px;left:20px;right:20px;background:#fffdf8;border:1px solid #c7d8d0;border-radius:8px;padding:16px;max-height:45vh;overflow:auto;z-index:15;box-shadow:0 8px 25px #173f4626}
+/* Advanced setup sits alongside the cup choices instead of beneath them. */
+#kob-app.fit-screen.choice-screen.advanced-stage #foundationChoice{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(290px,.9fr);grid-template-rows:auto auto auto minmax(105px,1fr) auto auto;column-gap:20px;row-gap:0}
+#kob-app.fit-screen.advanced-stage #foundationChoice .choice-heading{grid-column:1/-1;grid-row:1}
+#kob-app.fit-screen.advanced-stage #brewSizePicker{grid-column:1;grid-row:2}
+#kob-app.fit-screen.advanced-stage #brewStrengthHeading{grid-column:1;grid-row:3}
+#kob-app.fit-screen.advanced-stage .foundation-cups{grid-column:1;grid-row:4;max-height:none;min-height:105px;gap:6px}
+#kob-app.fit-screen.advanced-stage .foundation-cups svg{width:47px;height:42px}
+#kob-app.fit-screen.advanced-stage .foundation-cups strong{font-size:13px}
+#kob-app.fit-screen.advanced-stage .foundation-cups button>span{font-size:10px}
+#kob-app.fit-screen.advanced-stage #advancedStageSettings{grid-column:2;grid-row:2/5;display:flex;flex-direction:column;gap:7px;margin:0;padding:12px 14px;min-height:0}
+#kob-app.fit-screen #advancedStageSettings .stage-settings-copy h2{font-size:18px;margin:4px 0}
+#kob-app.fit-screen #advancedStageSettings .stage-settings-copy p{font-size:12px;margin:0;line-height:1.45}
+#kob-app.fit-screen #advancedStageKicker{font-size:10px}
+#kob-app.fit-screen #stageTemperatureFields{margin:0 0 7px;gap:5px 12px}
+#kob-app.fit-screen #stageTemperatureFields legend{display:none}
+#kob-app.fit-screen #stageTemperatureFields label{font-size:12px}
+#kob-app.fit-screen #stageTemperatureFields input{padding:5px 8px;width:65px}
+#kob-app.fit-screen #stageTemperatureFields>p{font-size:11px;line-height:1.4;margin:3px 0}
+#kob-app.fit-screen #stageVacuumFields{margin:6px 0 0;padding:7px 0 0;min-height:0}
+#kob-app.fit-screen #stageVacuumFields legend{font-size:12px}
+#kob-app.fit-screen #stageVacuumFields label{font-size:12px;line-height:1.4;margin:5px 0}
+#kob-app.fit-screen #stageVacuumDiagram{display:none}
+#kob-app.fit-screen .stage-dilution-toggle{font-size:12px;padding-top:7px;margin:7px 0 0}
+#kob-app.fit-screen.advanced-stage #foundationChoice .choice-bottom{grid-column:1/-1;grid-row:5;margin-top:12px}
+#kob-app.fit-screen.advanced-stage #foundationChoice>.recipe-calculation-notes{grid-column:1/-1;grid-row:6}
+/* Preparation uses the available height, with stationary next/back controls. */
+#kob-app.fit-screen:not(.choice-screen) main>.intro{display:none}
+#kob-app.fit-screen #foundationPrep{flex:1;min-height:0;height:auto;max-height:var(--prep-room,550px);margin:0;padding:18px 3%;grid-template-columns:minmax(220px,.85fr) minmax(0,1.15fr);gap:24px;grid-template-rows:minmax(0,1fr)}
+#kob-app.fit-screen #foundationPrep #prepArt{max-width:min(360px,calc(var(--prep-room,500px) - 45px));width:100%;min-height:0;height:auto}
+#kob-app.fit-screen #foundationPrep .prep-copy{min-height:0;max-height:100%;overflow:visible;padding-bottom:54px}
+#kob-app.fit-screen #prepTitle{font-size:clamp(23px,2.8vw,31px);line-height:1.15;margin:8px 0 14px}
+#kob-app.fit-screen #prepText{font-size:14px;line-height:1.6;margin:0 0 12px}
+#kob-app.fit-screen #prepZoneLesson{padding-top:10px;margin-top:0;font-size:12px}
+#kob-app.fit-screen #prepZoneLesson p{font-size:12px;line-height:1.5;margin:6px 0}
+#kob-app.fit-screen #prepDots{padding-top:10px;margin-bottom:9px}
+#kob-app.fit-screen #foundationPrep .prep-actions{min-height:40px}
+#kob-app.fit-screen #foundationPrep #prepNext,#kob-app.fit-screen #foundationPrep #prepBack{min-height:40px;font-size:14px;padding:7px 13px}
+#kob-app.fit-screen #waterPractice{padding:10px 12px;margin:4px 0}
+#kob-app.fit-screen #waterPractice p{font-size:12px;line-height:1.45;margin:5px 0}
+#kob-app.fit-screen #waterPractice button{padding:6px 10px;font-size:12px}
+#kob-app.fit-screen #waterPractice .practice-readout strong{font-size:22px}
+#kob-app.fit-screen #dilutionEntry{flex:1;min-height:0;display:flex;flex-direction:column;margin:0;padding:24px}
+#kob-app.fit-screen .dilution-routes{flex:1;min-height:0;margin-top:16px}
+#kob-app.fit-screen .dilution-routes article{padding:20px}
+#kob-app.fit-screen .dilution-routes h3{font-size:22px}
+#kob-app.fit-screen #dilutionEntry h2{font-size:30px;margin:6px 0}
+#kob-app.fit-screen #dilutionEntry>p{margin:4px 0 0;font-size:14px}
+#kob-app.fit-screen main>#dilutionPlan{margin:0 0 8px;padding:14px 18px}
+#kob-app.fit-screen #dilutionPlan> .dilution-intro h2{font-size:23px}
+#kob-app.fit-screen #dilutionPlan> .dilution-intro p{font-size:13px}
+#kob-app.fit-screen #dilutionFinish{min-height:0;padding:14px 3%;gap:20px}
+#kob-app.fit-screen #dilutionFinish h2{font-size:25px}
+#kob-app.fit-screen #dilutionFinish svg{max-height:260px}
+#kob-app.fit-screen #fb45Introduction{flex:1;min-height:0;max-height:var(--intro-room,560px);margin:0}
+#kob-app.fit-screen #fb45Introduction .fb45-intro-copy{min-height:0;padding:22px}
+#kob-app.fit-screen #fb45Introduction h2{font-size:30px;margin:8px 0}
+#kob-app.fit-screen #fb45Introduction p{font-size:13px;line-height:1.55;margin:7px 0}
+#kob-app.fit-screen #fb45Introduction .fb45-intro-lead{font-size:17px}
+#kob-app.fit-screen #fb45Introduction .fb45-intro-art{min-height:0;padding:18px}
+#kob-app.fit-screen #introSlideArt{min-height:0;height:100%;max-height:var(--intro-room,560px)}
+#kob-app.fit-screen #introSlideArt>svg{max-height:100%;height:100%}
+#kob-app.fit-tight #foundationChoice .choice-heading{min-height:68px}
+#kob-app.fit-tight .foundation-cups svg{width:51px;height:43px}
+#kob-app.fit-tight .foundation-cups button{padding:8px 5px}
+#kob-app.fit-compact .evo-app-subtitle{display:none}
+#kob-app.fit-compact #foundationChoice{padding:12px 18px}
+#kob-app.fit-compact .intro h1{font-size:25px}
+#kob-app.fit-compact #foundationChoice .choice-heading h2{font-size:23px}
+#kob-app.fit-compact #brewSizePicker{padding:7px 0}
+#kob-app.fit-compact #foundationChoice .choice-bottom{padding-top:8px;margin-top:8px}
+#kob-app.fit-compact #advancedStageSettings .stage-settings-copy p,#kob-app.fit-compact #stageTemperatureFields>p{display:none}
+#kob-app.fit-compact #prepText{font-size:13px;line-height:1.45}
+#kob-app.fit-compact #prepTitle{font-size:24px;margin:6px 0 10px}
+#kob-app.fit-compact #prepZoneLesson{padding-top:6px}
+
+#kob-app.fit-screen #dilutionCalculatorOption{flex:0 0 auto;margin:0 0 8px;padding:9px 14px;gap:14px}
+#kob-app.fit-screen #dilutionCalculatorOption strong{font-size:14px}
+#kob-app.fit-screen #dilutionCalculatorOption p{font-size:12px;margin:3px 0 0}
+#kob-app.fit-screen #dilutionCalculatorOption button{font-size:12px;min-height:34px;padding:6px 12px}
+
+/* Review recipe explicitly; keep controls reachable when content needs more room. */
+#kob-app.fit-screen>main{overflow-x:visible;overflow-y:auto;scrollbar-width:thin}
+#kob-app #brewRecipeOverlay{box-sizing:border-box;width:min(690px,calc(100vw - 32px));max-height:calc(100dvh - 40px);padding:22px 24px}
+#kob-app #brewRecipeOverlay>h2{margin:2px 0 16px;font-size:26px;line-height:1.2}
+#kob-app #brewRecipeOverlayContent>p:first-child{font-size:18px;margin:0 0 18px}
+#kob-app #brewRecipeOverlayContent .focus-facts{border:0;padding:0;margin:0;gap:16px 22px}
+#kob-app #brewRecipeOverlayContent .focus-facts>div{min-width:0}
+#kob-app #brewRecipeOverlayContent .focus-facts dd{font-size:17px;line-height:1.4}
+#kob-app #brewRecipeOverlayContent>p{font-size:13px;line-height:1.6}
+#kob-app #brewRecipeOverlayContent .recipe-target-note{border-top:1px solid #d6dfd9;padding-top:14px;margin-top:18px}
+#kob-app .recipe-overlay-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;padding-top:16px;border-top:1px solid #d6dfd9}
+#kob-app .recipe-overlay-actions button{min-height:42px;font-size:14px;padding:9px 14px}
+#kob-app .recipe-overlay-actions button.primary{background:#b9362c!important}
+/* Stable dilution composition: controls stay on the left; the vessel keeps 85:101. */
+#kob-app.inplace-dilution .simulator .simstage{grid-template-columns:clamp(255px,29%,305px) minmax(0,1fr)!important;align-items:stretch;min-height:390px}
+#kob-app.inplace-dilution #dilutionPlan{justify-content:flex-start;margin:12px;padding:14px;gap:10px;overflow:visible}
+#kob-app.inplace-dilution #dilutionChoices>p{margin:5px 0 10px;font-size:22px}
+#kob-app.inplace-dilution #dilutionResult{min-height:125px;padding:13px 0 8px}
+#kob-app.inplace-dilution #dilutionStrengths{min-height:70px;align-content:flex-start}
+#kob-app.inplace-dilution .inline-dilution-actions{min-height:100px;justify-content:flex-start}
+#kob-app.inplace-dilution #dilutionDirectNext{align-self:stretch;min-height:40px}
+#kob-app.inplace-dilution .simstage #brewerCanvas{aspect-ratio:85/101;width:auto!important;height:100%!important;max-width:100%;max-height:100%;object-fit:contain;justify-self:center;align-self:center}
+#kob-app #dilutionFinish .dilution-vessel{width:min(100%,290px);aspect-ratio:85/101;max-height:100%;justify-self:center;display:flex;align-items:center;justify-content:center}
+#kob-app #dilutionFinish .dilution-vessel svg{width:100%;height:100%;max-height:none;object-fit:contain;overflow:visible}
+#kob-app.inplace-dilution .simstage .brew-scale{grid-column:1/-1;grid-row:2}
+#kob-app.inplace-dilution .simstage .simstatus{grid-column:1/-1;grid-row:3}
+@container kob (max-width:600px){
+ #kob-app .recipe-overlay-actions{flex-wrap:wrap}#kob-app .recipe-overlay-actions button{flex:1}
+ #kob-app.inplace-dilution .simulator .simstage{grid-template-columns:1fr!important;grid-template-rows:auto 300px auto auto!important;min-height:0}
+ #kob-app.inplace-dilution #dilutionPlan{grid-column:1!important;grid-row:1!important}
+ #kob-app.inplace-dilution .simstage #brewerCanvas{grid-column:1!important;grid-row:2!important}
+ #kob-app.inplace-dilution .simstage .brew-scale{grid-row:3}#kob-app.inplace-dilution .simstage .simstatus{grid-row:4}
+ #kob-app.inplace-dilution #dilutionStrengths{min-height:0}#kob-app.inplace-dilution #dilutionResult{min-height:0}
+}
+
+/* The stage selector must not inherit the old disclosure spacing. */
+#kob-app .evo-stage-menu{margin:0;padding:0;border:0;font-size:inherit}
+#kob-app .evo-page-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;flex:0 0 auto;margin:0 0 14px;min-height:0}
+#kob-app .evo-page-heading>.intro,#kob-app:not(.adv):not(.actualMode) .evo-page-heading>.intro{flex:1;min-width:0;margin:0;padding:0}
+#kob-app .evo-page-heading>.evo-levels{flex:0 0 auto;margin:0;padding:0;align-items:center;justify-content:flex-end}
+#kob-app .evo-page-heading .intro h1{margin:0;font-size:clamp(25px,2.8vw,34px)}
+#kob-app .evo-page-heading .evo-app-subtitle{margin:3px 0 0}
+#kob-app .evo-page-heading .evo-stage-menu{min-width:250px}
+#kob-app.fit-screen .evo-page-heading{margin:0 0 10px;gap:20px}
+#kob-app.fit-screen .evo-page-heading>.intro,#kob-app.fit-screen .evo-page-heading>.evo-levels{margin:0}
+#kob-app.brew-screen .evo-page-heading>.intro,#kob-app.fit-screen:not(.choice-screen):not(.dilution-entry) .evo-page-heading>.intro{display:none!important}
+#kob-app.brew-screen .evo-page-heading>.evo-levels{flex:1;justify-content:flex-start}
+#kob-app.adv .evo-page-heading .intro{display:flex!important}
+@container kob (max-width:650px){#kob-app .evo-page-heading{flex-wrap:wrap;gap:10px}#kob-app .evo-page-heading>.intro{flex:1 0 100%}#kob-app .evo-page-heading>.evo-levels{flex:1;justify-content:flex-start}#kob-app .evo-page-heading .evo-stage-menu{min-width:220px}}
+
+/* A centred app identity, with stage navigation on its own compact row. */
+#kob-app .evo-page-heading{flex-direction:column;align-items:stretch;gap:12px;margin-bottom:12px}
+#kob-app .evo-page-heading>.intro,#kob-app:not(.adv):not(.actualMode) .evo-page-heading>.intro{flex:0 0 auto;display:flex;justify-content:center;text-align:center;width:100%;margin:0}
+#kob-app .evo-page-heading .intro h1{font-size:clamp(30px,3.4vw,42px);line-height:1.12}
+#kob-app .evo-page-heading .evo-app-subtitle{max-width:none;font-size:14px;line-height:1.5;margin:5px 0 0}
+#kob-app .evo-page-heading>.evo-levels{width:100%;flex:0 0 auto;justify-content:flex-start;margin:0}
+#kob-app.fit-screen .evo-page-heading{gap:9px;margin-bottom:10px}
+#kob-app.fit-screen .evo-page-heading .intro h1{font-size:32px}
+#kob-app.fit-screen .evo-page-heading .evo-app-subtitle{display:block;font-size:12px;margin-top:4px}
+#kob-app.brew-screen .evo-page-heading{gap:0;margin-bottom:8px}
+#kob-app.brew-screen .evo-page-heading>.intro,#kob-app.fit-screen:not(.choice-screen):not(.dilution-entry) .evo-page-heading>.intro{display:none!important}
+@container kob (max-width:650px){#kob-app .evo-page-heading{gap:10px}#kob-app .evo-page-heading .intro h1{font-size:29px}#kob-app .evo-page-heading .evo-app-subtitle{font-size:12px;padding-inline:8px}}
+
+/* App title lives in the brand banner; subtitle has more presence below. */
+#kob-app>header,#kob-app.fit-screen>header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;column-gap:22px}
+#kob-app>header .brandLogos{grid-column:1;justify-self:start;min-width:0}
+#kob-app>header .banner-app-title{grid-column:2;margin:0;padding:0;color:#fffdf8;font-size:clamp(23px,2.6vw,34px);line-height:1.15;text-align:center;white-space:nowrap}
+#kob-app>header>.switch{grid-column:3;justify-self:end}
+#kob-app .evo-page-heading .evo-app-subtitle,#kob-app.fit-screen .evo-page-heading .evo-app-subtitle{font-size:16px;line-height:1.45;margin:3px 0 0;color:#526f75}
+#kob-app .evo-page-heading .intro{min-height:0}
+#kob-app.brew-screen>header .banner-app-title{font-size:24px}
+@container kob (max-width:700px){#kob-app>header,#kob-app.fit-screen>header{grid-template-columns:1fr auto;gap:8px 12px}#kob-app>header .banner-app-title{grid-column:1/-1;grid-row:2;font-size:26px;padding:3px 0}#kob-app>header>.switch{grid-column:2;grid-row:1}#kob-app .evo-page-heading .evo-app-subtitle,#kob-app.fit-screen .evo-page-heading .evo-app-subtitle{font-size:14px}}
+
+/* Calculation information cannot cover or push away dilution actions. */
+#kob-app #dilutionCalculationDetails{box-sizing:border-box;width:min(490px,calc(100vw - 32px));max-height:85dvh;overflow:auto;padding:22px;border:1px solid #c7d8d0;border-radius:12px;background:#fffdf8;color:#173f46}
+#kob-app #dilutionCalculationDetails::backdrop{background:#173f4666}
+#kob-app #dilutionCalculationDetails form{margin:0;text-align:right}
+#kob-app #dilutionCalculationDetails h2{font-size:24px;margin:8px 0 18px}
+#kob-app #dilutionCalculationDetails dl>div{display:flex;justify-content:space-between;gap:16px;padding:7px 0;border-bottom:1px solid #e0e7e1}
+#kob-app #dilutionCalculationDetails dd{margin:0;font-weight:bold}
+#kob-app #dilutionCalculationDetails p{font-size:13px;line-height:1.6;margin:12px 0}
+#kob-app #dilutionPlan .dilution-calculation-button{display:block;border:0;background:transparent;font-size:11px;text-decoration:underline;color:#526f75;min-height:26px;padding:3px 0;margin:3px 0 0}
+#kob-app.inplace-dilution #dilutionPlan{display:flex;flex-direction:column;justify-content:flex-start;gap:8px;padding:12px 14px;min-height:0;overflow-y:auto;overflow-x:hidden}
+#kob-app.inplace-dilution #dilutionChoices{flex:0 0 auto}
+#kob-app.inplace-dilution #dilutionChoices>p{font-size:21px;line-height:1.15;margin:5px 0 10px}
+#kob-app.inplace-dilution #dilutionStrengths{min-height:0;margin:0;gap:5px}
+#kob-app.inplace-dilution #dilutionStrengths button{font-size:12px;padding:5px 9px;min-height:32px}
+#kob-app.inplace-dilution #dilutionResult{min-height:0;padding:10px 0 6px;margin:0;flex:0 0 auto}
+#kob-app.inplace-dilution .dilution-result-heading strong{font-size:20px}
+#kob-app.inplace-dilution #dilutionPlan .dilution-dose{font-size:19px!important;margin:5px 0!important}
+#kob-app.inplace-dilution .dilution-estimate{font-size:12px;margin:4px 0!important}
+#kob-app.inplace-dilution .inline-dilution-actions{min-height:0;flex:0 0 auto;gap:7px;border-top:1px solid #d6dfd9;padding-top:10px}
+#kob-app.inplace-dilution .inline-dilution-actions button{min-height:38px;line-height:1.35;white-space:normal;padding:8px 10px;font-size:13px}
+#kob-app.inplace-dilution .inline-dilution-actions p{font-size:11px;line-height:1.4;margin:1px 0}
+#kob-app.inplace-dilution #dilutionDirectNext{flex:0 0 auto;min-height:38px;margin:0}
+
+/* Journey review: one route for learning, repeat brewing and exploration. */
+#kob-app #brewJourney{flex:0 0 auto;margin:0 0 9px;padding:0;min-height:0}
+#kob-app #brewJourney[hidden]{display:none}
+#kob-app #brewJourney ol{display:flex;align-items:center;gap:20px;list-style:none;padding:0;margin:0}
+#kob-app #brewJourney li{color:#61787c;font-size:12px;line-height:1.4;padding:3px 0;border-bottom:2px solid transparent}
+#kob-app #brewJourney li[aria-current=step]{color:#173f46;font-weight:bold;border-color:#b7352c}
+#kob-app #brewJourney small{font-size:10px;font-weight:normal;margin-left:3px}
+#kob-app #journeyInstruction{font-size:11px;color:#526f75;line-height:1.35;margin:4px 0 0}
+#kob-app .evo-stage-options button{display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:10px 12px;white-space:normal}
+#kob-app .evo-stage-options button strong{font-size:15px}
+#kob-app .evo-stage-options button small{font-size:10px;color:#657e76}
+#kob-app .evo-stage-options button span{font-size:12px!important;line-height:1.35;font-weight:normal}
+#kob-app .evo-stage-options button[aria-pressed=true] small{color:inherit}
+#kob-app #recipePreparationHelp{padding:12px 0;border-top:1px solid #d6dfd9}
+#kob-app #recipePreparationHelp p{font-size:13px;line-height:1.5;margin:0 0 9px}
+#kob-app #recipePreparationHelp button{min-height:38px;font-size:13px}
+#kob-app #brewRecipeOverlay .recipe-overlay-actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+#kob-app.fit-compact #journeyInstruction{display:none}
+@container kob (max-width:600px){#kob-app #brewJourney ol{gap:12px;flex-wrap:wrap}#kob-app #brewJourney small{display:block;margin:0}#kob-app #brewJourney li{font-size:11px}}
+
+/* Foundation is the base; additions are revealed on request. */
+#kob-app .evo-stage-menu[hidden]{display:none!important}
+#kob-app .foundation-home{font-size:15px;font-weight:bold;min-height:38px;background:#173f46;color:#fffdf8;border:1px solid #173f46;padding:8px 17px}
+#kob-app #reviewFoundation{display:none!important}
+#kob-app #brewCustomise{margin:12px 0 0;padding:0;border:1px solid #d4dfd7;border-radius:9px;background:#f6f5ef;flex:0 0 auto}
+#kob-app #brewCustomise>summary{padding:11px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;list-style:none;font-size:14px}
+#kob-app #brewCustomise>summary:after{content:'+';font-size:20px}
+#kob-app #brewCustomise[open]>summary:after{content:'−'}
+#kob-app #customiseSummary{font-size:11px;color:#61787c;margin-left:auto}
+#kob-app #brewCustomise>p{font-size:12px;margin:0 14px 10px;color:#526f75}
+#kob-app .brew-addition-options{display:flex;gap:12px;padding:0 14px 12px}
+#kob-app .brew-addition-options label{flex:1;display:flex;align-items:flex-start;gap:9px;font-size:13px;cursor:pointer}
+#kob-app .brew-addition-options input{width:17px;height:17px;margin:2px 0 0;accent-color:#173f46;flex:0 0 auto}
+#kob-app .brew-addition-options small{display:block;font-size:11px;line-height:1.45;color:#526f75;margin-top:3px}
+#kob-app #brewCustomise #advancedStageSettings{margin:0;padding:12px 14px;border:0;border-top:1px solid #d4dfd7;background:transparent;display:block}
+#kob-app #brewCustomise #advancedStageSettings[hidden]{display:none!important}
+#kob-app #brewCustomise .stage-settings-copy{display:none}
+#kob-app #brewCustomise .stage-settings-controls{display:flex;gap:15px;flex-wrap:wrap}
+#kob-app #brewCustomise fieldset{flex:1;min-width:220px;margin:0}
+#kob-app #stageVacuumDiagram{max-width:220px}
+#kob-app.fit-screen.advanced-stage #foundationChoice{display:flex;flex-direction:column;overflow-y:auto}
+#kob-app #foundationUtilities{display:flex;justify-content:flex-end;align-items:center;gap:8px;font-size:11px;margin-top:8px;flex:0 0 auto;color:#61787c}
+#kob-app #foundationUtilities button{font-size:11px;min-height:28px;padding:3px 0;border:0;background:transparent;text-decoration:underline;color:#173f46}
+#kob-app #journeyInstruction{display:none}
+@container kob (max-width:600px){#kob-app .brew-addition-options{flex-direction:column}#kob-app #customiseSummary{max-width:140px}#kob-app #foundationUtilities{justify-content:flex-start}}
+
+/* Two entry routes, shared recipe and brewing workspace. */
+#kob-app #brewJourney,#kob-app .evo-page-heading,#kob-app .foundation-mode{display:none!important}
+#kob-app.welcome-screen main>*:not(#brewWelcome){display:none!important}
+#kob-app #brewWelcome[hidden],#kob-app #brewRouteBar[hidden],#kob-app #learningFinished[hidden]{display:none!important}
+#kob-app #brewWelcome{background:#fffdf8;border:1px solid #d6dfd9;border-radius:15px;padding:clamp(24px,4vw,48px);margin:12px 0;max-width:1120px;width:100%;align-self:center;box-sizing:border-box}
+#kob-app #brewWelcome>h2{font-size:clamp(28px,3.2vw,40px);line-height:1.15;margin:12px 0}
+#kob-app #brewWelcome>p{font-size:16px;color:#526f75;margin:0 0 24px}
+#kob-app .welcome-routes{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+#kob-app .welcome-routes article{border:1px solid #d6dfd9;border-radius:12px;padding:25px;background:#f6f5ef;display:flex;flex-direction:column;align-items:flex-start}
+#kob-app .welcome-routes article>span{font-size:11px;letter-spacing:1.5px;color:#61787c;font-weight:bold}
+#kob-app .welcome-routes h3{font-size:27px;margin:12px 0}
+#kob-app .welcome-routes p{font-size:15px;line-height:1.6;margin:0 0 22px;flex:1}
+#kob-app .welcome-routes button{font-size:16px;min-height:45px;padding:10px 18px}
+#kob-app .welcome-routes small{margin-top:12px;font-size:11px;color:#61787c}
+#kob-app #welcomeDiscover{border:0;background:transparent;text-decoration:underline;font-size:13px;padding:15px 0 0;min-height:35px;color:#173f46}
+#kob-app #brewRouteBar{display:flex;align-items:center;gap:16px;flex:0 0 auto;margin:0 0 10px}
+#kob-app #brewRouteBar button{border:0;background:transparent;padding:4px 0;min-height:30px;font-size:12px;color:#526f75}
+#kob-app #brewRouteName{font-size:16px}
+#kob-app #brewRouteHint{font-size:12px;color:#61787c;margin-left:auto}
+#kob-app #foundationChoice .choice-intro-actions{display:none!important}
+#kob-app #foundationChoice .choice-heading,#kob-app.fit-screen #foundationChoice .choice-heading{padding-right:0;min-height:0;margin-bottom:12px}
+#kob-app #brewRecipeOverlay #brewCustomise{margin:12px 0}
+#kob-app.learning-run #dilutionAfterBrew,#kob-app.learning-run #foundationUtilities{display:none!important}
+#kob-app #learningFinished{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px;background:#e7eeea;border:1px solid #d6dfd9;border-radius:10px;margin-top:10px;flex:0 0 auto}
+#kob-app #learningFinished p{font-size:12px;margin:4px 0 0;color:#526f75}
+#kob-app #learningFinished button{min-height:40px;font-size:14px}
+@container kob (max-width:650px){#kob-app .welcome-routes{grid-template-columns:1fr;gap:14px}#kob-app .welcome-routes article{padding:18px}#kob-app #brewRouteBar{flex-wrap:wrap;gap:8px 14px}#kob-app #brewRouteHint{flex:1 0 100%;margin:0}#kob-app #learningFinished{flex-direction:column;align-items:stretch}}
+#kob-app.learning-run #brewCustomise{display:none!important}
+#kob-app #userSettingsButton{position:absolute;right:255px;top:25px;color:#fffdf8;background:transparent;border:1px solid #8aa59a;padding:7px 10px;font-size:12px;min-height:32px}
+#kob-app>header{position:relative}
+#kob-app #userSettings{width:min(430px,90vw);max-height:85dvh;overflow:auto;border:1px solid #d6dfd9;border-radius:14px;background:#fffdf8;color:#173f46;padding:22px}
+#kob-app #userSettings::backdrop{background:#173f4677}
+#kob-app #userSettings h2{font-size:26px;margin:10px 0}
+#kob-app #userSettings p{font-size:12px;line-height:1.5;color:#526f75}
+#kob-app #userSettings label{display:flex;align-items:center;gap:10px;margin:14px 0;font-size:14px}
+#kob-app #userSettings select{margin-left:auto;padding:6px;font-size:13px;max-width:175px}
+#kob-app #userSettings input{width:17px;height:17px;accent-color:#173f46}
+#kob-app #userSettings button{font-size:13px;min-height:35px;padding:7px 10px}
+#kob-app #userSettings .settings-close{float:right}
+#kob-app.user-reduced-motion *,#kob-app.user-reduced-motion *::before,#kob-app.user-reduced-motion *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+#kob-app.user-large-text #foundationChoice p,#kob-app.user-large-text .prep-copy p,#kob-app.user-large-text #foundationPrompt p{font-size:17px!important;line-height:1.6}
+@container kob (max-width:850px){#kob-app #userSettingsButton{position:static;grid-column:1/-1;justify-self:end;margin:0 0 4px;color:#fffdf8}}
+#kob-app #myRecipesButton{position:absolute;right:335px;top:25px;font-size:12px;min-height:32px;padding:7px 10px;color:#fffdf8;background:transparent;border:1px solid #8aa59a}
+#kob-app #saveRecipeDialog,#kob-app #recipeLibrary{width:min(480px,90vw);max-height:85dvh;overflow:auto;padding:22px;border:1px solid #d6dfd9;border-radius:14px;background:#fffdf8;color:#173f46}
+#kob-app #saveRecipeDialog::backdrop,#kob-app #recipeLibrary::backdrop{background:#173f4677}
+#kob-app #saveRecipeDialog label{display:block;margin:14px 0;font-size:14px}
+#kob-app #saveRecipeDialog input,#kob-app #saveRecipeDialog textarea{display:block;width:100%;box-sizing:border-box;padding:9px;margin-top:5px;border:1px solid #aebfba;border-radius:6px;font:inherit}
+#kob-app #recipeLibrary article{padding:14px 0;border-bottom:1px solid #d6dfd9}
+#kob-app #recipeLibrary p{font-size:12px;line-height:1.5;white-space:pre-wrap}
+#kob-app #recipeLibrary button,#kob-app #saveRecipeDialog button,#kob-app #saveRecipeButton{font-size:12px;min-height:34px;padding:6px 10px;margin:4px}
+#kob-app .recipe-import{display:block;font-size:13px;margin:12px 0}
+@container kob (max-width:1000px){#kob-app #myRecipesButton{position:static;grid-column:1/-1;justify-self:end;margin:0 0 4px}}
+#kob-app #saveRecipeSummary{background:#eef2ec;border-radius:8px;padding:12px;margin:14px 0;font-size:13px}
+#kob-app #saveRecipeSummary dl{margin:10px 0}
+#kob-app #saveRecipeSummary dl>div{display:flex;justify-content:space-between;gap:15px;border-bottom:1px solid #d6dfd9;padding:5px 0}
+#kob-app #saveRecipeSummary dt{color:#526f75}
+#kob-app #saveRecipeSummary dd{margin:0;text-align:right}
+#kob-app #saveRecipeSummary small{font-size:10px;color:#526f75}
+#kob-app #prepText.learning-bullets{white-space:pre-line;line-height:1.85;font-size:clamp(14px,1.5vw,18px);margin:12px 0}
+#kob-app .learning-diagram{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0}
+#kob-app .learning-diagram>svg{width:100%;max-height:390px}
+#kob-app .learning-art-caption{font-size:12px!important;line-height:1.4;color:#526f75;text-align:center;margin:8px 0 0;padding:7px 10px;border-top:2px solid #9bb4a6}
+#kob-app.learning-run #prepArt:has(svg[aria-label^="Brewing kit"]){max-width:440px!important;width:100%!important}
+#kob-app .learning-diagram>svg[aria-label^="Brewing kit"]{max-height:450px;overflow:hidden}
+#kob-app .learning-diagram:has(svg[aria-label^="Brewing kit"]) .learning-art-caption{display:none}
+#kob-app.learning-run #prepZoneLesson{margin-top:14px;padding-top:12px}
+#kob-app.learning-run #prepZoneLesson>p,#kob-app.learning-run #prepZoneWhy{font-size:12px;line-height:1.5;margin:7px 0}
+#kob-app.learning-run #prepZoneLesson .zone-why{margin:6px 0 0;padding:0;border:0}
+#kob-app.learning-run #prepZoneLesson summary{font-size:11px;pointer-events:none;list-style:none;color:#61787c}
+#kob-app.learning-run #foundationPrep.pouring-lesson #waterPractice{background:transparent;border:0;border-top:1px solid #d6dfd9;border-radius:0;padding:12px 0;margin-top:16px}
+#kob-app.learning-run #foundationPrep.pouring-lesson #waterPractice progress{display:none}
+#kob-app.learning-run #foundationPrep.pouring-lesson #practiceStatus{font-size:12px;line-height:1.4;margin:8px 0}
+#kob-app.learning-run #foundationPrep.pouring-lesson #practiceWeight{font-size:23px}
+#kob-app.learning-run #foundationPrep.pouring-lesson .learning-art-caption{display:none}
+#kob-app.learning-run #foundationPrep.pouring-lesson #prepText{line-height:1.8;margin:15px 0}
+#kob-app .welcome-routes article[hidden]{display:none!important}
+#kob-app .welcome-routes.single-route{grid-template-columns:1fr;max-width:620px}
+#kob-app #foundationUtilities{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 15px;padding:12px 14px;background:#eaf0eb;border:1px solid #d6dfd9;border-radius:8px;flex:0 0 auto}
+#kob-app #foundationUtilities strong{display:block;font-size:13px;color:#173f46}
+#kob-app #foundationUtilities span{display:block;font-size:11px;margin-top:4px;line-height:1.4}
+#kob-app #foundationUtilities button{font-size:12px;min-height:36px;padding:7px 12px;border:1px solid #aebfba;border-radius:6px;text-decoration:none;white-space:nowrap;background:#fffdf8}
+@container kob (max-width:600px){#kob-app #foundationUtilities{flex-wrap:wrap}}
+#kob-app #brewRecipeOverlay{width:min(620px,92vw);padding:22px;max-height:90dvh}
+#kob-app #brewRecipeOverlay h2{font-size:27px;margin:8px 0 16px}
+#kob-app #brewRecipeOverlay .recipe-essential{font-size:17px;line-height:1.6;margin:0 0 15px}
+#kob-app .recipe-three-steps{list-style:decimal;padding-left:24px;margin:0 0 16px}
+#kob-app .recipe-three-steps li{padding:8px 0 8px 5px;font-size:15px}
+#kob-app .recipe-three-steps li span{float:right;color:#526f75}
+#kob-app .recipe-technique{margin:0;padding:10px 0;border-top:1px solid #d6dfd9}
+#kob-app .recipe-technique summary{font-size:13px;cursor:pointer}
+#kob-app #recipePreparationHelp{padding:8px 0}
+#kob-app #recipePreparationHelp p{display:none}
+#kob-app #recipePreparationHelp button,#kob-app #saveRecipeButton{border:0;background:transparent;text-decoration:underline;padding:4px 0;min-height:28px;font-size:12px}
+#kob-app #brewRecipeOverlay .recipe-overlay-actions{position:sticky;bottom:0;background:#fffdf8;padding:12px 0 5px;margin-top:8px;border-top:1px solid #d6dfd9}
+#kob-app #brewRecipeOverlay .recipe-overlay-actions button{min-height:40px;font-size:14px;padding:8px 14px}
+#kob-app #recipeDilutionPlan{padding:12px 14px;border-top:1px solid #d6dfd9}
+#kob-app #recipeDilutionPlan label{display:flex;align-items:center;gap:9px;font-size:13px}
+#kob-app #recipeDilutionPlan input{width:17px;height:17px;accent-color:#173f46}
+#kob-app #planDilutionFields{margin-top:12px}
+#kob-app #planDilutionFields[hidden]{display:none}
+#kob-app #planDilutionStrength{padding:6px;margin-left:auto;font-size:13px}
+#kob-app #planDilutionSummary{font-size:13px;line-height:1.6;color:#526f75;margin:10px 0 0}
+#kob-app #foundationChoice>#recipeDilutionPlan{margin:12px 0;padding:12px 14px;border:1px solid #d6dfd9;border-radius:8px;background:#f6f5ef;flex:0 0 auto}
+#kob-app.learning-run #recipeDilutionPlan{display:none!important}
+#kob-app .planned-dilution-review{font-size:14px;line-height:1.5;background:#e7eeea;border-left:3px solid #b7352c;padding:10px 12px;margin:12px 0}
+#kob-app #recipeLibrary>form{float:right}
+#kob-app #recipeLibrary h2{font-size:25px;margin:10px 0 20px}
+#kob-app #recipeCount{font-size:12px;font-weight:normal;color:#61787c;margin-left:10px}
+#kob-app #savedRecipeList article{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:13px 0}
+#kob-app #savedRecipeList article>div:first-child{min-width:0}
+#kob-app #savedRecipeList strong{font-size:14px;overflow-wrap:anywhere}
+#kob-app #savedRecipeList p{margin:5px 0;font-size:11px}
+#kob-app .recipe-row-actions{display:flex;align-items:center;gap:5px;flex:0 0 auto}
+#kob-app .recipe-row-actions details{margin:0;padding:0;border:0}
+#kob-app .recipe-row-actions summary{cursor:pointer;padding:8px;font-size:14px}
+#kob-app #savedRecipeList details summary{font-size:11px;cursor:pointer}
+#kob-app .recipe-backup{margin:16px 0 0;padding:10px 0;border-top:1px solid #d6dfd9}
+#kob-app .recipe-backup>summary{font-size:12px;cursor:pointer}
+/* Compact KODE recipe card. */
+#kob-app #brewRecipeOverlay{width:min(460px,calc(100vw - 32px));max-height:calc(100dvh - 32px);margin:auto;padding:0;border:1px solid #b8c9bf;border-radius:16px;background:#fffdf8;color:#173f46;box-shadow:0 22px 75px #0e303844;overflow:auto}
+#kob-app #brewRecipeOverlay>form{position:absolute;right:12px;top:12px;margin:0;z-index:2}
+#kob-app #brewRecipeOverlay>form button{border:1px solid #9fb6aa;background:transparent;color:#fffdf8;font-size:11px;min-height:29px;padding:4px 8px}
+#kob-app #brewRecipeOverlay>h2{background:#173f46;color:#fffdf8;padding:36px 22px 20px;margin:0;font-size:28px;line-height:1.15;letter-spacing:-.5px}
+#kob-app #brewRecipeOverlay>h2:before{content:'KODE / FOUNDATION';display:block;font-size:10px;letter-spacing:2px;font-weight:normal;color:#bdcec4;margin-bottom:9px}
+#kob-app #brewRecipeOverlayContent{padding:18px 20px 0}
+#kob-app #brewRecipeOverlay .recipe-essential{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:1px;margin:0 0 18px;border:1px solid #d6dfd9;border-radius:8px;overflow:hidden;background:#d6dfd9;font-size:14px}
+#kob-app .recipe-essential>div{background:#eef2ea;padding:12px 10px}
+#kob-app .recipe-essential span{display:block;font-size:9px;letter-spacing:1px;color:#61787c;margin-bottom:5px}
+#kob-app .recipe-essential strong{font-size:24px;line-height:1.2;display:block}
+#kob-app .recipe-essential strong small{font-size:12px;font-weight:normal}
+#kob-app .recipe-essential>div:last-child strong{font-size:19px}
+#kob-app .recipe-three-steps{counter-reset:brew-step;padding:0;margin:0 0 14px;list-style:none}
+#kob-app .recipe-three-steps li{counter-increment:brew-step;display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #e0e5dc;font-size:13px}
+#kob-app .recipe-three-steps li:before{content:'0' counter(brew-step);font-size:11px;font-weight:bold;color:#b7352c}
+#kob-app .recipe-three-steps li span{margin-left:auto;float:none;font-size:13px}
+#kob-app #brewRecipeOverlay .recipe-technique{padding:8px 0;margin:0;border:0}
+#kob-app #brewRecipeOverlay .recipe-technique summary{font-size:11px}
+#kob-app #brewRecipeOverlay #brewCustomise{margin:8px 20px;font-size:12px}
+#kob-app #brewRecipeOverlay #brewCustomise>summary{padding:9px 11px;font-size:12px}
+#kob-app #brewRecipeOverlay #recipePreparationHelp{margin:0 20px;padding:2px 0;border:0}
+#kob-app #brewRecipeOverlay .recipe-overlay-actions{margin:8px 0 0;padding:12px 20px;background:#fffdf8;bottom:0;z-index:3}
+#kob-app #brewRecipeOverlay .recipe-overlay-actions button{font-size:12px;min-height:38px}
+#kob-app #brewRecipeOverlay>#saveRecipeButton{margin:0 20px 12px;min-height:25px;font-size:11px}
+#kob-app #brewRecipeOverlay .planned-dilution-review{font-size:12px;padding:9px 10px;margin:10px 0}
+#kob-app #recipeLibrary{width:min(540px,92vw);padding:20px;background:#f6f3ea}
+#kob-app #savedRecipeList article{border:1px solid #d6dfd9;border-radius:9px;margin:10px 0;padding:14px;background:#fffdf8;border-left:4px solid #173f46}
+#kob-app #savedRecipeList strong{font-size:15px}
+#kob-app #savedRecipeList .recipe-row-actions button{min-height:35px;font-size:12px}
+#kob-app #recipeExportDialog{width:min(410px,90vw);max-height:85dvh;overflow:auto;padding:24px;border:1px solid #d6dfd9;border-radius:14px;background:#fffdf8;color:#173f46}
+#kob-app #recipeExportDialog::backdrop{background:#173f4677}
+#kob-app #recipeExportDialog h2{font-size:25px;margin:15px 0}
+#kob-app #recipeExportDialog p{font-size:13px;line-height:1.6}
+#kob-app #recipeExportDialog label{display:block;font-size:13px;margin:15px 0}
+#kob-app #exportRecipeFilename{display:block;box-sizing:border-box;width:100%;padding:10px;margin-top:6px;border:1px solid #aebfba;border-radius:6px;font:inherit}
+#kob-app #recipeExportDialog button{font-size:13px;min-height:36px;padding:8px 12px}
+#kob-app #foundationChoice{position:relative}
+#kob-app #foundationChoice .choice-heading,#kob-app.fit-screen #foundationChoice .choice-heading{padding-right:285px;min-height:83px}
+#kob-app #foundationUtilities{position:absolute;top:20px;right:22px;width:250px;padding:10px 12px;margin:0;display:block}
+#kob-app #foundationUtilities span{display:none}
+#kob-app #foundationUtilities button{margin-top:6px;min-height:29px;font-size:11px;padding:4px 8px}
+#kob-app #recipePrintPreview{width:min(650px,94vw);max-height:92dvh;overflow:auto;padding:20px;background:#fffdf8;color:#173f46;border:1px solid #b8c9bf;border-radius:14px}
+#kob-app #recipePrintPreview::backdrop{background:#173f4677}
+#kob-app #recipePrintPreview p{font-size:12px;line-height:1.5}
+#kob-app #printRecipeFrame{display:block;width:100%;height:440px;border:1px solid #d6dfd9;margin:15px 0}
+#kob-app #recipePrintPreview button,#kob-app #printCurrentRecipe{font-size:12px;min-height:32px;padding:6px 10px}
+#kob-app #printCurrentRecipe{margin:0 20px 12px}
+@container kob (max-width:700px){#kob-app #foundationUtilities{position:static;width:auto;margin:0 0 12px}#kob-app #foundationChoice .choice-heading,#kob-app.fit-screen #foundationChoice .choice-heading{padding-right:0;min-height:0}}
+#kob-app #dockedRecipeCard[hidden]{display:none!important}
+#kob-app .simstage.has-recipe-card{display:grid;grid-template-columns:minmax(0,1fr) 265px;column-gap:12px}
+#kob-app .simstage.has-recipe-card #brewerCanvas{grid-column:1;grid-row:1;min-width:0}
+#kob-app #dockedRecipeCard{grid-column:2;grid-row:1;align-self:center;margin:14px 14px 14px 0;padding:0;background:#fffdf8;border:1px solid #c8d5ca;border-radius:11px;overflow:hidden}
+#kob-app #dockedRecipeCard>summary{padding:12px;background:#173f46;color:#fffdf8;font-size:10px;letter-spacing:1.5px;cursor:pointer;list-style:none}
+#kob-app #dockedRecipeCard>summary span{float:right}
+#kob-app #dockedRecipeContent{padding:13px}
+#kob-app .dock-heading{font-size:24px;font-weight:bold;margin-bottom:12px}
+#kob-app .dock-stats{display:flex;justify-content:space-between;gap:8px;font-size:18px}
+#kob-app .dock-stats small{display:block;font-size:10px;font-weight:normal;color:#61787c}
+#kob-app .dock-temp{font-size:12px;margin:10px 0}
+#kob-app #dockedRecipeContent ol{list-style:none;margin:0;padding:0}
+#kob-app #dockedRecipeContent li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 5px;border-top:1px solid #d6dfd9;font-size:11px}
+#kob-app #dockedRecipeContent li span{text-align:right;color:#526f75}
+#kob-app #dockedRecipeContent li[aria-current=step]{background:#edf1e7;border-left:3px solid #b7352c}
+#kob-app .dock-dilution{font-size:11px;line-height:1.5;border-top:1px solid #d6dfd9;padding-top:10px;margin-bottom:0}
+#kob-app .has-recipe-card .brew-scale,#kob-app .has-recipe-card .simstatus{grid-column:1/-1}
+@container kob (max-width:800px){#kob-app .simstage.has-recipe-card{grid-template-columns:1fr}#kob-app #dockedRecipeCard{grid-column:1;grid-row:2;margin:0 12px 10px;align-self:stretch}#kob-app #dockedRecipeContent{padding:10px}#kob-app .dock-heading{font-size:18px}#kob-app #dockedRecipeContent ol{display:flex;flex-wrap:wrap;gap:8px}#kob-app #dockedRecipeContent li{flex:1 1 40%}}
+#kob-app #timelineTransport{display:flex;align-items:center;justify-content:center;gap:7px;flex:0 0 auto;margin:7px 0 3px}
+#kob-app #timelineTransport[hidden]{display:none}
+#kob-app #timelineTransport button{min-height:31px;padding:5px 11px;font-size:12px;background:#fffdf8;border:1px solid #c8d5ca;border-radius:6px;color:#173f46}
+#kob-app #timelineTransport #timelinePlay{background:#173f46;color:#fffdf8;min-width:90px}
+#kob-app #timelineTime{font-size:11px;color:#61787c;min-width:80px;margin-left:8px}
+#kob-app #simScrub{cursor:ew-resize;accent-color:#b7352c}
+#kob-app #timelineTransport{display:none!important}
+#kob-app #brewerCanvas{cursor:pointer}
+#kob-app #brewerCanvas:focus-visible{outline:2px solid #b7352c;outline-offset:-3px}
+#kob-app #dockedRecipeCard #foundationPrompt{position:static!important;inset:auto!important;transform:none!important;width:auto!important;max-width:none!important;max-height:none!important;min-height:0!important;margin:0!important;padding:12px!important;border:0!important;border-top:1px solid #d6dfd9!important;background:#f4f4eb!important;overflow:visible!important;box-shadow:none!important}
+#kob-app #dockedRecipeCard #foundationPrompt[hidden]{display:none!important}
+#kob-app #dockedRecipeCard #guidePhase{font-size:9px;letter-spacing:1px}
+#kob-app #dockedRecipeCard #guideTarget{font-size:17px;line-height:1.25;margin:6px 0}
+#kob-app #dockedRecipeCard #guideText{font-size:12px;line-height:1.5;margin:7px 0}
+#kob-app #dockedRecipeCard #guideNext{font-size:11px;line-height:1.4}
+#kob-app #dockedRecipeCard #guideZoneLesson{display:none}
+#kob-app #dockedRecipeCard #guideHide{font-size:10px;margin-top:7px}
+#kob-app #dockedRecipeCard{max-height:100%;overflow-y:auto}
+/* Visibility pass: compact recipe and instruction share one unobstructed side card. */
+#kob-app #dockedRecipeCard{align-self:center;max-height:none;overflow:visible;margin:8px 10px 8px 0}
+#kob-app #dockedRecipeCard>summary{padding:9px 11px;font-size:9px}
+#kob-app #dockedRecipeContent{padding:10px}
+#kob-app .dock-heading{font-size:20px;margin-bottom:7px}
+#kob-app .dock-stats{font-size:17px}
+#kob-app .dock-temp{font-size:11px;line-height:1.35;margin:7px 0}
+#kob-app #dockedRecipeContent li{padding:6px 3px;font-size:10px}
+#kob-app #dockedRecipeContent li span{font-size:10px}
+#kob-app .dock-dilution{font-size:10px;padding-top:6px;margin-top:6px}
+#kob-app #dockedRecipeCard #foundationPrompt{padding:9px 10px!important}
+#kob-app #dockedRecipeCard #guidePhase{font-size:8px}
+#kob-app #dockedRecipeCard #guideTarget{font-size:15px;margin:4px 0}
+#kob-app #dockedRecipeCard #guideText{font-size:11px;line-height:1.4;margin:5px 0}
+#kob-app #dockedRecipeCard #guideNext{font-size:10px;line-height:1.35}
+#kob-app .has-recipe-card #brewerCanvas{width:100%!important;max-width:100%;height:100%;object-fit:contain;min-width:0}
+#kob-app #recipeLibrary,#kob-app #saveRecipeDialog,#kob-app #userSettings,#kob-app #recipePrintPreview,#kob-app #recipeExportDialog{box-sizing:border-box;max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px)}
+#kob-app #foundationPrep .prep-copy{min-width:0}
+#kob-app #foundationPrep #waterPractice{min-width:0}
+#kob-app #foundationSummary{min-width:0;flex-wrap:wrap}
+#kob-app #foundationSummaryText{min-width:0;overflow-wrap:anywhere}
+@media(max-height:680px){#kob-app #dockedRecipeCard #guideText{display:none}#kob-app #dockedRecipeContent li{padding:4px 3px}#kob-app #dockedRecipeCard #guideTarget{font-size:13px}#kob-app #dockedRecipeCard #guidePhase{display:none}}
+@container kob (max-width:800px){#kob-app #dockedRecipeCard{margin:0 10px 8px}#kob-app #dockedRecipeCard #foundationPrompt{padding:8px 10px!important}#kob-app #dockedRecipeContent .dock-stats{display:inline-flex;gap:20px}#kob-app .dock-temp{display:inline-block;margin-left:14px}#kob-app .dock-heading{display:inline-block;margin-right:15px}#kob-app #dockedRecipeContent li{flex:1 1 42%}}
+/* Canonical brewing workspace. Recipe reference is a sibling, never an overlay. */
+#kob-app .simstage.brew-workspace{display:grid!important;grid-template-columns:220px minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr) auto auto!important;gap:0!important;min-height:300px;overflow:hidden}
+#kob-app .brew-workspace #brewerCanvas{grid-column:2!important;grid-row:1!important;width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;object-fit:contain;align-self:stretch}
+#kob-app .brew-workspace>#foundationPrompt{position:static!important;inset:auto!important;transform:none!important;grid-column:1!important;grid-row:1!important;align-self:center;width:auto!important;max-width:none!important;max-height:none!important;min-height:0!important;margin:12px!important;padding:14px!important;border:0!important;border-left:3px solid #b7352c!important;background:#fffdf8!important;box-shadow:none!important;overflow:visible!important}
+#kob-app .brew-workspace>#foundationPrompt[hidden]{display:none!important}
+#kob-app .brew-workspace:has(>#foundationPrompt[hidden]){grid-template-columns:1fr!important}
+#kob-app .brew-workspace:has(>#foundationPrompt[hidden]) #brewerCanvas{grid-column:1!important}
+#kob-app .brew-workspace #guidePhase{font-size:9px;letter-spacing:1px}
+#kob-app .brew-workspace #guideTarget{display:block;font-size:21px;line-height:1.2;margin:10px 0}
+#kob-app .brew-workspace #guideText{font-size:12px;line-height:1.5;margin:10px 0}
+#kob-app .brew-workspace #guideNext{display:block;font-size:13px;line-height:1.4;font-weight:bold;color:#b7352c}
+#kob-app .brew-workspace #guideZoneLesson{display:none!important}
+#kob-app .brew-workspace #guideHide{min-height:25px;font-size:10px;margin-top:12px}
+#kob-app .brew-workspace #advancedStageCue{position:static!important;transform:none!important;margin:0 0 10px;padding:8px 0;font-size:11px;line-height:1.4;max-width:100%;box-shadow:none;border:0;border-bottom:1px solid #d6dfd9}
+#kob-app .brew-workspace .brew-scale{grid-column:1/-1!important;grid-row:2!important;min-height:60px;padding:7px 14px;gap:18px}
+#kob-app .brew-workspace .brew-scale>p{font-size:17px;line-height:1.3;max-width:none}
+#kob-app .brew-workspace .simstatus{grid-column:1/-1!important;grid-row:3!important}
+#kob-app .focus-playback>#dockedRecipeCard{flex:0 0 auto;grid-column:auto;grid-row:auto;align-self:stretch;margin:8px 0 0!important;max-height:none!important;overflow:visible!important;border-radius:8px}
+#kob-app #dockedRecipeCard>summary{padding:6px 10px;font-size:9px}
+#kob-app #dockedRecipeContent{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;padding:8px 10px}
+#kob-app .dock-heading{font-size:16px;margin:0}
+#kob-app .dock-stats{font-size:14px;gap:12px}
+#kob-app .dock-stats small{display:inline;font-size:9px}
+#kob-app .dock-temp{font-size:10px;margin:0}
+#kob-app #dockedRecipeContent ol{display:flex;gap:10px;flex:1;min-width:280px}
+#kob-app #dockedRecipeContent li{display:block;flex:1;font-size:10px;padding:3px;border:0}
+#kob-app #dockedRecipeContent li span{display:block;text-align:left;font-size:10px;margin-top:2px}
+#kob-app .dock-dilution{font-size:10px;margin:0;padding:0;border:0}
+#kob-app.fit-screen .focus-playback{min-height:0;display:flex;flex-direction:column}
+@container kob (max-width:700px){#kob-app .simstage.brew-workspace{grid-template-columns:1fr!important;grid-template-rows:auto minmax(240px,1fr) auto auto!important;min-height:420px}#kob-app .brew-workspace>#foundationPrompt{grid-row:1!important;margin:8px!important;padding:9px!important}#kob-app .brew-workspace #brewerCanvas{grid-column:1!important;grid-row:2!important}#kob-app .brew-workspace .brew-scale{grid-row:3!important}#kob-app .brew-workspace .simstatus{grid-row:4!important}#kob-app .brew-workspace #guideTarget{font-size:18px;margin:5px 0}#kob-app .brew-workspace #guideText{margin:5px 0}#kob-app #dockedRecipeContent ol{min-width:100%;flex-wrap:wrap}}
+/* Three independent zones: guidance / brewer / recipe. */
+#kob-app .simstage.brew-workspace{grid-template-columns:190px minmax(0,1fr) 235px!important;grid-template-rows:minmax(0,1fr) auto auto!important;column-gap:8px!important;min-height:350px}
+#kob-app .brew-workspace #brewerCanvas{grid-column:2!important;grid-row:1!important}
+#kob-app .brew-workspace>#foundationPrompt{grid-column:1!important;grid-row:1!important;margin:10px 0 10px 12px!important;padding:12px!important}
+#kob-app .brew-workspace>#dockedRecipeCard{grid-column:3!important;grid-row:1!important;align-self:center;margin:10px 12px 10px 0!important;overflow:visible;max-height:none}
+#kob-app .brew-workspace:has(>#foundationPrompt[hidden]){grid-template-columns:minmax(0,1fr) 235px!important}
+#kob-app .brew-workspace:has(>#foundationPrompt[hidden]) #brewerCanvas{grid-column:1!important}
+#kob-app .brew-workspace:has(>#foundationPrompt[hidden])>#dockedRecipeCard{grid-column:2!important}
+#kob-app .brew-workspace #dockedRecipeContent{display:block;padding:11px}
+#kob-app .brew-workspace .dock-heading{font-size:21px;margin:0 0 10px}
+#kob-app .brew-workspace .dock-stats{display:flex;justify-content:space-between;font-size:17px}
+#kob-app .brew-workspace .dock-stats small{display:block;font-size:9px;margin-top:3px}
+#kob-app .brew-workspace .dock-temp{font-size:11px;margin:10px 0;line-height:1.4}
+#kob-app .brew-workspace #dockedRecipeContent ol{display:block;min-width:0}
+#kob-app .brew-workspace #dockedRecipeContent li{display:flex;justify-content:space-between;gap:8px;border-top:1px solid #d6dfd9;padding:8px 4px;font-size:10px}
+#kob-app .brew-workspace #dockedRecipeContent li span{display:inline;text-align:right;margin:0}
+#kob-app .brew-workspace .dock-dilution{font-size:11px;line-height:1.4;border-top:1px solid #d6dfd9;padding-top:9px;margin-top:5px}
+#kob-app .brew-workspace #guideTarget{font-size:20px}
+#kob-app .brew-workspace #guideText{font-size:12px}
+@container kob (max-width:900px){#kob-app .simstage.brew-workspace{grid-template-columns:minmax(0,1fr) 210px!important;grid-template-rows:auto minmax(250px,1fr) auto auto!important}#kob-app .brew-workspace>#foundationPrompt{grid-column:1/-1!important;grid-row:1!important;margin:8px 10px!important;padding:9px!important}#kob-app .brew-workspace #brewerCanvas{grid-column:1!important;grid-row:2!important}#kob-app .brew-workspace>#dockedRecipeCard{grid-column:2!important;grid-row:2!important}#kob-app .brew-workspace .brew-scale{grid-row:3!important}#kob-app .brew-workspace .simstatus{grid-row:4!important}#kob-app .brew-workspace #guideText{margin:5px 0}#kob-app .brew-workspace #guideTarget{font-size:17px;margin:4px 0}}
+@container kob (max-width:550px){#kob-app .simstage.brew-workspace,#kob-app .brew-workspace:has(>#foundationPrompt[hidden]){grid-template-columns:1fr!important;grid-template-rows:auto 260px auto auto auto!important}#kob-app .brew-workspace>#dockedRecipeCard,#kob-app .brew-workspace:has(>#foundationPrompt[hidden])>#dockedRecipeCard{grid-column:1!important;grid-row:3!important;margin:8px 10px!important}#kob-app .brew-workspace .brew-scale{grid-row:4!important}#kob-app .brew-workspace .simstatus{grid-row:5!important}}
