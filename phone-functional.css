@@ -224,3 +224,10 @@
  #kob-app.dilution-route-selected .foundation-cups.station-choices>button[aria-pressed=true]{border:2px solid #173f46!important;outline:none!important;box-shadow:0 0 0 2px #fffdf7 inset!important}
  #kob-app.dilution-route-selected .foundation-cups.station-choices>button[aria-pressed=true] .route-station{outline:none!important;box-shadow:none!important}
 }
+
+@media(max-width:600px){
+ #kob-app.dilution-route-selected .foundation-cups.station-choices{padding:2px 0 3px!important;margin-bottom:6px!important;gap:4px!important}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button{min-height:72px!important;padding:7px 1px 4px!important;gap:4px!important}
+ #kob-app.dilution-route-selected .foundation-cups.station-choices>button .route-station,#kob-app.dilution-route-selected .foundation-cups.station-choices>button .route-station svg{width:34px!important;height:34px!important;margin-bottom:5px!important}
+ #kob-app.dilution-route-selected #recipeDilutionPlan{margin-top:5px!important}
+}
