@@ -60,4 +60,29 @@
  #kob-app #foundationSummary #simRestart{grid-column:8!important}
  #kob-app #foundationSummary .playback-controls #guidanceToggle{grid-column:1/5!important}
  #kob-app #foundationSummary #simSpeed{grid-column:5/9!important}
+ /* Learning is a viewport-sized slide with a permanent action row. */
+ body:has(#kob-app.phone-lesson-active){overflow:hidden!important}
+ #kob-app.phone-lesson-active{display:grid!important;grid-template-rows:auto minmax(0,1fr)!important;height:100dvh!important;min-height:0!important;overflow:hidden!important}
+ #kob-app.phone-lesson-active:not(.adv)>main{display:flex!important;flex-direction:column;min-height:0!important;height:100%!important;overflow:hidden!important;gap:8px!important;padding:8px 10px!important}
+ #kob-app.phone-lesson-active #brewRouteBar,#kob-app.phone-lesson-active #foundationSummary{display:none!important}
+ #kob-app.phone-lesson-active #methodNav{flex:none!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson{flex:1 1 0!important;width:100%;height:auto!important;min-height:0!important;max-height:100%!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:var(--phone-art-height,190px) minmax(0,1fr) 68px!important;overflow:hidden!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson #prepArt{grid-row:1!important;grid-column:1!important;padding:8px 14px!important;min-height:0!important;max-height:100%!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson .learning-diagram{width:100%!important;max-width:330px!important;grid-template-rows:minmax(0,1fr)!important;gap:0!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson .learning-art-caption{display:none!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson .learning-diagram>svg{height:100%!important;max-height:100%!important;width:100%!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson .prep-copy{grid-column:1!important;grid-row:2!important;min-height:0!important;height:auto!important;padding:12px 16px 0!important;gap:10px!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson #prepCount{font-size:10px!important;margin-bottom:6px!important;letter-spacing:1px}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson #prepTitle{font-size:24px!important;line-height:1.15!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson .lesson-copy-text{font-size:15px!important;line-height:1.4!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson .lesson-copy-text p{margin-bottom:8px!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson .lesson-copy-text li{margin-bottom:6px!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson .lesson-body{overflow:auto!important;padding:0 0 8px!important;min-height:0!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson #prepZoneLesson{margin-top:8px!important;padding-top:8px!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson #prepZoneText,#kob-app.phone-lesson-active #foundationPrep.kode-lesson #prepZoneWhy{font-size:12px!important;line-height:1.4!important;margin-top:4px!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson .lesson-footer{grid-column:1!important;grid-row:3!important;min-height:0!important;padding:5px 16px 10px!important;grid-template-rows:3px 44px!important;gap:6px!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson .prep-actions{grid-template-columns:76px minmax(0,1fr)!important;position:static!important;margin:0!important;padding:0!important;gap:8px!important;height:44px!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson .prep-actions button{height:44px!important;font-size:14px!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson #waterPractice{padding:8px 10px!important;margin-top:8px!important}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson #practiceStatus{margin:5px 0!important;font-size:12px!important}
 }
