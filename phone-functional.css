@@ -231,3 +231,8 @@
  #kob-app.dilution-route-selected .foundation-cups.station-choices>button .route-station,#kob-app.dilution-route-selected .foundation-cups.station-choices>button .route-station svg{width:34px!important;height:34px!important;margin-bottom:5px!important}
  #kob-app.dilution-route-selected #recipeDilutionPlan{margin-top:5px!important}
 }
+
+@media(max-width:600px){
+ #kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices>button[data-foundation-strength="5"],#kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices>button[data-foundation-strength="5"][aria-pressed="true"],#kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices>button[data-foundation-strength="5"][aria-pressed="false"]{background:#4e301f!important;color:#fffdf7!important}
+ #kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices>button[data-foundation-strength="5"] .route-station,#kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices>button[data-foundation-strength="5"] strong{color:#fffdf7!important;background-color:transparent!important}
+}
