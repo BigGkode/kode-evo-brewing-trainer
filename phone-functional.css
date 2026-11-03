@@ -293,3 +293,14 @@
  #kob-app.inplace-dilution #brewScaleTarget{font-size:12px!important;line-height:1.2!important;margin:0!important;flex:1!important}
  #kob-app.inplace-dilution .simstage>.simstatus{grid-row:4!important;grid-column:1!important;font-size:10px!important;padding:3px 7px!important}
 }
+
+@media(max-width:600px){
+ #kob-app.inplace-dilution #brewerSim .simstage:has(>#dilutionPlan){grid-template-rows:auto minmax(0,1fr) 50px 22px!important;grid-template-columns:minmax(0,1fr)!important}
+ #kob-app.inplace-dilution #brewerSim .simstage>#dilutionPlan{display:block!important;height:auto!important;max-height:none!important;flex:none!important;align-self:start!important;box-sizing:border-box!important}
+ #kob-app.inplace-dilution #brewerSim .simstage>#brewerCanvas{height:100%!important;min-height:0!important;max-height:none!important;align-self:stretch!important}
+ #kob-app.inplace-dilution #brewerSim .simstage>.brew-scale{min-height:0!important;height:50px!important;box-sizing:border-box!important}
+ #kob-app.inplace-dilution #dilutionChoices{margin:0!important}
+ #kob-app.inplace-dilution #dilutionResult .dilution-dose{font-size:21px!important;line-height:1.2!important}
+ #kob-app.inplace-dilution #dilutionResult .dilution-dose strong{font-size:21px!important}
+ #kob-app.inplace-dilution #dilutionDirectNext{width:100%!important}
+}
