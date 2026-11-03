@@ -328,3 +328,5 @@
  #kob-app #brewWelcome>.method-hero-lead{font-size:14px!important;font-weight:600!important;line-height:1.35!important;margin-bottom:5px!important}
  #kob-app #brewWelcome>.evo-home-promise{display:block!important;font-size:13px!important;line-height:1.35!important;margin:0 0 10px!important}
 }
+
+@media(max-width:600px){#kob-app:not(.adv)>header .brandLogos img.kodeLogo{transform:translateY(3px)!important}}
