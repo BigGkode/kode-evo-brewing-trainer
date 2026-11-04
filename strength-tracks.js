@@ -21,11 +21,11 @@ document.addEventListener('DOMContentLoaded',()=>{
  setText(heading.querySelector('p'),dilution?'Choose your starting brew, then follow its track to a lighter finish.':'Choose your size and strength. One direct route to your cup.');
  setText($('brewRouteName'),dilution?'EVO 2 · Dilution':'EVO 1 · Foundation');
  cups.setAttribute('aria-label',dilution?'Choose your starting brew':'Choose your strength');
- const headingAbove=cups.previousElementSibling;if(headingAbove&&/^2\s*[·.]/.test(headingAbove.textContent))setText(headingAbove,dilution?'2 · Choose your starting brew':'2 · Choose your strength');
- plan.hidden=!dilution;
+ const headingAbove=cups.previousElementSibling;if(headingAbove&&/^2\s*[·.]/.test(headingAbove.textContent))setText(headingAbove,dilution?'2 · Start with':'2 · Choose your strength');
+ plan.hidden=!dilution;setText(plan.querySelector(':scope>strong'),'3 · Finish at');if(dilution)setText($('choiceNext'),'View my brew & dilution recipe →');const sizeHeading=$('brewSizePicker').querySelector('strong');if(sizeHeading)setText(sizeHeading,dilution?'1 · Brew size':'1 · Choose your brew size');track.style.setProperty('--finish-arrow',((target+1)/6*100)+'%');track.classList.toggle('valid-dilution-route',target<source); 
  setText(result,source>0?names[source]+' track · choose your finish':'Choose a starting brew to reveal its track');
  track.hidden=source<1;
- track.querySelectorAll('button').forEach(b=>{const i=+b.dataset.station;b.disabled=i===5;b.setAttribute('aria-pressed',String(i===target));b.classList.toggle('on-route',i>=target&&i<=source);b.classList.toggle('starting-station',i===source);setText(b.querySelector('small'),i===source?'Starting brew':i>source?'Unavailable':i===target?'Your finish':'');});
+ track.querySelectorAll('button').forEach(b=>{const i=+b.dataset.station;b.disabled=i>=source;b.setAttribute('aria-pressed',String(i===target));b.classList.toggle('on-route',i>=target&&i<=source);b.classList.toggle('starting-station',i===source);setText(b.querySelector('small'),i===source?'START':i>source?'':i===target?'FINISH':'');});
  }
  document.addEventListener('kode-path-change',update);choice.addEventListener('click',()=>queueMicrotask(update));select.addEventListener('change',update);
  new MutationObserver(update).observe(select,{childList:true});new MutationObserver(update).observe(choice.querySelector('.choice-heading'),{childList:true,subtree:true});update();

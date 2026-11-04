@@ -52,3 +52,21 @@
 #kob-app #recipeDilutionPlan #planDilutionSummary>strong{display:block;font-size:21px!important;color:#173f46!important;font-weight:700}
 #kob-app #recipeDilutionPlan #planDilutionSummary>span{display:block;font-size:13px!important;color:#48646a!important;margin-top:4px}
 @media(max-width:600px){#kob-app #recipeDilutionPlan #planDilutionSummary{padding:8px 10px!important;margin-top:7px!important}#kob-app #recipeDilutionPlan #planDilutionSummary>strong{font-size:17px!important}#kob-app #recipeDilutionPlan #planDilutionSummary>span{font-size:12px!important;margin-top:3px}}
+#kob-app.dilution-route-selected #foundationChoice{max-width:980px!important;margin-left:auto!important;margin-right:auto!important}
+#kob-app.dilution-route-selected #foundationChoice .choice-bottom>p{display:none!important}
+#kob-app.dilution-route-selected #foundationChoice .choice-bottom{justify-content:flex-end!important}
+#kob-app.dilution-route-selected #recipeDilutionPlan{background:transparent!important;border:0!important;border-top:1px solid #d3ded5!important;border-radius:0!important;padding:12px 0 0!important;margin-top:12px!important}
+#kob-app #dilutionStationTrack{position:relative}
+#kob-app #dilutionStationTrack.valid-dilution-route:after{content:'←';position:absolute;left:var(--finish-arrow);top:12px;transform:translate(-50%,-50%);font-size:27px;line-height:1;font-weight:700;color:#173f46;pointer-events:none}
+#kob-app #dilutionStationTrack button:disabled{opacity:.5}
+#kob-app #dilutionStationTrack button.starting-station{opacity:1}
+#kob-app #dilutionStationTrack button small{font-size:10px!important;letter-spacing:.5px}
+#kob-app #dilutionStationTrack button[aria-pressed=true] small{color:#b9362c!important;font-weight:700}
+#kob-app #planDilutionSummary .dilution-result-route{display:block;color:#173f46;font-size:17px;margin-bottom:4px}
+#kob-app.dilution-route-selected .route-explanation{margin:6px 0!important;font-size:12px!important}
+@media(min-width:601px){#kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices>button{min-height:91px!important;padding:10px!important}#kob-app.dilution-route-selected #foundationChoice .choice-heading h2{font-size:29px!important}#kob-app.dilution-route-selected #recipeDilutionPlan #planDilutionSummary{padding:10px 13px!important}#kob-app.dilution-route-selected #dilutionStationTrack .route-station{width:34px!important;height:34px!important}#kob-app.dilution-route-selected #dilutionStationTrack>button:before{top:17px!important}#kob-app.dilution-route-selected #dilutionStationTrack.valid-dilution-route:after{top:17px}}
+@media(max-width:600px){#kob-app #planDilutionSummary .dilution-result-route{font-size:15px;margin-bottom:3px}#kob-app #dilutionStationTrack.valid-dilution-route:after{top:15px;font-size:23px}#kob-app.dilution-route-selected #choiceNext{font-size:12px!important}}
+#kob-app #brewWelcome.clean-landing{position:relative}
+#kob-app #brewWelcome.clean-landing>#welcomeDiscover.landing-discover{display:inline-flex!important;align-items:center;min-height:38px!important;padding:8px 13px!important;background:transparent!important;color:#173f46!important;border:1px solid #a4bdb6!important;border-radius:6px!important;font-size:13px!important;text-decoration:none!important;margin:0 0 12px!important}
+@media(min-width:900px){#kob-app #brewWelcome.clean-landing>#welcomeDiscover.landing-discover{position:absolute;top:28px;right:30px}}
+@media(max-width:600px){#kob-app #brewWelcome.clean-landing>#welcomeDiscover.landing-discover{font-size:12px!important;min-height:34px!important;padding:6px 10px!important;margin-bottom:10px!important}}
