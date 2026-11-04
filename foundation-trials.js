@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const back=$('backToWelcome'),originalBack=back.onclick;back.onclick=originalBack;
  window.syncKodeTrialMode=()=>{
   const enabled=!!window.kodeDilutionEnabled;app.classList.toggle('foundation-trial',!enabled);
+  const promise=$('brewWelcome').querySelector('.evo-home-promise');if(promise)promise.textContent=enabled?'More flavour from your coffee. Two ways to find your strength.':'More flavour from your coffee. Find the strength you enjoy.';
   if(!enabled){window.kodePlannedDilution=null;window.kodeSavedDilution=null;if(window.kodeBrewPath==='dilution'||app.classList.contains('inplace-dilution'))$('methodFoundation').click();}
   help.hidden=window.kodeShowLearningHome===false;
  };
