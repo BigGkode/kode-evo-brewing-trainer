@@ -173,5 +173,14 @@ document.addEventListener('DOMContentLoaded',()=>{
  $('simple').addEventListener('click',()=>{selectLevel(1);$('brewMode').click();$('foundationStartOver').click();introStep=0;introDismissed=true;render();showIntro();window.scrollTo({top:0,behavior:'auto'});});
  app.querySelector('.foundation-mode .foundation-kicker').textContent='FOUNDATION';
  window.setKodeBrewAdditions=options=>{if($('foundationChoice').hidden)return false;window.kodeBrewAdditions={temperature:!!options.temperature,vacuum:!!options.vacuum};level=options.vacuum?4:options.temperature?3:1;window.kodeEvoLevel=level;app.classList.remove('evo2');render();return true;};
+
+ window.startExistingKodeDilution=({size,strength,finish:desired})=>{
+  if(![250,275,300,325,350].includes(+size)||+strength<1||+strength>5||+desired<0||+desired>=+strength)return false;
+  window.kodeJourney.make();window.kodeBrewPath='dilution';window.setFoundationBrewSize(+size);app.querySelector('[data-foundation-strength="'+strength+'"]').click();
+  reset();level=2;window.kodeEvoLevel=2;selected=true;selectingFinish=true;finishChosen=true;target=+desired;inPlaceDilution=true;liftProgress=1;introDismissed=true;window.kodeLearningRun=false;window.kodePlannedDilution=null;
+  app.classList.remove('welcome-screen','learning-run','phone-lesson-active','dilution-entry');app.classList.add('making-run','brew-screen','evo2','inplace-dilution','dilution-route-selected');
+  $('brewWelcome').hidden=true;$('foundationChoice').hidden=true;$('foundationPrep').hidden=true;$('dilutionEntry').hidden=true;intro.hidden=true;$('foundationSummary').hidden=false;$('brewerSim').hidden=false;$('foundationPrompt').hidden=true;
+  $('brewerCanvas').parentElement.insertBefore(panel,$('brewerCanvas'));render();window.scrollTo({top:0,behavior:'auto'});return true;
+ };
  render();
 });
