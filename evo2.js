@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  content.querySelector('.recipe-technique')?.removeAttribute('open');
  if(level===4){const setup=document.createElement('p');setup.textContent='Receiving setup: '+(window.kodeStageConfig?.vacuumScope==='whole'?'both pours over the vacuum-trap flask.':'bloom over the flask, then following pour over your cup.');content.append(setup);}recipeActions.hidden=!beforeBrew;$('recipePreparationHelp').hidden=!beforeBrew;const learning=$('learnMode').getAttribute('aria-pressed')==='true';$('recipeContinue').textContent=learning?'Prepare my brew →':'Go to brewing →';recipeDialog.querySelector('h2').textContent='Your '+names[recipe().index]+' recipe';if(!recipeDialog.open)recipeDialog.showModal();}
  window.refreshKodeRecipeReview=()=>{if(recipeDialog.open)openRecipeReview(!recipeActions.hidden);};
- $('foundationEdit').addEventListener('click',event=>{if($('foundationChoice').hidden&&$('foundationPrep').hidden){event.stopImmediatePropagation();if(innerWidth<=600)openRecipeReview(false);else window.toggleKodeRecipeCard?.();return;}event.stopImmediatePropagation();openRecipeReview(false);},true);
+ $('foundationEdit').addEventListener('click',event=>{if($('foundationChoice').hidden&&$('foundationPrep').hidden){event.stopImmediatePropagation();if(innerWidth<=600||app.classList.contains('inplace-dilution'))openRecipeReview(false);else window.toggleKodeRecipeCard?.();return;}event.stopImmediatePropagation();openRecipeReview(false);},true);
  $('choiceNext').addEventListener('click',event=>{if(level===2||recipeConfirmed||!selected)return;event.stopImmediatePropagation();openRecipeReview(true);},true);
  $('recipeBackToChoices').onclick=()=>recipeDialog.close();
  $('recipeContinue').onclick=()=>{recipeDialog.close();recipeConfirmed=true;try{$('choiceNext').click();}finally{recipeConfirmed=false;}requestAnimationFrame(()=>{if(!$('foundationPrep').hidden)$('prepNext').focus();else $('simPlay').focus();});};
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  window.startExistingKodeDilution=({size,strength,finish:desired})=>{
   if(![250,275,300,325,350].includes(+size)||+strength<1||+strength>5||+desired<0||+desired>=+strength)return false;
   window.kodeJourney.make();window.kodeBrewPath='dilution';window.setFoundationBrewSize(+size);app.querySelector('[data-foundation-strength="'+strength+'"]').click();
-  reset();level=2;window.kodeEvoLevel=2;selected=true;selectingFinish=true;finishChosen=true;target=+desired;inPlaceDilution=true;liftProgress=1;introDismissed=true;window.kodeLearningRun=false;window.kodePlannedDilution=null;
+  reset();window.prepareKodeExistingCoffee();level=2;window.kodeEvoLevel=2;selected=true;selectingFinish=true;finishChosen=true;target=+desired;inPlaceDilution=true;liftProgress=1;introDismissed=true;window.kodeLearningRun=false;window.kodePlannedDilution=null;
   app.classList.remove('welcome-screen','learning-run','phone-lesson-active','dilution-entry');app.classList.add('making-run','brew-screen','evo2','inplace-dilution','dilution-route-selected');
   $('brewWelcome').hidden=true;$('foundationChoice').hidden=true;$('foundationPrep').hidden=true;$('dilutionEntry').hidden=true;intro.hidden=true;$('foundationSummary').hidden=false;$('brewerSim').hidden=false;$('foundationPrompt').hidden=true;
   $('brewerCanvas').parentElement.insertBefore(panel,$('brewerCanvas'));render();window.scrollTo({top:0,behavior:'auto'});return true;
