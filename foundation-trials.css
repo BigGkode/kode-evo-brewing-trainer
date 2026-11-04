@@ -48,3 +48,7 @@
 #kob-app #brewWelcome.clean-landing{min-height:0!important;height:auto!important}
 #kob-app #brewWelcome.clean-landing .method-cards{min-height:0!important;height:auto!important}
 @media(min-width:601px) and (max-height:800px){#kob-app #brewWelcome.clean-landing{padding-top:22px!important;padding-bottom:18px!important}#kob-app #brewWelcome.clean-landing .method-cards article{padding-top:12px!important;padding-bottom:18px!important}#kob-app #brewWelcome.clean-landing .method-cards article>p{margin-bottom:18px!important}}
+#kob-app #recipeDilutionPlan #planDilutionSummary{padding:11px 14px!important;margin:10px 0 0!important;background:#e7eee8!important;border-left:3px solid #b9362c!important;border-radius:0 5px 5px 0!important;line-height:1.35!important}
+#kob-app #recipeDilutionPlan #planDilutionSummary>strong{display:block;font-size:21px!important;color:#173f46!important;font-weight:700}
+#kob-app #recipeDilutionPlan #planDilutionSummary>span{display:block;font-size:13px!important;color:#48646a!important;margin-top:4px}
+@media(max-width:600px){#kob-app #recipeDilutionPlan #planDilutionSummary{padding:8px 10px!important;margin-top:7px!important}#kob-app #recipeDilutionPlan #planDilutionSummary>strong{font-size:17px!important}#kob-app #recipeDilutionPlan #planDilutionSummary>span{font-size:12px!important;margin-top:3px}}
