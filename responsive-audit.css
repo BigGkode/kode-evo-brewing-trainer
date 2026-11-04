@@ -124,3 +124,12 @@
 #kob-app #recipePrintPreview>p{margin:6px 0!important}
 #kob-app #printRecipeFrame{height:min(60dvh,440px)!important;margin:10px 0!important}
 @media(max-width:600px){#kob-app #brewRecipeOverlay>h2{padding:27px 16px 13px!important;font-size:23px!important}#kob-app #brewRecipeOverlayContent{padding:11px 14px 0!important}#kob-app #printRecipeFrame{height:min(64dvh,460px)!important}}
+
+/* One strength-choice identity in Foundation and Dilution, desktop and phone. */
+#kob-app #foundationChoice .foundation-cups.station-choices>button,#kob-app #foundationChoice .foundation-cups.station-choices>button[aria-pressed=true]{background:var(--station-brown)!important;border:1px solid var(--station-brown)!important;color:#fffdf7!important;border-radius:8px!important;outline:none!important}
+#kob-app #foundationChoice .foundation-cups.station-choices>button strong,#kob-app #foundationChoice .foundation-cups.station-choices>button .route-station{color:#fffdf7!important}
+#kob-app #foundationChoice .foundation-cups.station-choices>button .route-station{background:transparent!important;outline:none!important;box-shadow:none!important}
+#kob-app #foundationChoice .foundation-cups.station-choices>button:nth-child(-n+3) strong,#kob-app #foundationChoice .foundation-cups.station-choices>button:nth-child(-n+3) .route-station{color:#173f46!important}
+#kob-app #foundationChoice .foundation-cups.station-choices>button[aria-pressed=true]{border:2px solid #173f46!important;box-shadow:0 0 0 2px #fffdf7 inset!important}
+#kob-app #foundationChoice .foundation-cups.station-choices>button[aria-pressed=true] .route-station{outline:none!important;box-shadow:none!important}
+@media(max-width:600px){#kob-app #foundationChoice .foundation-cups.station-choices>button{min-height:72px!important;padding:7px 1px 4px!important;gap:4px!important}#kob-app #foundationChoice .foundation-cups.station-choices>button .route-station,#kob-app #foundationChoice .foundation-cups.station-choices>button .route-station svg{width:34px!important;height:34px!important;margin-bottom:5px!important}}
