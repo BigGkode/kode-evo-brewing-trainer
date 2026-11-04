@@ -84,3 +84,6 @@
 #kob-app .unified-home .home-title-row h2{margin:0!important}
 #kob-app #brewWelcome.unified-home .home-title-row #homeWhyEvo{background:transparent;border:0;border-radius:0;color:#173f46;font-size:12px;font-weight:400;min-height:32px;padding:4px 0;margin:0;text-decoration:underline;text-underline-offset:4px}
 @media(max-width:600px){#kob-app .unified-home .home-title-row{gap:14px;margin-bottom:8px}#kob-app #brewWelcome.unified-home .home-title-row #homeWhyEvo{font-size:12px}}
+#kob-app #brewWelcome.unified-home #foundationMethod>.simple-path-label{font-size:17px!important;font-weight:600!important;color:#173f46!important;letter-spacing:.1px!important}
+#kob-app #brewWelcome.unified-home #dilutionMethod>.simple-path-label{font-size:17px!important;font-weight:600!important;color:#b9362c!important;letter-spacing:.1px!important}
+@media(max-width:600px){#kob-app #brewWelcome.unified-home #foundationMethod>.simple-path-label,#kob-app #brewWelcome.unified-home #dilutionMethod>.simple-path-label{font-size:16px!important}}
