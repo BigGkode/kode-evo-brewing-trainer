@@ -1,0 +1,10 @@
+#kob-app.foundation-trial #methodDilution,#kob-app.foundation-trial #foundationUtilities,#kob-app.foundation-trial #recipeDilutionPlan,#kob-app.foundation-trial #dilutionAfterBrew,#kob-app.foundation-trial #dilutionMethod,#kob-app.foundation-trial #plannedDilutionReview{display:none!important}
+#kob-app.foundation-trial #methodHome{display:none!important}
+#kob-app.foundation-trial #methodNav{display:flex!important;gap:10px!important}
+#kob-app.foundation-trial #methodFoundation{flex:0 0 auto!important}
+#kob-app #foundationTrialHelp{background:transparent;color:#173f46;border:1px solid #b7cac2;border-radius:6px;font-size:13px;padding:8px 12px;min-height:36px;margin:10px 0 0}
+#kob-app #foundationTrialHelp[hidden]{display:none!important}
+#kob-app.foundation-trial #foundationChoice .choice-heading{padding-right:0!important}
+#kob-app.foundation-trial #foundationChoice .choice-heading{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+#kob-app.foundation-trial #foundationTrialHelp{margin:0}
+@media(max-width:600px){#kob-app.foundation-trial #methodFoundation{min-height:34px!important;padding:6px 12px!important}#kob-app #foundationTrialHelp{font-size:12px;min-height:34px;padding:6px 10px}#kob-app.foundation-trial #foundationChoice .choice-heading{display:flex!important;margin-bottom:10px!important}#kob-app.foundation-trial #foundationChoice .choice-heading h2{font-size:20px!important;margin:0!important}#kob-app.foundation-trial #foundationChoice .choice-heading>p,#kob-app.foundation-trial #foundationChoice .choice-heading>.foundation-kicker{display:none!important}}
