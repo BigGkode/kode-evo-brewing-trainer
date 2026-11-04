@@ -70,3 +70,8 @@
 #kob-app #brewWelcome.clean-landing>#welcomeDiscover.landing-discover{display:inline-flex!important;align-items:center;min-height:38px!important;padding:8px 13px!important;background:transparent!important;color:#173f46!important;border:1px solid #a4bdb6!important;border-radius:6px!important;font-size:13px!important;text-decoration:none!important;margin:0 0 12px!important}
 @media(min-width:900px){#kob-app #brewWelcome.clean-landing>#welcomeDiscover.landing-discover{position:absolute;top:28px;right:30px}}
 @media(max-width:600px){#kob-app #brewWelcome.clean-landing>#welcomeDiscover.landing-discover{font-size:12px!important;min-height:34px!important;padding:6px 10px!important;margin-bottom:10px!important}}
+/* Restore original full-width dilution choices; only emphasise the addition. */
+#kob-app.dilution-route-selected #foundationChoice{max-width:none!important;width:100%!important;box-sizing:border-box}
+#kob-app #dilutionStationTrack.valid-dilution-route:after{display:none!important}
+#kob-app.dilution-route-selected #foundationChoice .choice-bottom>p{display:block!important}
+#kob-app.dilution-route-selected #foundationChoice .choice-bottom{justify-content:space-between!important}
