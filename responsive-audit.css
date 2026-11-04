@@ -94,3 +94,16 @@
  #kob-app #dilutionStationTrack>button{height:70px!important;min-height:70px!important}
  #kob-app.audit-workspace #brewerSim .simstage{flex:0 0 var(--audit-stage-room,420px)!important;max-height:var(--audit-stage-room,420px)!important;height:var(--audit-stage-room,420px)!important}
 }
+
+@media(min-width:601px) and (max-height:800px){
+ #kob-app #foundationChoice .choice-heading{min-height:40px!important;margin-bottom:5px!important}
+ #kob-app #foundationChoice .choice-heading p{display:none!important}
+ #kob-app #foundationUtilities{display:flex!important;align-items:center!important;gap:8px!important;padding:5px 7px!important;min-height:36px!important}
+ #kob-app #foundationUtilities>div>p{display:none!important}
+ #kob-app #brewSizePicker{padding:4px 0!important;margin:4px 0!important}
+ #kob-app #brewSizePicker .brew-size-heading{height:20px!important;line-height:20px!important;margin-bottom:5px!important}
+ #kob-app #brewSizePicker .brew-size-options button{height:34px!important;min-height:34px!important;line-height:20px!important;padding:5px 12px!important}
+ #kob-app #brewSizeNote{line-height:14px!important;margin:4px 0!important}
+ #kob-app #dilutionStationTrack>button{height:62px!important;min-height:62px!important;gap:5px!important}
+ #kob-app #recipeDilutionPlan{margin:7px 0!important;padding:7px 10px!important}
+}
