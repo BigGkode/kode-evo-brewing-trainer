@@ -1,7 +1,10 @@
 'use strict';
 document.addEventListener('DOMContentLoaded',()=>{
  const $=id=>document.getElementById(id),app=$('kob-app');
- const welcome=$('brewWelcome');welcome.classList.add('clean-landing');const discover=$('welcomeDiscover');discover.classList.add('landing-discover');welcome.querySelector('.evo-home-promise').after(discover);
+ const welcome=$('brewWelcome');welcome.classList.add('clean-landing','unified-home');
+ const intro=document.createElement('div');intro.className='home-introduction';const words=document.createElement('div');words.className='home-introduction-copy';words.append(welcome.querySelector('h2'),welcome.querySelector('.method-hero-lead'),welcome.querySelector('.evo-home-promise'));const actions=document.createElement('div');actions.className='home-discovery-actions';const discover=$('welcomeDiscover');discover.classList.add('landing-discover');const why=document.createElement('button');why.type='button';why.textContent='Why EVO?';why.id='homeWhyEvo';actions.append(discover,why);intro.append(words,actions);welcome.prepend(intro);
+ const about=document.createElement('dialog');about.id='homePurposeDialog';const closeForm=document.createElement('form');closeForm.method='dialog';const close=document.createElement('button');close.textContent='Close ×';closeForm.append(close);about.append(closeForm);const story=welcome.querySelector('.kode-purpose');if(story)about.append(story);app.append(about);why.onclick=()=>about.showModal();
+ 
  for(const [id,copy] of [['foundationMethod','Choose your size and strength. Brew and enjoy.'],['dilutionMethod','Brew strong, then add water to find your strength.']])welcome.querySelectorAll('#'+id+'>p').forEach(p=>p.textContent=copy);
  const help=document.createElement('button');help.type='button';help.id='foundationTrialHelp';help.textContent='Show me how →';help.onclick=()=>{window.kodeBrewPath='foundation';$('startLearning').click();};$('foundationChoice').querySelector('.choice-heading').append(help);
  const home=$('methodHome'),originalHome=home.onclick;
@@ -9,7 +12,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const back=$('backToWelcome'),originalBack=back.onclick;back.onclick=originalBack;
  window.syncKodeTrialMode=()=>{
   const enabled=!!window.kodeDilutionEnabled;app.classList.toggle('foundation-trial',!enabled);
-  const promise=$('brewWelcome').querySelector('.evo-home-promise');if(promise)promise.textContent=enabled?'More flavour from your coffee. Two ways to find your strength.':'More flavour from your coffee. Find the strength you enjoy.';
+  const promise=$('brewWelcome').querySelector('.evo-home-promise');if(promise)promise.textContent='More from your coffee. Less wasted.';
   if(!enabled){window.kodePlannedDilution=null;window.kodeSavedDilution=null;if(window.kodeBrewPath==='dilution'||app.classList.contains('inplace-dilution'))$('methodFoundation').click();}
   help.hidden=window.kodeShowLearningHome===false;
  };

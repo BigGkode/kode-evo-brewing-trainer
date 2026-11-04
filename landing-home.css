@@ -1,0 +1,43 @@
+/* Unified landing layout. Shared desktop/mobile order; no absolute-positioned actions. */
+#kob-app #brewWelcome.unified-home{max-width:1060px!important;box-sizing:border-box;margin:0 auto!important;padding:24px 28px!important;height:auto!important;min-height:0!important}
+#kob-app .unified-home .home-introduction{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:20px;padding-bottom:22px;border-bottom:1px solid #cbd8cf}
+#kob-app .unified-home .home-introduction h2{font-size:38px!important;line-height:1.1;letter-spacing:-.8px;margin:0 0 10px!important}
+#kob-app .unified-home .home-introduction .method-hero-lead{font-size:18px!important;line-height:1.4;margin:0 0 5px!important;font-weight:600}
+#kob-app .unified-home .home-introduction .evo-home-promise{font-size:16px!important;line-height:1.4;margin:0!important;color:#536d70}
+#kob-app .unified-home .home-discovery-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:290px}
+#kob-app #brewWelcome.unified-home .home-discovery-actions button{position:static!important;display:inline-flex!important;align-items:center;justify-content:center;min-height:39px!important;margin:0!important;padding:8px 12px!important;font-size:13px!important;color:#173f46!important;background:transparent!important;border:1px solid #8ea9a2!important;border-radius:5px!important;text-decoration:none!important}
+#kob-app #brewWelcome.unified-home .method-cards{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:26px!important;min-height:0!important;height:auto!important;margin:0!important;max-width:none!important;align-items:start!important}
+#kob-app.foundation-trial #brewWelcome.unified-home .method-cards{grid-template-columns:1fr!important}
+#kob-app #brewWelcome.unified-home .method-cards article{padding:22px 0!important;height:auto!important;min-height:0!important;max-height:none!important;flex:0 0 auto!important;gap:0!important}
+#kob-app #brewWelcome.unified-home .method-cards article:before{display:none!important}
+#kob-app #brewWelcome.unified-home .method-cards article>.method-number{display:block!important;background:transparent!important;color:#b9362c!important;font-size:11px!important;letter-spacing:1px!important;font-weight:700!important;height:auto!important;width:auto!important;min-width:0!important;padding:0!important;margin:0 0 10px!important;text-align:left!important}
+#kob-app #brewWelcome.unified-home .method-cards h3{font-size:30px!important;line-height:1.18!important;letter-spacing:-.5px;margin:0 0 10px!important}
+#kob-app #brewWelcome.unified-home .method-cards article>p{font-size:15px!important;line-height:1.45;margin:0 0 18px!important}
+#kob-app #brewWelcome.unified-home .method-card-footer{margin:0!important;padding:0!important;min-height:0!important;flex:none!important;width:auto!important}
+#kob-app #brewWelcome.unified-home .method-actions button{font-size:13px!important;padding:9px 15px!important;min-height:42px!important;margin:0!important}
+#kob-app #brewWelcome.unified-home .shared-method-links{display:flex!important;border-top:1px solid #cbd8cf!important;gap:0!important;padding:10px 0 0!important;margin:0!important;min-height:0!important}
+#kob-app #brewWelcome.unified-home .phone-purpose{display:none!important}
+#kob-app #homePurposeDialog{width:min(680px,calc(100vw - 30px));max-height:85dvh;overflow:auto;padding:22px;background:#fffdf7;border:1px solid #bccdc4;border-radius:10px;color:#173f46}
+#kob-app #homePurposeDialog>form{display:flex;justify-content:flex-end;margin:0 0 8px}
+#kob-app #homePurposeDialog .kode-purpose{border:0;margin:0;padding:0}
+#kob-app #homePurposeDialog .kode-purpose h3{font-size:27px;margin:10px 0}
+#kob-app #homePurposeDialog .kode-purpose p,#kob-app #homePurposeDialog .purpose-points{font-size:14px;line-height:1.5}
+@media(max-width:760px){#kob-app .unified-home .home-introduction{grid-template-columns:1fr;gap:14px}#kob-app .unified-home .home-discovery-actions{justify-content:flex-start;max-width:none}}
+@media(max-width:600px){
+ #kob-app #brewWelcome.unified-home{padding:18px 15px!important}
+ #kob-app .unified-home .home-introduction{padding-bottom:16px;gap:13px}
+ #kob-app .unified-home .home-introduction h2{font-size:29px!important;margin-bottom:8px!important}
+ #kob-app .unified-home .home-introduction .method-hero-lead{font-size:14px!important}
+ #kob-app .unified-home .home-introduction .evo-home-promise{font-size:13px!important}
+ #kob-app .unified-home .home-discovery-actions{display:grid;grid-template-columns:1.5fr 1fr;width:100%;gap:8px}
+ #kob-app #brewWelcome.unified-home .home-discovery-actions button{font-size:12px!important;min-height:36px!important;padding:7px 9px!important}
+ #kob-app #brewWelcome.unified-home .method-cards{grid-template-columns:1fr!important;gap:0!important}
+ #kob-app #brewWelcome.unified-home .method-cards article{padding:16px 0!important}
+ #kob-app #brewWelcome.unified-home .method-cards article+article{border-top:1px solid #d6dfd6!important}
+ #kob-app #brewWelcome.unified-home .method-cards h3{font-size:25px!important;margin-bottom:8px!important}
+ #kob-app #brewWelcome.unified-home .method-cards article>p{font-size:13px!important;margin-bottom:13px!important}
+ #kob-app #brewWelcome.unified-home .method-cards article>.method-number{font-size:10px!important;margin-bottom:8px!important}
+ #kob-app #brewWelcome.unified-home .method-card-footer{width:100%!important}
+ #kob-app #brewWelcome.unified-home .method-actions button{font-size:12px!important;padding:8px!important;min-height:39px!important}
+ #kob-app #brewWelcome.unified-home .shared-method-links{padding-top:7px!important}
+}
