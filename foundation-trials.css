@@ -45,3 +45,6 @@
 }
 
 #kob-app.foundation-trial #brewWelcome.clean-landing .method-cards #dilutionMethod{display:none!important}
+#kob-app #brewWelcome.clean-landing{min-height:0!important;height:auto!important}
+#kob-app #brewWelcome.clean-landing .method-cards{min-height:0!important;height:auto!important}
+@media(min-width:601px) and (max-height:800px){#kob-app #brewWelcome.clean-landing{padding-top:22px!important;padding-bottom:18px!important}#kob-app #brewWelcome.clean-landing .method-cards article{padding-top:12px!important;padding-bottom:18px!important}#kob-app #brewWelcome.clean-landing .method-cards article>p{margin-bottom:18px!important}}
