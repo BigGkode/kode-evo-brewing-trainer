@@ -330,3 +330,12 @@
 }
 
 @media(max-width:600px){#kob-app:not(.adv)>header .brandLogos img.kodeLogo{transform:translateY(3px)!important}}
+
+/* Preserve the desktop KODE × BH lockup proportions on phones. */
+@media(max-width:600px){
+ #kob-app:not(.adv)>header .brand.brandLogos{gap:10px!important;align-items:center!important}
+ #kob-app:not(.adv)>header .brandLogos a{display:flex!important;align-items:center!important;justify-content:center!important;height:32px!important}
+ #kob-app:not(.adv)>header .brandLogos img.kodeLogo{width:78px!important;max-width:78px!important;height:auto!important;transform:none!important}
+ #kob-app:not(.adv)>header .brandLogos img.bhLogo{width:26px!important;max-width:26px!important;height:26px!important;object-fit:contain!important}
+ #kob-app:not(.adv)>header .brandLogos span{margin:0!important;font-size:13px!important;line-height:1!important;align-self:center!important}
+}
