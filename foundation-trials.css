@@ -75,3 +75,27 @@
 #kob-app #dilutionStationTrack.valid-dilution-route:after{display:none!important}
 #kob-app.dilution-route-selected #foundationChoice .choice-bottom>p{display:block!important}
 #kob-app.dilution-route-selected #foundationChoice .choice-bottom{justify-content:space-between!important}
+/* Laptop-only spacing refinement: preserve the original stacked dilution design. */
+@media(min-width:601px) and (max-height:850px){
+ #kob-app.dilution-route-selected #foundationChoice{padding:12px 18px!important}
+ #kob-app.dilution-route-selected #foundationChoice .choice-heading{display:flex!important;align-items:center;flex-wrap:wrap;gap:10px;min-height:36px!important;padding-right:275px!important;margin:0 0 7px!important}
+ #kob-app.dilution-route-selected #foundationChoice .choice-heading h2{font-size:25px!important;margin:0!important}
+ #kob-app.dilution-route-selected #foundationChoice .choice-heading>p,#kob-app.dilution-route-selected #foundationChoice .choice-heading>.foundation-kicker{display:none!important}
+ #kob-app.dilution-route-selected #foundationChoice #foundationTrialHelp{margin:0!important;font-size:11px!important;min-height:30px!important;padding:5px 9px!important}
+ #kob-app.dilution-route-selected #foundationUtilities{top:12px!important;right:18px!important}
+ #kob-app.dilution-route-selected #brewSizePicker{margin:0 0 6px!important;padding:6px 0!important}
+ #kob-app.dilution-route-selected #brewSizePicker p{margin:4px 0 0!important;font-size:10px!important}
+ #kob-app.dilution-route-selected .brew-size-options button{min-height:32px!important;padding:4px 12px!important}
+ #kob-app.dilution-route-selected #brewStrengthHeading{margin:0 0 7px!important;font-size:15px!important}
+ #kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices>button{height:80px!important;min-height:80px!important;padding:6px!important;gap:3px!important;grid-template-rows:27px 18px 14px!important}
+ #kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices .route-station,#kob-app.dilution-route-selected #foundationChoice .foundation-cups.station-choices .route-station svg{width:28px!important;height:28px!important;margin:0!important}
+ #kob-app.dilution-route-selected #recipeDilutionPlan{margin:7px 0!important;padding:8px 10px!important}
+ #kob-app.dilution-route-selected #dilutionStationTrack{margin:8px 0 3px!important}
+ #kob-app.dilution-route-selected #dilutionStationTrack>button{min-height:61px!important;gap:5px!important}
+ #kob-app.dilution-route-selected .route-explanation{margin:3px 0!important;font-size:11px!important}
+ #kob-app.dilution-route-selected #recipeDilutionPlan #planDilutionSummary{margin:5px 0 0!important;padding:8px 11px!important}
+ #kob-app.dilution-route-selected #recipeDilutionPlan #planDilutionSummary>strong{font-size:20px!important}
+ #kob-app.dilution-route-selected #recipeDilutionPlan #planDilutionSummary>span{font-size:12px!important;margin-top:2px}
+ #kob-app.dilution-route-selected #foundationChoice .choice-bottom{margin-top:5px!important;padding-top:5px!important}
+ #kob-app.dilution-route-selected #foundationChoice .recipe-calculation-notes{padding-top:3px!important;margin-top:3px!important;font-size:11px!important}
+}
