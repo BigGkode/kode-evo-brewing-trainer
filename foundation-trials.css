@@ -11,3 +11,37 @@
 
 #kob-app.foundation-trial #brewWelcome .method-cards{grid-template-columns:1fr!important;max-width:650px;margin-left:auto!important;margin-right:auto!important}
 #kob-app.foundation-trial #brewWelcome .method-cards #foundationMethod{width:100%;box-sizing:border-box}
+/* Clean introduction: one clear action area, without a card inside a panel. */
+#kob-app #brewWelcome.clean-landing{padding:28px 30px!important;background:#fffdf7!important}
+#kob-app #brewWelcome.clean-landing>h2{font-size:40px!important;letter-spacing:-1px;margin:0 0 8px!important}
+#kob-app #brewWelcome.clean-landing>.method-hero-lead{font-size:20px!important;line-height:1.4;margin:0 0 10px!important}
+#kob-app #brewWelcome.clean-landing>.evo-home-promise{font-size:15px!important;margin:0 0 22px!important}
+#kob-app #brewWelcome.clean-landing .method-cards{margin:0!important;gap:24px!important}
+#kob-app.foundation-trial #brewWelcome.clean-landing .method-cards{max-width:none!important}
+#kob-app #brewWelcome.clean-landing .method-cards article{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;min-height:0!important;padding:18px 0 24px!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;position:relative}
+#kob-app #brewWelcome.clean-landing .method-cards article:before{content:'';width:40px;height:3px;background:#b9362c;display:block;margin:0 0 20px}
+#kob-app #brewWelcome.clean-landing .method-number,#kob-app #brewWelcome.clean-landing .method-benefit,#kob-app #brewWelcome.clean-landing .method-footer-spacer{display:none!important}
+#kob-app #brewWelcome.clean-landing .method-cards h3{font-size:34px!important;line-height:1.15!important;margin:0 0 12px!important;letter-spacing:-.5px}
+#kob-app #brewWelcome.clean-landing .method-cards article>p{font-size:16px!important;line-height:1.5!important;margin:0 0 24px!important}
+#kob-app #brewWelcome.clean-landing .method-card-footer{margin:0!important;width:auto!important;align-self:flex-start!important}
+#kob-app #brewWelcome.clean-landing .method-actions{display:flex!important;gap:12px!important;flex-wrap:wrap}
+#kob-app #brewWelcome.clean-landing .method-actions button{min-height:44px!important;margin:0!important;padding:10px 18px!important;font-size:14px!important}
+#kob-app #brewWelcome.clean-landing .method-actions>.learning-entry{background:transparent!important;color:#173f46!important;border:1px solid #9cb6b0!important}
+#kob-app #brewWelcome.clean-landing .shared-method-links{border-top:1px solid #d5dfd7!important;padding-top:12px!important;margin-top:0!important}
+#kob-app #brewWelcome.clean-landing>.phone-purpose{margin-top:8px!important;padding-top:10px!important}
+@media(max-width:600px){
+ #kob-app #brewWelcome.clean-landing{padding:20px 15px!important}
+ #kob-app #brewWelcome.clean-landing>h2{font-size:31px!important}
+ #kob-app #brewWelcome.clean-landing>.method-hero-lead{font-size:16px!important;margin-bottom:8px!important}
+ #kob-app #brewWelcome.clean-landing>.evo-home-promise{font-size:13px!important;margin-bottom:12px!important}
+ #kob-app #brewWelcome.clean-landing .method-cards{gap:0!important}
+ #kob-app #brewWelcome.clean-landing .method-cards article{padding:12px 0 20px!important}
+ #kob-app #brewWelcome.clean-landing .method-cards article:before{margin-bottom:14px}
+ #kob-app #brewWelcome.clean-landing .method-cards h3{font-size:27px!important;margin-bottom:8px!important}
+ #kob-app #brewWelcome.clean-landing .method-cards article>p{font-size:14px!important;margin-bottom:18px!important}
+ #kob-app #brewWelcome.clean-landing .method-card-footer{width:100%!important}
+ #kob-app #brewWelcome.clean-landing .method-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}
+ #kob-app #brewWelcome.clean-landing .method-actions button{font-size:12px!important;padding:8px 9px!important}
+}
+
+#kob-app.foundation-trial #brewWelcome.clean-landing .method-cards #dilutionMethod{display:none!important}

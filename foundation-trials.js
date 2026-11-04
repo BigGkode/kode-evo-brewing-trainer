@@ -1,6 +1,8 @@
 'use strict';
 document.addEventListener('DOMContentLoaded',()=>{
  const $=id=>document.getElementById(id),app=$('kob-app');
+ const welcome=$('brewWelcome');welcome.classList.add('clean-landing');
+ for(const [id,copy] of [['foundationMethod','Choose your size and strength. Brew and enjoy.'],['dilutionMethod','Brew strong, then add water to find your strength.']])welcome.querySelectorAll('#'+id+'>p').forEach(p=>p.textContent=copy);
  const help=document.createElement('button');help.type='button';help.id='foundationTrialHelp';help.textContent='Show me how →';help.onclick=()=>{window.kodeBrewPath='foundation';$('startLearning').click();};$('foundationChoice').querySelector('.choice-heading').append(help);
  const home=$('methodHome'),originalHome=home.onclick;
  home.onclick=originalHome;
