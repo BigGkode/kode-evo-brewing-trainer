@@ -107,3 +107,20 @@
  #kob-app #dilutionStationTrack>button{height:62px!important;min-height:62px!important;gap:5px!important}
  #kob-app #recipeDilutionPlan{margin:7px 0!important;padding:7px 10px!important}
 }
+
+/* Compact recipe card: distinct header, stats and action footer. */
+#kob-app #brewRecipeOverlay{width:min(460px,calc(100vw - 24px))!important;border-radius:12px!important;overflow:auto!important}
+#kob-app #brewRecipeOverlay>h2{padding:29px 18px 15px!important;font-size:25px!important}
+#kob-app #brewRecipeOverlay>h2:before{font-size:9px!important;margin-bottom:7px!important}
+#kob-app #brewRecipeOverlayContent{padding:13px 16px 0!important}
+#kob-app #brewRecipeOverlay .recipe-essential{margin-bottom:10px!important}
+#kob-app #brewRecipeOverlay .recipe-three-steps{margin:0 0 6px!important}
+#kob-app #brewRecipeOverlay .recipe-three-steps li{padding:9px 0!important;font-size:13px!important}
+#kob-app #brewRecipeOverlay .planned-dilution-review{margin:7px 0!important;padding:7px 9px!important;line-height:1.35!important}
+#kob-app #brewRecipeOverlay #recipePreparationHelp{margin:0 16px!important}
+#kob-app #brewRecipeOverlay .recipe-overlay-actions{padding:8px 16px!important;margin-top:5px!important}
+#kob-app #brewRecipeOverlay>#saveRecipeButton,#kob-app #brewRecipeOverlay>#printCurrentRecipe{font-size:11px!important;min-height:29px!important;padding:5px 9px!important;margin:0 0 10px 16px!important}
+#kob-app #recipePrintPreview>h2{font-size:24px!important;margin:8px 0!important}
+#kob-app #recipePrintPreview>p{margin:6px 0!important}
+#kob-app #printRecipeFrame{height:min(60dvh,440px)!important;margin:10px 0!important}
+@media(max-width:600px){#kob-app #brewRecipeOverlay>h2{padding:27px 16px 13px!important;font-size:23px!important}#kob-app #brewRecipeOverlayContent{padding:11px 14px 0!important}#kob-app #printRecipeFrame{height:min(64dvh,460px)!important}}
