@@ -163,3 +163,61 @@
 
 #kob-app #foundationChoice .foundation-cups.station-choices>button>span{color:#173f46!important;opacity:1!important}
 #kob-app #foundationChoice .foundation-cups.station-choices>button:nth-child(n+3) strong,#kob-app #foundationChoice .foundation-cups.station-choices>button:nth-child(n+3) .route-station,#kob-app #foundationChoice .foundation-cups.station-choices>button:nth-child(n+3)>span{color:#fffdf7!important;opacity:1!important}
+
+
+/* Mobile Discover FB45: one viewport, stable Back / Next controls. */
+@container kob (max-width:700px){
+ #kob-app #fb45Introduction:not([hidden]){
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:minmax(0,0.27fr) minmax(0,0.73fr)!important;
+  gap:0!important;padding:0!important;
+  height:var(--intro-room,560px)!important;
+  min-height:0!important;max-height:var(--intro-room,560px)!important;
+  overflow:hidden!important;
+ }
+ #kob-app #fb45Introduction .fb45-intro-art{
+  min-height:0!important;height:100%;padding:5px 10px!important;overflow:hidden;
+ }
+ #kob-app #fb45Introduction .fb45-intro-art svg,
+ #kob-app.fit-screen #fb45Introduction .fb45-intro-art svg{
+  display:block;width:auto!important;height:100%!important;max-height:100%!important;
+  max-width:100%!important;aspect-ratio:auto!important;margin:auto;
+ }
+ #kob-app #fb45Introduction .fb45-intro-copy,
+ #kob-app.fit-screen #fb45Introduction .fb45-intro-copy{
+  min-height:0!important;height:100%;padding:10px 14px 12px!important;
+  display:flex;flex-direction:column;overflow:hidden;
+ }
+ #kob-app #introSlideWords{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+ #kob-app #fb45Introduction h2,#kob-app.fit-screen #fb45Introduction h2{
+  font-size:clamp(20px,5.3vw,27px);line-height:1.12;margin:5px 0!important;
+ }
+ #kob-app #fb45Introduction p,#kob-app.fit-screen #fb45Introduction p{
+  font-size:12px;line-height:1.38;margin:5px 0!important;
+ }
+ #kob-app #fb45Introduction .fb45-intro-lead,#kob-app.fit-screen #fb45Introduction .fb45-intro-lead{
+  font-size:14px;line-height:1.3;
+ }
+ #kob-app #introSlideNote{font-size:10px;line-height:1.25;margin:7px 0}
+ #kob-app #introSlideDots{flex:0 0 auto;margin:7px 0!important}
+ #kob-app .intro-slide-actions{
+  flex:0 0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);
+  gap:7px;min-height:0;align-items:stretch;
+ }
+ #kob-app #introSlideBack,#kob-app #fb45IntroContinue{
+  width:100%;min-width:0;min-height:40px;padding:7px 10px;
+ }
+ #kob-app #introSlideSkip{
+  grid-column:1/-1;margin:0;justify-self:center;padding:2px 6px;
+  min-height:22px;font-size:11px;
+ }
+}
+@media(max-height:650px){
+ @container kob (max-width:700px){
+  #kob-app #fb45Introduction:not([hidden]){grid-template-rows:minmax(0,0.19fr) minmax(0,0.81fr)!important}
+  #kob-app #fb45Introduction .fb45-intro-copy{padding:7px 12px!important}
+  #kob-app #introSlideDots{margin:4px 0!important}
+  #kob-app #introSlideBack,#kob-app #fb45IntroContinue{min-height:36px}
+ }
+}
