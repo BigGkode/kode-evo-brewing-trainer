@@ -199,18 +199,18 @@
   overflow:hidden!important;
   display:grid!important;
   grid-template-columns:minmax(0,1fr)!important;
-  grid-template-rows:clamp(84px,17%,124px) minmax(0,1fr)!important;
+  grid-template-rows:clamp(170px,31%,225px) minmax(0,1fr)!important;
  }
  #kob-app.intro-active #fb45Introduction .fb45-intro-art{
   height:100%!important;min-height:0!important;overflow:hidden!important;
  }
  #kob-app.intro-active #fb45Introduction .fb45-intro-art svg{
-  height:100%!important;max-height:100%!important;
+  height:100%!important;max-height:100%!important;width:100%!important;object-fit:contain!important;
  }
  #kob-app.intro-active #fb45Introduction .fb45-intro-copy{
   display:flex!important;flex-direction:column!important;
   height:100%!important;min-height:0!important;
-  padding:12px 18px 14px!important;
+  padding:8px 18px 12px!important;
   overflow:hidden!important;
  }
  #kob-app.intro-active #introSlideWords{
@@ -234,4 +234,13 @@
   grid-column:1/-1!important;justify-self:center!important;
   margin:0!important;min-height:28px!important;
  }
+}
+
+@media(max-width:700px) and (max-height:680px){
+ #kob-app.intro-active #fb45Introduction:not([hidden]){
+  grid-template-rows:clamp(135px,26%,180px) minmax(0,1fr)!important;
+ }
+ #kob-app.intro-active #fb45Introduction .fb45-intro-copy{padding:6px 16px 10px!important}
+ #kob-app.intro-active #introSlideTitle{margin:5px 0!important}
+ #kob-app.intro-active #introSlideNote{margin:5px 0!important}
 }
