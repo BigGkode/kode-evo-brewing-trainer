@@ -190,3 +190,48 @@
  #kob-app #introSlideNote{margin:9px 0!important}
  #kob-app #introSlideDots{margin:9px 0!important}
 }
+
+/* Stable Discover navigation: same location on all five slides. */
+@media(max-width:700px){
+ #kob-app.intro-active #fb45Introduction:not([hidden]){
+  height:calc(100dvh - 112px)!important;
+  min-height:0!important;max-height:700px!important;
+  overflow:hidden!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:clamp(84px,17%,124px) minmax(0,1fr)!important;
+ }
+ #kob-app.intro-active #fb45Introduction .fb45-intro-art{
+  height:100%!important;min-height:0!important;overflow:hidden!important;
+ }
+ #kob-app.intro-active #fb45Introduction .fb45-intro-art svg{
+  height:100%!important;max-height:100%!important;
+ }
+ #kob-app.intro-active #fb45Introduction .fb45-intro-copy{
+  display:flex!important;flex-direction:column!important;
+  height:100%!important;min-height:0!important;
+  padding:12px 18px 14px!important;
+  overflow:hidden!important;
+ }
+ #kob-app.intro-active #introSlideWords{
+  flex:0 1 auto!important;min-height:0!important;
+ }
+ #kob-app.intro-active #introSlideDots{
+  margin-top:auto!important;margin-bottom:10px!important;
+  flex-shrink:0!important;
+ }
+ #kob-app.intro-active .intro-slide-actions{
+  flex-shrink:0!important;min-height:46px!important;
+  display:grid!important;grid-template-columns:1fr 1.3fr!important;
+  gap:8px!important;align-items:center!important;
+ }
+ #kob-app.intro-active #introSlideBack,
+ #kob-app.intro-active #fb45IntroContinue{
+  width:100%!important;min-height:44px!important;
+  margin:0!important;
+ }
+ #kob-app.intro-active #introSlideSkip{
+  grid-column:1/-1!important;justify-self:center!important;
+  margin:0!important;min-height:28px!important;
+ }
+}
