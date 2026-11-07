@@ -66,13 +66,32 @@ document.addEventListener('DOMContentLoaded',()=>{
  holder.querySelectorAll('svg svg').forEach((drawing,i)=>{let markup=drawing.innerHTML;Array.from(drawing.querySelectorAll('[id]'),el=>el.id).forEach(id=>{const unique='discover-'+kind+'-'+i+'-'+id;markup=markup.split('id="'+id+'"').join('id="'+unique+'"').split('url(#'+id+')').join('url(#'+unique+')');});drawing.innerHTML=markup;drawing.removeAttribute('aria-hidden');});
  return holder.innerHTML;
  }
- intro.innerHTML='<div class="fb45-intro-art" id="introSlideArt"></div><div class="fb45-intro-copy"><span class="foundation-kicker" id="introSlideCount"></span><div id="introSlideWords" aria-live="polite"><h2 id="introSlideTitle"></h2><p class="fb45-intro-lead" id="introSlideLead"></p><p id="introSlideBody"></p><strong id="introSlideNote"></strong></div><div id="introSlideDots" aria-label="Introduction progress"></div><div class="intro-slide-actions"><button id="introSlideBack">Back</button><button id="fb45IntroContinue">Next →</button><button id="introSlideSkip">Skip introduction</button></div></div>';
+ intro.innerHTML='<div class="fb45-intro-art" id="introSlideArt"></div><div class="fb45-intro-copy"><span class="foundation-kicker" id="introSlideCount"></span><div id="introSlideWords" tabindex="0" aria-live="polite"><h2 id="introSlideTitle"></h2><p class="fb45-intro-lead" id="introSlideLead"></p><p id="introSlideBody"></p><strong id="introSlideNote"></strong></div><div id="introSlideDots" aria-label="Introduction progress"></div><div class="intro-slide-actions"><button id="introSlideBack">Back</button><button id="fb45IntroContinue">Next →</button><button id="introSlideSkip">Skip introduction</button></div></div>';
  $('foundationChoice').before(intro);
- function showIntro(){const slide=introSlides[introStep];$('introSlideCount').textContent='DISCOVER / '+String(introStep+1).padStart(2,'0')+' OF 5';$('introSlideTitle').textContent=slide.title;$('introSlideLead').textContent=slide.lead;$('introSlideBody').textContent=slide.body;$('introSlideNote').textContent=slide.note;$('introSlideArt').innerHTML=introArtwork(slide.art);$('introSlideDots').innerHTML=introSlides.map((_,i)=>'<span class="'+(i===introStep?'active':'')+'"></span>').join('');$('introSlideBack').disabled=introStep===0;$('fb45IntroContinue').textContent=introStep===4?'Explore EVO →':'Next →';}
+ const mobileIntro = window.matchMedia('(max-width: 700px)');
+ const mobileArtBounds = {
+  overview: '32 18 372 355',
+  ridge: '10 52 394 232',
+  receptors: '30 16 380 323',
+  process: '0 30 440 292',
+  value: '76 14 288 384'
+ };
+ function fitIntroArtwork(){
+  const artwork = $('introSlideArt').firstElementChild;
+  if (artwork) artwork.setAttribute('viewBox', mobileIntro.matches ? mobileArtBounds[introSlides[introStep].art] : '0 0 440 425');
+ }
+ mobileIntro.addEventListener('change', fitIntroArtwork);
+ window.closeKodeDiscover = () => {
+  if (introDismissed) return;
+  introDismissed = true;
+  introStep = 0;
+  render();
+ };
+ function showIntro(){const slide=introSlides[introStep];$('introSlideCount').textContent='DISCOVER / '+String(introStep+1).padStart(2,'0')+' OF 5';$('introSlideTitle').textContent=slide.title;$('introSlideLead').textContent=slide.lead;$('introSlideBody').textContent=slide.body;$('introSlideNote').textContent=slide.note;$('introSlideArt').innerHTML=introArtwork(slide.art);$('introSlideDots').innerHTML=introSlides.map((_,i)=>'<span class="'+(i===introStep?'active':'')+'"></span>').join('');fitIntroArtwork();$('introSlideWords').scrollTop=0;$('fb45IntroContinue').textContent=introStep===4?'Explore EVO →':'Next →';}
  function leaveIntro(){introDismissed=true;render();$('foundationChoice').scrollIntoView({behavior:'smooth',block:'start'});}
- $('introSlideBack').onclick=()=>{if(introStep>0){introStep--;showIntro();}};$('fb45IntroContinue').onclick=()=>{if(introStep<4){introStep++;showIntro();}else leaveIntro();};$('introSlideSkip').onclick=leaveIntro;
+ $('introSlideBack').onclick=()=>{if(introStep>0){introStep--;showIntro();}else{$('methodHome').click();}};$('fb45IntroContinue').onclick=()=>{if(introStep<4){introStep++;showIntro();}else leaveIntro();};$('introSlideSkip').onclick=leaveIntro;
  showIntro();
- $('fb45IntroTab').onclick=()=>{if($('simPlay').textContent.includes('Pause'))$('simPlay').click();selectLevel(1);$('foundationStartOver').click();introDismissed=false;render();showIntro();};
+ $('fb45IntroTab').onclick=()=>{if($('simPlay').textContent.includes('Pause'))$('simPlay').click();selectLevel(1);$('foundationStartOver').click();introStep=0;introDismissed=false;render();showIntro();};
  const panel=document.createElement('section');panel.id='dilutionPlan';panel.hidden=true;
  panel.innerHTML='<div class="dilution-intro"><span class="foundation-kicker">EVO 2 · DILUTION</span><h2>One brew. Adjust the strength.</h2><p>Use your Foundation brewing technique, then learn the new dilution step: add measured water after drawdown for a lighter cup.</p></div><div id="dilutionChoices"><b>1 · Choose your starting brew above</b><p>How would you like it?</p><div id="dilutionStrengths" role="group" aria-label="Finished strength"></div></div><div id="dilutionResult" aria-live="polite"></div><details class="dilution-assumptions"><summary>How this is estimated</summary><p>Each strength uses an assumed recipe TDS. Estimated brewed coffee = brewing water − twice the coffee dose. Dilution water is additional to brewing water. Matching concentration does not guarantee identical flavour. Tea-like uses an introductory 1.19% target.</p></details><button id="openDilutionCalculator" class="text-action">Use your own measurements</button>';
  $('foundationChoice').after(panel);

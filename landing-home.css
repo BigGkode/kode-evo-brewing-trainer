@@ -87,3 +87,6 @@
 #kob-app #brewWelcome.unified-home #foundationMethod>.simple-path-label{font-size:17px!important;font-weight:600!important;color:#173f46!important;letter-spacing:.1px!important}
 #kob-app #brewWelcome.unified-home #dilutionMethod>.simple-path-label{font-size:17px!important;font-weight:600!important;color:#b9362c!important;letter-spacing:.1px!important}
 @media(max-width:600px){#kob-app #brewWelcome.unified-home #foundationMethod>.simple-path-label,#kob-app #brewWelcome.unified-home #dilutionMethod>.simple-path-label{font-size:16px!important}}
+
+#kob-app #homePurposeDialog>.purpose-close-footer{margin:18px 0 0;padding-top:14px;border-top:1px solid #d5e0d8}
+#kob-app.intro-active #brewWelcome{display:none!important}

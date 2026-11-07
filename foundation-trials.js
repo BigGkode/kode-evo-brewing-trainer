@@ -6,7 +6,12 @@ document.addEventListener('DOMContentLoaded',()=>{
  const evoMark='<svg class="evo-wordmark" viewBox="0 0 128 42" role="img" aria-label="EVO"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><path d="M30 4H4V38H30M4 21H26M44 4L60 38L76 4"/><circle cx="105" cy="21" r="17"/></g></svg>';
  const title=words.querySelector('h2');title.innerHTML='<span>Meet</span> '+evoMark+'<span class="evo-full-stop">.</span>';title.setAttribute('aria-label','Meet EVO.');
  for(const [id,name] of [['foundationMethod','EVO 1 · Foundation'],['dilutionMethod','EVO 2 · Dilution']]){const label=$(id).querySelector('.method-number');label.classList.add('simple-path-label');label.textContent=name;}
- const about=document.createElement('dialog');about.id='homePurposeDialog';const closeForm=document.createElement('form');closeForm.method='dialog';const close=document.createElement('button');close.textContent='Close ×';closeForm.append(close);about.append(closeForm);const story=welcome.querySelector('.kode-purpose');if(story)about.append(story);app.append(about);why.onclick=()=>about.showModal();
+ const about=document.createElement('dialog');about.id='homePurposeDialog';const closeForm=document.createElement('form');closeForm.method='dialog';const close=document.createElement('button');close.textContent='Close ×';closeForm.append(close);about.append(closeForm);const story=welcome.querySelector('.kode-purpose');if(story)about.append(story);
+ const footerClose = closeForm.cloneNode(true);
+ footerClose.className = 'purpose-close-footer';
+ about.append(footerClose);
+ app.append(about);
+ why.onclick = () => { about.showModal(); about.scrollTop = 0; };
  
  for(const [id,copy] of [['foundationMethod','Choose your size and strength. Brew and enjoy.'],['dilutionMethod','Brew strong, then add water to find your strength.']])welcome.querySelectorAll('#'+id+'>p').forEach(p=>p.textContent=copy);
  const help=document.createElement('button');help.type='button';help.id='foundationTrialHelp';help.textContent='Show me how →';help.onclick=()=>{window.kodeBrewPath='foundation';$('startLearning').click();};$('foundationChoice').querySelector('.choice-heading').append(help);
