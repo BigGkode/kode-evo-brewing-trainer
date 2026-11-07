@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  why.onclick = () => { about.showModal(); about.scrollTop = 0; };
  
  for(const [id,copy] of [['foundationMethod','Choose your size and strength. Brew and enjoy.'],['dilutionMethod','Brew strong, then add water to find your strength.']])welcome.querySelectorAll('#'+id+'>p').forEach(p=>p.textContent=copy);
- const help=document.createElement('button');help.type='button';help.id='foundationTrialHelp';help.textContent='Show me how →';help.onclick=()=>{window.kodeBrewPath='foundation';$('startLearning').click();};$('foundationChoice').querySelector('.choice-heading').append(help);
+ const help=document.createElement('button');help.type='button';help.id='foundationTrialHelp';help.textContent='Show me how →';help.onclick=()=>{window.kodeBrewPath='foundation';window.kodeJourney.learnFromFoundation();};$('foundationChoice').querySelector('.choice-heading').append(help);
  const home=$('methodHome'),originalHome=home.onclick;
  home.onclick=originalHome;
  const back=$('backToWelcome'),originalBack=back.onclick;back.onclick=originalBack;

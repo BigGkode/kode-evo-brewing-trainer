@@ -1,6 +1,6 @@
 'use strict';
 document.addEventListener('DOMContentLoaded',()=>{
- const by=id=>document.getElementById(id),app=by('kob-app'),main=app.querySelector('main');let route=null;
+ const by=id=>document.getElementById(id),app=by('kob-app'),main=app.querySelector('main');let route=null, returnFromLearning=null;
  const welcome=document.createElement('section');welcome.id='brewWelcome';welcome.innerHTML='<span class="foundation-kicker">THE EVO BREWING SYSTEM · FB45</span><h2>A clear path to your coffee.</h2><p>Learn the Foundation technique, or make your next cup.</p><div class="welcome-routes"><article><span>NEW TO KODE?</span><h3>Show me how</h3><p>See what you’ll need, explore preparation and watch the brewing sequence. No equipment needed to watch.</p><button type="button" id="startLearning" class="primary">Show me how →</button><small>Classic example · 250 g brewing water · illustrative movement.</small></article><article><span>READY TO BREW?</span><h3>Make my coffee</h3><p>Choose your size and strength, check your recipe, then start when you’re ready.</p><button type="button" id="startMaking" class="primary">Make my coffee →</button><small>Preparation help is always available.</small></article></div><button type="button" id="welcomeDiscover">Discover the FB45 →</button>';
  main.prepend(welcome);
  const routebar=document.createElement('div');routebar.id='brewRouteBar';routebar.innerHTML='<button type="button" id="backToWelcome">← Home</button><strong id="brewRouteName"></strong><span id="brewRouteHint"></span>';welcome.after(routebar);
@@ -9,12 +9,29 @@ document.addEventListener('DOMContentLoaded',()=>{
  // Optional recipe settings belong to recipe review, after the everyday choices.
  const customise=by('brewCustomise');by('brewRecipeOverlay').insertBefore(customise,by('recipePreparationHelp'));
  function pause(){if(window.kodeBrewState?.running)by('simPlay').click();}
- function home(){pause();route=null;window.closeKodeDiscover?.();window.kodeLearningRun=false;window.kodeLearningCheckpoint=null;window.resetKodeDilutionJourney?.();by('foundationStartOver').onclick?.();app.querySelectorAll('dialog[open]').forEach(d=>d.close());app.classList.remove('learning-run','making-run','phone-lesson-active');app.classList.add('welcome-screen');welcome.hidden=false;routebar.hidden=true;finished.hidden=true;window.scrollTo({top:0,behavior:'instant'});}
- function beginLearning(){pause();app.querySelector('[data-evo="1"]').click();route='learn';window.kodeLearningRun=true;app.classList.remove('welcome-screen','making-run');app.classList.add('learning-run');welcome.hidden=true;routebar.hidden=false;window.setFoundationBrewSize(250);app.querySelector('[data-foundation-strength="3"]').click();by('learnMode').click();if(by('guidanceToggle').getAttribute('aria-expanded')!=='true')by('guidanceToggle').click();by('simSpeed').value=String(window.kodePlaybackSpeed||1);update();}
- function beginMaking(preserve=false){pause();window.kodeLearningRun=false;window.kodeLearningCheckpoint=null;if(!preserve)app.querySelector('[data-evo="1"]').click();by('brewMode').click();route='make';app.classList.remove('welcome-screen','learning-run');app.classList.add('making-run');welcome.hidden=true;routebar.hidden=false;finished.hidden=true;if(!preserve)window.applyKodeDefaultRecipe?.();update();}
+ function home(){pause();route=null;returnFromLearning=null;window.closeKodeDiscover?.();window.kodeLearningRun=false;window.kodeLearningCheckpoint=null;window.resetKodeDilutionJourney?.();by('foundationStartOver').onclick?.();app.querySelectorAll('dialog[open]').forEach(d=>d.close());app.classList.remove('learning-run','making-run','phone-lesson-active');app.classList.add('welcome-screen');welcome.hidden=false;routebar.hidden=true;finished.hidden=true;window.scrollTo({top:0,behavior:'instant'});}
+ function beginLearning(){returnFromLearning=null;pause();app.querySelector('[data-evo="1"]').click();route='learn';window.kodeLearningRun=true;app.classList.remove('welcome-screen','making-run');app.classList.add('learning-run');welcome.hidden=true;routebar.hidden=false;window.setFoundationBrewSize(250);app.querySelector('[data-foundation-strength="3"]').click();by('learnMode').click();if(by('guidanceToggle').getAttribute('aria-expanded')!=='true')by('guidanceToggle').click();by('simSpeed').value=String(window.kodePlaybackSpeed||1);update();}
+ function beginMaking(preserve=false){returnFromLearning=null;pause();window.kodeLearningRun=false;window.kodeLearningCheckpoint=null;if(!preserve)app.querySelector('[data-evo="1"]').click();by('brewMode').click();route='make';app.classList.remove('welcome-screen','learning-run');app.classList.add('making-run');welcome.hidden=true;routebar.hidden=false;finished.hidden=true;if(!preserve)window.applyKodeDefaultRecipe?.();update();}
  by('startLearning').onclick=beginLearning;by('startMaking').onclick=()=>beginMaking();by('makeAfterLearning').onclick=()=>beginMaking(true);by('backToWelcome').onclick=home;
- window.kodeJourney={home,learn:beginLearning,make:beginMaking};
- const previousPrepBack=by('prepBack').onclick;by('prepBack').onclick=()=>{if(window.kodeLearningRun&&/\/\s*01\s+OF/.test(by('prepCount').textContent))home();else previousPrepBack();};
+ function learnFromFoundation(){
+  const size = window.getFoundationBrewSize();
+  const strength = by('choiceNext').disabled ? null : app.querySelector('[data-foundation-strength][aria-pressed="true"]');
+  beginLearning();
+  returnFromLearning = () => {
+   beginMaking(true);
+   by('foundationStartOver').onclick();
+   window.setFoundationBrewSize(size);
+   strength?.click();
+   by('foundationTrialHelp').focus({preventScroll:true});
+   window.scrollTo({top:0,behavior:'instant'});
+  };
+ }
+ window.kodeJourney={home,learn:beginLearning,learnFromFoundation,make:beginMaking};
+ const previousPrepBack=by('prepBack').onclick;by('prepBack').onclick=()=>{if(window.kodeLearningRun&&/\/\s*01\s+OF/.test(by('prepCount').textContent)){
+  const returnToOrigin = returnFromLearning || home;
+  returnFromLearning = null;
+  returnToOrigin();
+ }else previousPrepBack();};
  by('welcomeDiscover').onclick=()=>{pause();by('fb45IntroTab').click();route='discover';app.classList.remove('welcome-screen','making-run','learning-run');welcome.hidden=true;routebar.hidden=false;update();window.scrollTo({top:0,behavior:'auto'});};
  by('foundationStartOver').addEventListener('click',()=>{if(route)home();});
  const set=(id,value)=>{if(by(id).textContent!==value)by(id).textContent=value;};
