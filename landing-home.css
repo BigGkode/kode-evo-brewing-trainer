@@ -90,3 +90,16 @@
 
 #kob-app #homePurposeDialog>.purpose-close-footer{margin:18px 0 0;padding-top:14px;border-top:1px solid #d5e0d8}
 #kob-app.intro-active #brewWelcome{display:none!important}
+
+/* A second exit follows the contents of scrollable dialogs. */
+#kob-app dialog .dialog-end:not([hidden]){
+ display:flex;
+ justify-content:flex-end;
+ margin:16px 0 0;
+ padding:12px 0 0;
+ border-top:1px solid #d5e0d8;
+}
+#kob-app dialog .dialog-end button{min-height:44px;padding:8px 18px}
+@media(max-width:600px){
+ #kob-app #userSettings .dialog-end button{width:100%;min-height:44px}
+}
