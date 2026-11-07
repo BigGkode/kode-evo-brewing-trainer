@@ -109,3 +109,11 @@
 #kob-app #recipeLibraryFilters input,#kob-app #recipeLibraryFilters select{min-width:0;width:100%;font:inherit;min-height:38px;padding:6px 8px;border:1px solid #b8c9bf;border-radius:6px;background:#fffdf8;color:#173f46}
 #kob-app #savedRecipeList .saved-recipe-type{display:block;font-size:10px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;color:#526f75}
 #kob-app #recipeLibrary>.dialog-end{float:none}
+
+/* Pro mode keeps the live pour instruction prominent alongside the scale. */
+#kob-app.kode-pro-mode.making-run #brewScaleTarget{
+ font-size:clamp(16px,2.3vw,24px);
+ line-height:1.25;
+ font-weight:700;
+}
+#kob-app #recipeLibrary .saved-quick-brew{white-space:nowrap}
