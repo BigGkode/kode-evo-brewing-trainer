@@ -138,7 +138,22 @@ document.addEventListener('DOMContentLoaded',()=>{
  reviewClose.className = 'dialog-end';
  reviewClose.innerHTML = '<button type="submit">Close</button>';
  recipeDialog.append(reviewClose);
- const preparationHelp=document.createElement('div');preparationHelp.id='recipePreparationHelp';preparationHelp.innerHTML='<p>Start the first pour when you’re ready.</p><button type="button" id="recipeShowPreparation">First brew? Show preparation steps →</button>';recipeDialog.insertBefore(preparationHelp,recipeActions);$('recipeShowPreparation').onclick=()=>{recipeDialog.close();$('learnMode').click();recipeConfirmed=true;try{$('choiceNext').click();}finally{recipeConfirmed=false;}requestAnimationFrame(()=>$('prepNext').focus());};
+ const preparationHelp=document.createElement('div');preparationHelp.id='recipePreparationHelp';preparationHelp.innerHTML='<p>Start the first pour when you’re ready.</p><button type="button" id="recipeShowPreparation">First brew? Show preparation steps →</button>';recipeDialog.insertBefore(preparationHelp,recipeActions);$('recipeShowPreparation').onclick=()=>continueFromRecipe(true);
+ function continueFromRecipe(showHelp=false){
+  const wasLearning = $('learnMode').getAttribute('aria-pressed') === 'true';
+  recipeDialog.close();
+  if (showHelp) $('learnMode').click();
+  recipeConfirmed=true;
+  try { $('choiceNext').click(); } finally { recipeConfirmed=false; }
+  if (!$('foundationPrep').hidden) {
+   window.setKodePreparationReturn(() => {
+    if (!wasLearning) $('brewMode').click();
+    openRecipeReview(true);
+    $(showHelp ? 'recipeShowPreparation' : 'recipeContinue').focus();
+   });
+  }
+  requestAnimationFrame(() => $($('foundationPrep').hidden ? 'simPlay' : 'prepNext').focus());
+ }
  function openRecipeReview(beforeBrew){const content=$('brewRecipeOverlayContent');content.innerHTML='<div class="recipe-essential"><b>'+$('focusRecipeMass').textContent+'</b> · '+$('focusTemp').textContent+'</div><ol class="recipe-three-steps"><li><strong>First pour</strong><span>'+$('focusBloom').textContent+'</span></li><li><strong>Wait</strong><span>'+$('focusBloomRest').textContent+'</span></li><li><strong>Following pour</strong><span>'+$('focusFollowing').textContent+'</span></li></ol><details class="recipe-technique"><summary>Pouring technique &amp; recipe details</summary>'+$('focusTemp').closest('dl').outerHTML+'<p>Brew ratio: '+$('focusRatio').textContent+'</p><p>'+app.querySelector('.focus-target').textContent.replace(/time(?=\d)/,'time: ')+'</p></details>';content.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
  const essentials=content.querySelector('.recipe-essential');if(essentials){essentials.innerHTML='<div><span>COFFEE</span><strong>'+recipe().dose+'<small> g</small></strong></div><div><span>BREW WATER</span><strong>'+recipe().water+'<small> g</small></strong></div><div><span>TEMPERATURE</span><strong>'+$('focusTemp').textContent+'</strong></div>';}
  content.querySelector('.recipe-technique')?.removeAttribute('open');
@@ -147,7 +162,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  $('foundationEdit').addEventListener('click',event=>{if($('foundationChoice').hidden&&$('foundationPrep').hidden){event.stopImmediatePropagation();if(innerWidth<=600||app.classList.contains('inplace-dilution'))openRecipeReview(false);else window.toggleKodeRecipeCard?.();return;}event.stopImmediatePropagation();openRecipeReview(false);},true);
  $('choiceNext').addEventListener('click',event=>{if(level===2||recipeConfirmed||!selected)return;event.stopImmediatePropagation();openRecipeReview(true);},true);
  $('recipeBackToChoices').onclick=()=>recipeDialog.close();
- $('recipeContinue').onclick=()=>{recipeDialog.close();recipeConfirmed=true;try{$('choiceNext').click();}finally{recipeConfirmed=false;}requestAnimationFrame(()=>{if(!$('foundationPrep').hidden)$('prepNext').focus();else $('simPlay').focus();});};
+ $('recipeContinue').onclick=()=>continueFromRecipe();
 
  recipeDialog.addEventListener('click',event=>{if(event.target===recipeDialog){const r=recipeDialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)recipeDialog.close();}});
  const sizePicker=document.createElement('section');sizePicker.id='brewSizePicker';sizePicker.setAttribute('aria-label','Brew size');sizePicker.innerHTML='<div class="brew-size-heading"><strong id="brewSizeHeading">1 · Choose your brew size</strong><span>Brewing water · single serve</span></div><div class="brew-size-options" role="group" aria-label="Brewing water amount">'+[250,275,300,325,350].map(w=>'<button type="button" data-brew-size="'+w+'" aria-pressed="'+(w===250)+'">'+w+' <span>g</span></button>').join('')+'</div><p id="brewSizeNote">Finished drink is smaller because the grounds retain water.</p>';

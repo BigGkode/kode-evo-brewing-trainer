@@ -809,7 +809,7 @@ function updateFoundationGuide(){
  by('foundationStartOver').hidden=!strengthChosen&&!hasStarted;
  by('choiceNext').disabled=!strengthChosen;setGuideText('choiceNext',!strengthChosen?'View my recipe →':window.kodeEvoLevel===2?'Choose finished strength →':'View my recipe →');
  document.querySelectorAll('[data-foundation-strength]').forEach(el=>el.setAttribute('aria-pressed',String(strengthChosen&&+el.dataset.foundationStrength===+by('trainerStrength').value)));
- if(preparing){const steps=preparationSteps(),e=steps[preparationStep];by('foundationPrep').dataset.lesson=e[2];setGuideText('prepCount',(window.kodeLearningRun?'LEARN / ':'PREPARE / ')+String(preparationStep+1).padStart(2,'0')+' OF '+steps.length);setGuideText('prepTitle',e[0]);setGuideText('prepText',e[1]);by('prepText').classList.toggle('learning-bullets',!!window.kodeLearningRun);by('prepZoneLesson').hidden=!(window.kodeLearningRun?['filter','seat']:['filter','seat','motion','ready']).includes(e[2]);if(!by('prepZoneLesson').hidden)updateZoneLesson('prep',e[2]==='ready'?'exit':(e[2]==='motion'||e[2]==='practice')?'extraction':'bypass');by('waterPractice').hidden=e[2]!=='practice';by('foundationPrep').classList.toggle('pouring-lesson',e[2]==='practice');const art=window.kodeLearningRun?learningDiagram(e[2]):prepIllustration(e[2]);if(by('prepArt').innerHTML!==art)by('prepArt').innerHTML=art;by('prepBack').hidden=false;setGuideText('prepNext',e[2]==='practice'?(window.kodeLearningRun?'Continue →':practiceElapsed>0?'Water emptied · continue →':'Skip practice →'):preparationStep===steps.length-1?(window.kodeLearningRun?'Open demonstration →':'Ready to brew →'):(window.kodeLearningRun?'Next →':'I’m ready →'));by('prepDots').innerHTML=steps.map((_,i)=>'<i class="'+(i===preparationStep?'current':'')+'"></i>').join('');}
+ if(preparing){const steps=preparationSteps(),e=steps[preparationStep];by('foundationPrep').dataset.lesson=e[2];setGuideText('prepCount',(window.kodeLearningRun?'LEARN / ':'PREPARE / ')+String(preparationStep+1).padStart(2,'0')+' OF '+steps.length);setGuideText('prepTitle',e[0]);setGuideText('prepText',e[1]);by('prepText').classList.toggle('learning-bullets',!!window.kodeLearningRun);by('prepZoneLesson').hidden=!(window.kodeLearningRun?['filter','seat']:['filter','seat','motion','ready']).includes(e[2]);if(!by('prepZoneLesson').hidden)updateZoneLesson('prep',e[2]==='ready'?'exit':(e[2]==='motion'||e[2]==='practice')?'extraction':'bypass');by('waterPractice').hidden=e[2]!=='practice';by('foundationPrep').classList.toggle('pouring-lesson',e[2]==='practice');const art=window.kodeLearningRun?learningDiagram(e[2]):prepIllustration(e[2]);if(by('prepArt').innerHTML!==art)by('prepArt').innerHTML=art;by('prepBack').hidden=false;setGuideText('prepBack',preparationStep===0&&returnFromPreparation?'Back to recipe':'Back');setGuideText('prepNext',e[2]==='practice'?(window.kodeLearningRun?'Continue →':practiceElapsed>0?'Water emptied · continue →':'Skip practice →'):preparationStep===steps.length-1?(window.kodeLearningRun?'Open demonstration →':'Ready to brew →'):(window.kodeLearningRun?'Next →':'I’m ready →'));by('prepDots').innerHTML=steps.map((_,i)=>'<i class="'+(i===preparationStep?'current':'')+'"></i>').join('');}
  by('foundationPrompt').hidden=!playing||!guidanceVisible;by('guidanceToggle').setAttribute('aria-expanded',String(guidanceVisible));setGuideText('guidanceToggle',guidanceVisible?'Hide guidance':'Show guidance');
  setGuideText('foundationEdit',guideEditing?'Close recipe':'View recipe');if(!playing){setGuideText('simPlay','Start first pour');return;}
  setGuideText('simPlay',time>=duration?'↻ Replay':running?'Ⅱ Pause':'▶ Continue');
@@ -857,7 +857,13 @@ function advanceFoundation(dt){
  step(Math.min(dt,Math.max(0,boundary-time)));
  if(time>=boundary-1e-7&&time<duration){running=false;window.kodeLearningCheckpoint=boundary;updateFoundationGuide();}
 }
+let returnFromPreparation = null;
+window.setKodePreparationReturn = callback => {
+ returnFromPreparation = callback;
+ updateFoundationGuide();
+};
 function returnToFoundationStart(clearStrength=false){
+ returnFromPreparation = null;
  running=false;practiceRunning=false;practiceLast=null;practiceElapsed=0;
  preparationStep=0;preparationDone=false;preparationEntered=false;guideEditing=false;
  if(clearStrength)strengthChosen=false;
@@ -874,8 +880,21 @@ by('brewMode').onclick=()=>switchFoundationMode('brew');
 document.querySelectorAll('[data-foundation-strength]').forEach(el=>el.onclick=()=>{strengthChosen=true;by(['simpleMild','simpleLevel2','simpleLevel3','simpleLevel4','simpleBold'][+el.dataset.foundationStrength-1]).click();updateFoundationGuide()});
 window.prepareKodeExistingCoffee=()=>{running=false;preparationEntered=true;preparationDone=true;guideEditing=false;updateFoundationGuide();};
 by('choiceNext').onclick=()=>{if(!strengthChosen)return;preparationEntered=true;guideEditing=false;if(foundationMode==='brew'||window.kodeEvoLevel===2){preparationDone=true;guideEditing=false}updateFoundationGuide()};
-by('prepBack').onclick=()=>{practiceRunning=false;practiceLast=null;if(preparationStep===0)preparationEntered=false;else preparationStep--;updateFoundationGuide()};
-by('prepNext').onclick=()=>{practiceRunning=false;practiceLast=null;if(preparationStep<preparationSteps().length-1){preparationStep++;updateFoundationGuide()}else{preparationDone=true;by('simSpeed').value=String(window.kodePlaybackSpeed||1);updateFoundationGuide()}};
+by('prepBack').onclick=()=>{
+ practiceRunning=false;
+ practiceLast=null;
+ if (preparationStep > 0) {
+  preparationStep--;
+  updateFoundationGuide();
+  return;
+ }
+ const returnToRecipe = returnFromPreparation;
+ returnFromPreparation = null;
+ preparationEntered=false;
+ updateFoundationGuide();
+ returnToRecipe?.();
+};
+by('prepNext').onclick=()=>{practiceRunning=false;practiceLast=null;if(preparationStep<preparationSteps().length-1){preparationStep++;updateFoundationGuide()}else{returnFromPreparation=null;preparationDone=true;by('simSpeed').value=String(window.kodePlaybackSpeed||1);updateFoundationGuide()}};
 by('foundationEdit').onclick=()=>{running=false;guideEditing=!guideEditing;setGuideText('foundationEdit',guideEditing?'Close recipe':'View recipe');updateFoundationGuide()};
 by('guideHide').onclick=()=>{guidanceVisible=false;saveGuidancePreference();updateFoundationGuide();draw()};
 by('guidanceToggle').onclick=()=>{guidanceVisible=!guidanceVisible;saveGuidancePreference();updateFoundationGuide();draw()};
@@ -916,4 +935,4 @@ document.addEventListener('DOMContentLoaded',()=>{
  schedule();
 });
 </script>
-<script src="evo2.js?v=36"></script><script src="evo-stages.js"></script><script src="viewport-fit.js"></script><script src="journey-review.js"></script><script src="learning-framework.js?v=7"></script><script src="user-settings.js?v=kettle-trial3"></script><script src="saved-recipes.js?v=kettle-trial2"></script><script src="planned-dilution.js?v=32"></script><script src="printable-recipes.js?v=32"></script><script src="docked-recipe.js"></script><script src="timeline-controls.js"></script><script src="two-methods.js?v=33"></script><script src="strength-tracks.js?v=17"></script><script src="learning-slides.js?v=9"></script><script src="phone-functional.js?v=29"></script><script src="responsive-audit.js?v=1"></script><script src="existing-coffee.js?v=4"></script><script src="foundation-trials.js?v=13"></script><script>document.addEventListener("DOMContentLoaded",()=>{requestAnimationFrame(()=>requestAnimationFrame(()=>{document.documentElement.classList.remove("kode-starting");clearTimeout(window.kodeStartupFallback);}));});</script></body></html>
+<script src="evo2.js?v=37"></script><script src="evo-stages.js"></script><script src="viewport-fit.js"></script><script src="journey-review.js"></script><script src="learning-framework.js?v=7"></script><script src="user-settings.js?v=kettle-trial3"></script><script src="saved-recipes.js?v=kettle-trial2"></script><script src="planned-dilution.js?v=32"></script><script src="printable-recipes.js?v=32"></script><script src="docked-recipe.js"></script><script src="timeline-controls.js"></script><script src="two-methods.js?v=34"></script><script src="strength-tracks.js?v=17"></script><script src="learning-slides.js?v=9"></script><script src="phone-functional.js?v=29"></script><script src="responsive-audit.js?v=1"></script><script src="existing-coffee.js?v=4"></script><script src="foundation-trials.js?v=13"></script><script>document.addEventListener("DOMContentLoaded",()=>{requestAnimationFrame(()=>requestAnimationFrame(()=>{document.documentElement.classList.remove("kode-starting");clearTimeout(window.kodeStartupFallback);}));});</script></body></html>
