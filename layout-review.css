@@ -486,8 +486,8 @@
 #kob-app .recipe-backup>summary{font-size:12px;cursor:pointer}
 /* Compact KODE recipe card. */
 #kob-app #brewRecipeOverlay{width:min(460px,calc(100vw - 32px));max-height:calc(100dvh - 32px);margin:auto;padding:0;border:1px solid #b8c9bf;border-radius:16px;background:#fffdf8;color:#173f46;box-shadow:0 22px 75px #0e303844;overflow:auto}
-#kob-app #brewRecipeOverlay>form{position:absolute;right:12px;top:12px;margin:0;z-index:2}
-#kob-app #brewRecipeOverlay>form button{border:1px solid #9fb6aa;background:transparent;color:#fffdf8;font-size:11px;min-height:29px;padding:4px 8px}
+#kob-app #brewRecipeOverlay>form:not(.dialog-end){position:absolute;right:12px;top:12px;margin:0;z-index:2}
+#kob-app #brewRecipeOverlay>form:not(.dialog-end) button{border:1px solid #9fb6aa;background:transparent;color:#fffdf8;font-size:11px;min-height:29px;padding:4px 8px}
 #kob-app #brewRecipeOverlay>h2{background:#173f46;color:#fffdf8;padding:36px 22px 20px;margin:0;font-size:28px;line-height:1.15;letter-spacing:-.5px}
 #kob-app #brewRecipeOverlay>h2:before{content:'KODE / FOUNDATION';display:block;font-size:10px;letter-spacing:2px;font-weight:normal;color:#bdcec4;margin-bottom:9px}
 #kob-app #brewRecipeOverlayContent{padding:18px 20px 0}
@@ -643,3 +643,5 @@
 #kob-app .brew-workspace #guideText{font-size:12px}
 @container kob (max-width:900px){#kob-app .simstage.brew-workspace{grid-template-columns:minmax(0,1fr) 210px!important;grid-template-rows:auto minmax(250px,1fr) auto auto!important}#kob-app .brew-workspace>#foundationPrompt{grid-column:1/-1!important;grid-row:1!important;margin:8px 10px!important;padding:9px!important}#kob-app .brew-workspace #brewerCanvas{grid-column:1!important;grid-row:2!important}#kob-app .brew-workspace>#dockedRecipeCard{grid-column:2!important;grid-row:2!important}#kob-app .brew-workspace .brew-scale{grid-row:3!important}#kob-app .brew-workspace .simstatus{grid-row:4!important}#kob-app .brew-workspace #guideText{margin:5px 0}#kob-app .brew-workspace #guideTarget{font-size:17px;margin:4px 0}}
 @container kob (max-width:550px){#kob-app .simstage.brew-workspace,#kob-app .brew-workspace:has(>#foundationPrompt[hidden]){grid-template-columns:1fr!important;grid-template-rows:auto 260px auto auto auto!important}#kob-app .brew-workspace>#dockedRecipeCard,#kob-app .brew-workspace:has(>#foundationPrompt[hidden])>#dockedRecipeCard{grid-column:1!important;grid-row:3!important;margin:8px 10px!important}#kob-app .brew-workspace .brew-scale{grid-row:4!important}#kob-app .brew-workspace .simstatus{grid-row:5!important}}
+
+#kob-app #brewRecipeOverlay>.dialog-end:not([hidden]){margin:0;padding:10px 16px 14px}
