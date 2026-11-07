@@ -53,7 +53,7 @@
  }
  #kob-app.phone-lesson-active #foundationPrep.kode-lesson[data-lesson="kit"]{--phone-art-height:clamp(148px,38dvh,276px)}
  #kob-app.phone-lesson-active #foundationPrep.kode-lesson[data-lesson="grind"]{--phone-art-height:clamp(126px,30dvh,230px)}
- #kob-app.phone-lesson-active #foundationPrep.kode-lesson[data-lesson="practice"]{--phone-art-height:clamp(120px,29dvh,218px)}
+ #kob-app.phone-lesson-active #foundationPrep.kode-lesson[data-lesson="practice"]{--phone-art-height:clamp(120px,33.5dvh,250px)}
  #kob-app.phone-lesson-active #foundationPrep.kode-lesson #prepArt{padding:8px 10px!important}
  #kob-app.phone-lesson-active #foundationPrep.kode-lesson .learning-diagram{max-width:360px!important}
  #kob-app.phone-lesson-active #foundationPrep.kode-lesson .lesson-body{overscroll-behavior:contain}
