@@ -445,7 +445,13 @@ html,body{background:#f6f2e9}
 #kob-app #foundationPrep.kode-lesson .prep-actions:has(#prepReturnToRecipe:not([hidden])) button{
  max-width:none;padding:4px!important;font-size:13px!important;
 }
-#kob-app #dockedEditRecipe{margin:0 11px 11px;padding:5px 9px;min-height:32px;font-size:12px}
+#kob-app .recipe-selectors{display:flex;flex-wrap:wrap;gap:6px 10px}
+#kob-app #dockedRecipeCard>.recipe-selectors{padding:10px 11px 0}
+#kob-app .recipe-selectors label{display:grid;flex:1 1 76px;gap:2px;font-size:11px;font-weight:700}
+#kob-app .recipe-selectors select{width:100%;min-height:34px;padding:4px;font-size:13px}
+#kob-app .recipe-selectors .recipe-strength-select{background:var(--recipe-strength);color:var(--recipe-strength-ink)}
+#kob-app .recipe-selectors .recipe-strength-select option{background:#fffdf8;color:#173f46}
+#kob-app #dockedRecipeCard:has(>.recipe-selectors:not([hidden])) :is(.dock-heading,.dock-water){display:none}
 /* Combine the recipe and playback in one responsive brewing bar. */
 #kob-app.brew-screen #foundationSummary{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;padding:7px 10px}
 #kob-app.brew-screen #foundationSummaryText{flex:1 1 280px;font-size:12px;line-height:1.4}
@@ -676,7 +682,6 @@ by('resetCustom').onclick=()=>{customSettings={...recipes.foundation};window.set
 function readGuidancePreference(){try{return localStorage.getItem('kode-guidance')!=='off'}catch{return true}}
 function saveGuidancePreference(){try{localStorage.setItem('kode-guidance',guidanceVisible?'on':'off')}catch{}}
 let foundationMode='brew', preparationStep=0, preparationDone=false, guideEditing=false, guidanceVisible=readGuidancePreference(), strengthChosen=false, preparationEntered=false, waitingPour=null, authorisedPours=new Set();
-let editingReadyRecipe = false;
 let reopenedPreparation = false;
 let practiceElapsed=0,practiceRunning=false,practiceLast=null;
 const guideApp=by('kob-app');
@@ -872,13 +877,37 @@ function canReviseFoundationBrew(){
  return strengthChosen&&preparationEntered&&preparationDone&&!hasStarted&&!window.kodeLearningRun&&window.kodeEvoLevel===1;
 }
 window.canReviseFoundationBrew = canReviseFoundationBrew;
-window.isEditingReadyRecipe = () => editingReadyRecipe;
-window.editReadyRecipe = () => {
- if(!canReviseFoundationBrew())return;
- editingReadyRecipe=true;
- preparationEntered=false;
- updateFoundationGuide();
- by('foundationChoice').querySelector('[data-foundation-strength][aria-pressed="true"]')?.focus();
+window.createKodeRecipeSelectors = onChange => {
+ const controls=document.createElement('div');
+ controls.className='recipe-selectors';
+ controls.hidden=true;
+ controls.innerHTML='<label>Strength <select class="recipe-strength-select"></select></label><label>Brew size <select></select></label>';
+ const [strength,size]=controls.querySelectorAll('select');
+ strengthNames.forEach((name,index)=>strength.add(new Option(name,index+1)));
+ [250,275,300,325,350].forEach(water=>size.add(new Option(water+' g',water)));
+ let colouredStrength;
+ function sync(visible=canReviseFoundationBrew()){
+  controls.hidden=!visible;
+  if(!visible)return;
+  strength.value=by('trainerStrength').value;
+  size.value=String(window.getFoundationBrewSize());
+  if(colouredStrength===strength.value)return;
+  colouredStrength=strength.value;
+  const preset=by(['simpleMild','simpleLevel2','simpleLevel3','simpleLevel4','simpleBold'][Number(strength.value)-1]);
+  const colours=getComputedStyle(preset);
+  strength.style.setProperty('--recipe-strength',colours.getPropertyValue('--strength-brown'));
+  strength.style.setProperty('--recipe-strength-ink',colours.getPropertyValue('--strength-ink'));
+ }
+ function apply(selector){
+  if(canReviseFoundationBrew()){
+   by('foundationChoice').querySelector(selector).click();
+   onChange?.();
+  }
+  sync();
+ }
+ strength.onchange=()=>apply('[data-foundation-strength="'+strength.value+'"]');
+ size.onchange=()=>apply('[data-brew-size="'+size.value+'"]');
+ return {controls,sync};
 };
 window.reopenKodePreparation = callback => {
  if(!canReviseFoundationBrew())return;
@@ -894,7 +923,6 @@ window.setKodePreparationReturn = callback => {
 };
 function returnToFoundationStart(clearStrength=false){
  returnFromPreparation = null;
- editingReadyRecipe=false;
  reopenedPreparation=false;
  running=false;practiceRunning=false;practiceLast=null;practiceElapsed=0;
  preparationStep=0;preparationDone=false;preparationEntered=false;guideEditing=false;
@@ -911,7 +939,7 @@ by('foundationStartOver').onclick=()=>returnToFoundationStart(true);
 by('brewMode').onclick=()=>switchFoundationMode('brew');
 document.querySelectorAll('[data-foundation-strength]').forEach(el=>el.onclick=()=>{strengthChosen=true;by(['simpleMild','simpleLevel2','simpleLevel3','simpleLevel4','simpleBold'][+el.dataset.foundationStrength-1]).click();updateFoundationGuide()});
 window.prepareKodeExistingCoffee=()=>{running=false;preparationEntered=true;preparationDone=true;guideEditing=false;updateFoundationGuide();};
-by('choiceNext').onclick=()=>{if(!strengthChosen)return;preparationEntered=true;guideEditing=false;if(editingReadyRecipe||foundationMode==='brew'||window.kodeEvoLevel===2)preparationDone=true;editingReadyRecipe=false;updateFoundationGuide()};
+by('choiceNext').onclick=()=>{if(!strengthChosen)return;preparationEntered=true;guideEditing=false;if(foundationMode==='brew'||window.kodeEvoLevel===2)preparationDone=true;updateFoundationGuide()};
 by('prepBack').onclick=()=>{
  practiceRunning=false;
  practiceLast=null;
@@ -979,4 +1007,4 @@ document.addEventListener('DOMContentLoaded',()=>{
  schedule();
 });
 </script>
-<script src="evo2.js?v=40"></script><script src="evo-stages.js?v=rollback1"></script><script src="viewport-fit.js"></script><script src="journey-review.js"></script><script src="learning-framework.js?v=7"></script><script src="user-settings.js?v=rollback1"></script><script src="saved-recipes.js?v=pro1"></script><script src="planned-dilution.js?v=33"></script><script src="printable-recipes.js?v=32"></script><script src="docked-recipe.js?v=2"></script><script src="timeline-controls.js"></script><script src="two-methods.js?v=34"></script><script src="strength-tracks.js?v=17"></script><script src="learning-slides.js?v=9"></script><script src="phone-functional.js?v=29"></script><script src="responsive-audit.js?v=1"></script><script src="existing-coffee.js?v=4"></script><script src="foundation-trials.js?v=13"></script><script>document.addEventListener("DOMContentLoaded",()=>{requestAnimationFrame(()=>requestAnimationFrame(()=>{document.documentElement.classList.remove("kode-starting");clearTimeout(window.kodeStartupFallback);}));});</script></body></html>
+<script src="evo2.js?v=41"></script><script src="evo-stages.js?v=rollback1"></script><script src="viewport-fit.js"></script><script src="journey-review.js"></script><script src="learning-framework.js?v=7"></script><script src="user-settings.js?v=rollback1"></script><script src="saved-recipes.js?v=pro1"></script><script src="planned-dilution.js?v=33"></script><script src="printable-recipes.js?v=32"></script><script src="docked-recipe.js?v=3"></script><script src="timeline-controls.js"></script><script src="two-methods.js?v=34"></script><script src="strength-tracks.js?v=17"></script><script src="learning-slides.js?v=9"></script><script src="phone-functional.js?v=29"></script><script src="responsive-audit.js?v=1"></script><script src="existing-coffee.js?v=4"></script><script src="foundation-trials.js?v=13"></script><script>document.addEventListener("DOMContentLoaded",()=>{requestAnimationFrame(()=>requestAnimationFrame(()=>{document.documentElement.classList.remove("kode-starting");clearTimeout(window.kodeStartupFallback);}));});</script></body></html>

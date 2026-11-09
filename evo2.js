@@ -138,10 +138,8 @@ document.addEventListener('DOMContentLoaded',()=>{
  const recipeDialog=document.createElement('dialog');recipeDialog.id='brewRecipeOverlay';recipeDialog.innerHTML='<form method="dialog"><button aria-label="Close recipe">Close ×</button></form><h2>Your brewing recipe</h2><div id="brewRecipeOverlayContent"></div>';app.append(recipeDialog);
  let recipeConfirmed=false;
  const recipeActions=document.createElement('div');recipeActions.className='recipe-overlay-actions';recipeActions.innerHTML='<button type="button" id="recipeBackToChoices">Back to choices</button><button type="button" id="recipeContinue" class="primary">Ready to brew →</button>';recipeDialog.append(recipeActions);
- const editRecipe=document.createElement('button');
- editRecipe.type='button';
- editRecipe.textContent='Edit recipe';
- editRecipe.onclick=()=>{recipeDialog.close();window.editReadyRecipe();};
+ const selectors=window.createKodeRecipeSelectors(()=>openRecipeReview(false));
+ recipeDialog.insertBefore(selectors.controls,$('brewRecipeOverlayContent'));
  const readyActions=document.createElement('div');
  readyActions.className='recipe-overlay-actions';
  readyActions.hidden=true;
@@ -152,7 +150,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   recipeDialog.close();
   window.reopenKodePreparation(()=>openRecipeReview(false));
  };
- readyActions.append(backToPrep,editRecipe);
+ readyActions.append(backToPrep);
  recipeDialog.append(readyActions);
  const reviewClose = document.createElement('form');
  reviewClose.method = 'dialog';
@@ -178,7 +176,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  function openRecipeReview(beforeBrew){const content=$('brewRecipeOverlayContent');content.innerHTML='<div class="recipe-essential"><b>'+$('focusRecipeMass').textContent+'</b> · '+$('focusTemp').textContent+'</div><ol class="recipe-three-steps"><li><strong>First pour</strong><span>'+$('focusBloom').textContent+'</span></li><li><strong>Wait</strong><span>'+$('focusBloomRest').textContent+'</span></li><li><strong>Following pour</strong><span>'+$('focusFollowing').textContent+'</span></li></ol><details class="recipe-technique"><summary>Pouring technique &amp; recipe details</summary>'+$('focusTemp').closest('dl').outerHTML+'<p>Brew ratio: '+$('focusRatio').textContent+'</p><p>'+app.querySelector('.focus-target').textContent.replace(/time(?=\d)/,'time: ')+'</p></details>';content.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
  const essentials=content.querySelector('.recipe-essential');if(essentials){essentials.innerHTML='<div><span>COFFEE</span><strong>'+recipe().dose+'<small> g</small></strong></div><div><span>BREW WATER</span><strong>'+recipe().water+'<small> g</small></strong></div><div><span>TEMPERATURE</span><strong>'+$('focusTemp').textContent+'</strong></div>';}
  content.querySelector('.recipe-technique')?.removeAttribute('open');
- if(level===4){const setup=document.createElement('p');setup.textContent='Receiving setup: '+(window.kodeStageConfig?.vacuumScope==='whole'?'both pours over the vacuum-trap flask.':'bloom over the flask, then following pour over your cup.');content.append(setup);}recipeActions.hidden=!beforeBrew;reviewClose.hidden=beforeBrew;recipeDialog.append(reviewClose);readyActions.hidden=beforeBrew||!window.canReviseFoundationBrew();const editing=window.isEditingReadyRecipe();$('recipePreparationHelp').hidden=!beforeBrew||editing;const learning=$('learnMode').getAttribute('aria-pressed')==='true';$('recipeContinue').textContent=learning&&!editing?'Prepare my brew →':'Go to brewing →';recipeDialog.querySelector('h2').textContent='Your '+names[recipe().index]+' recipe';if(!recipeDialog.open)recipeDialog.showModal();}
+ if(level===4){const setup=document.createElement('p');setup.textContent='Receiving setup: '+(window.kodeStageConfig?.vacuumScope==='whole'?'both pours over the vacuum-trap flask.':'bloom over the flask, then following pour over your cup.');content.append(setup);}recipeActions.hidden=!beforeBrew;reviewClose.hidden=beforeBrew;recipeDialog.append(reviewClose);readyActions.hidden=beforeBrew||!window.canReviseFoundationBrew();selectors.sync(!readyActions.hidden);$('recipePreparationHelp').hidden=!beforeBrew;const learning=$('learnMode').getAttribute('aria-pressed')==='true';$('recipeContinue').textContent=learning?'Prepare my brew →':'Go to brewing →';recipeDialog.querySelector('h2').textContent='Your '+names[recipe().index]+' recipe';if(!recipeDialog.open)recipeDialog.showModal();}
  window.refreshKodeRecipeReview=()=>{if(recipeDialog.open)openRecipeReview(!recipeActions.hidden);};
  $('foundationEdit').addEventListener('click',event=>{if($('foundationChoice').hidden&&$('foundationPrep').hidden){event.stopImmediatePropagation();if(window.canReviseFoundationBrew()||innerWidth<=600||app.classList.contains('inplace-dilution'))openRecipeReview(false);else window.toggleKodeRecipeCard?.();return;}event.stopImmediatePropagation();openRecipeReview(false);},true);
  $('choiceNext').addEventListener('click',event=>{if(level===2||recipeConfirmed||!selected)return;event.stopImmediatePropagation();openRecipeReview(true);},true);
