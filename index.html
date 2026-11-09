@@ -877,7 +877,7 @@ function canReviseFoundationBrew(){
  return strengthChosen&&preparationEntered&&preparationDone&&!hasStarted&&!window.kodeLearningRun&&window.kodeEvoLevel===1;
 }
 window.canReviseFoundationBrew = canReviseFoundationBrew;
-window.createKodeRecipeSelectors = onChange => {
+window.createKodeRecipeSelectors = (onChange, canEdit=canReviseFoundationBrew) => {
  const controls=document.createElement('div');
  controls.className='recipe-selectors';
  controls.hidden=true;
@@ -886,9 +886,9 @@ window.createKodeRecipeSelectors = onChange => {
  strengthNames.forEach((name,index)=>strength.add(new Option(name,index+1)));
  [250,275,300,325,350].forEach(water=>size.add(new Option(water+' g',water)));
  let colouredStrength;
- function sync(visible=canReviseFoundationBrew()){
-  controls.hidden=!visible;
-  if(!visible)return;
+ function sync(){
+  controls.hidden=!canEdit();
+  if(controls.hidden)return;
   strength.value=by('trainerStrength').value;
   size.value=String(window.getFoundationBrewSize());
   if(colouredStrength===strength.value)return;
@@ -899,7 +899,7 @@ window.createKodeRecipeSelectors = onChange => {
   strength.style.setProperty('--recipe-strength-ink',colours.getPropertyValue('--strength-ink'));
  }
  function apply(selector){
-  if(canReviseFoundationBrew()){
+  if(canEdit()){
    by('foundationChoice').querySelector(selector).click();
    onChange?.();
   }
@@ -1007,4 +1007,4 @@ document.addEventListener('DOMContentLoaded',()=>{
  schedule();
 });
 </script>
-<script src="evo2.js?v=41"></script><script src="evo-stages.js?v=rollback1"></script><script src="viewport-fit.js"></script><script src="journey-review.js"></script><script src="learning-framework.js?v=7"></script><script src="user-settings.js?v=rollback1"></script><script src="saved-recipes.js?v=pro1"></script><script src="planned-dilution.js?v=33"></script><script src="printable-recipes.js?v=32"></script><script src="docked-recipe.js?v=3"></script><script src="timeline-controls.js"></script><script src="two-methods.js?v=34"></script><script src="strength-tracks.js?v=17"></script><script src="learning-slides.js?v=9"></script><script src="phone-functional.js?v=29"></script><script src="responsive-audit.js?v=1"></script><script src="existing-coffee.js?v=4"></script><script src="foundation-trials.js?v=13"></script><script>document.addEventListener("DOMContentLoaded",()=>{requestAnimationFrame(()=>requestAnimationFrame(()=>{document.documentElement.classList.remove("kode-starting");clearTimeout(window.kodeStartupFallback);}));});</script></body></html>
+<script src="evo2.js?v=42"></script><script src="evo-stages.js?v=rollback1"></script><script src="viewport-fit.js"></script><script src="journey-review.js"></script><script src="learning-framework.js?v=7"></script><script src="user-settings.js?v=rollback1"></script><script src="saved-recipes.js?v=pro1"></script><script src="planned-dilution.js?v=33"></script><script src="printable-recipes.js?v=32"></script><script src="docked-recipe.js?v=3"></script><script src="timeline-controls.js"></script><script src="two-methods.js?v=34"></script><script src="strength-tracks.js?v=17"></script><script src="learning-slides.js?v=9"></script><script src="phone-functional.js?v=29"></script><script src="responsive-audit.js?v=1"></script><script src="existing-coffee.js?v=4"></script><script src="foundation-trials.js?v=13"></script><script>document.addEventListener("DOMContentLoaded",()=>{requestAnimationFrame(()=>requestAnimationFrame(()=>{document.documentElement.classList.remove("kode-starting");clearTimeout(window.kodeStartupFallback);}));});</script></body></html>
